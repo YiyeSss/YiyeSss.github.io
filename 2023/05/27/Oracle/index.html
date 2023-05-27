@@ -174,7 +174,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="color: #ff7d73">学习笔记</a>
+                <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="color: #03a9f4">学习笔记</a>
             </span>
             
         </span>
@@ -272,14 +272,14 @@
 <ul>
 <li>所有列:*</li>
 </ul>
-<pre><code class="highlight SQL"><span class="keyword">SELECT</span> <span class="operator">*</span>
-<span class="keyword">FROM</span> EMP;</code></pre>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">SELECT *
+FROM EMP;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <ul>
 <li>选择指定列:列名之间使用逗号分隔</li>
 </ul>
-<pre><code class="highlight sql"><span class="keyword">SELECT</span> ENAME,HIREDATE 
-<span class="keyword">FROM</span> EMP;</code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> ENAME<span class="token punctuation">,</span>HIREDATE 
+<span class="token keyword">FROM</span> EMP<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
 <li><p>算术运算符</p>
 <ul>
@@ -289,8 +289,8 @@
 <p><strong>1.员工转正后，月薪上调20%，请查询出所有员工转正后的月薪。</strong><br><strong>2.员工试用期6个月，转正后月薪上调20%，请查询出所有员工工作第一年的年薪所得（不考虑奖金部分.年薪的试用期6个月的月薪+转正后6个月的月薪)</strong></p>
 </li>
 </ul>
-<pre><code class="highlight sql"><span class="keyword">SELECT</span> Ename,SAL,SAL<span class="operator">*</span><span class="number">6</span><span class="operator">+</span>SAL<span class="operator">*</span><span class="number">1.2</span><span class="operator">*</span><span class="number">6</span> <span class="keyword">AS</span> 试用转正年薪,SAL<span class="operator">*</span><span class="number">1.2</span> <span class="keyword">AS</span> 转正月薪
-<span class="keyword">FROM</span> EMP;</code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> Ename<span class="token punctuation">,</span>SAL<span class="token punctuation">,</span>SAL<span class="token operator">*</span><span class="token number">6</span><span class="token operator">+</span>SAL<span class="token operator">*</span><span class="token number">1.2</span><span class="token operator">*</span><span class="token number">6</span> <span class="token keyword">AS</span> 试用转正年薪<span class="token punctuation">,</span>SAL<span class="token operator">*</span><span class="token number">1.2</span> <span class="token keyword">AS</span> 转正月薪
+<span class="token keyword">FROM</span> EMP<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
 <li><p>空值</p>
 <ul>
@@ -304,8 +304,8 @@
 <li><p>用来在当前查询中重命名列名</p>
 </li>
 <li><p>书写方式</p>
-<pre><code class="highlight sql">列名 列别名
-列名 <span class="keyword">AS</span> 列别名</code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">列名 列别名
+列名 <span class="token keyword">AS</span> 列别名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <ul>
 <li>有三种情况需要在列名两侧加上引号<ul>
@@ -325,8 +325,8 @@
 <li>用于连接列与列、列与字符</li>
 <li>形式上为||</li>
 </ul>
-<pre><code class="highlight sql"><span class="keyword">SELECT</span> ENAME,JOB,ENAME<span class="operator">||</span><span class="string">&#x27;的岗位是&#x27;</span><span class="operator">||</span>JOB
-<span class="keyword">FROM</span> EMP;</code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> ENAME<span class="token punctuation">,</span>JOB<span class="token punctuation">,</span>ENAME<span class="token operator">||</span><span class="token string">'的岗位是'</span><span class="token operator">||</span>JOB
+<span class="token keyword">FROM</span> EMP<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
 <li><p>原义字符串</p>
 <ul>
@@ -334,30 +334,30 @@
 <li>日期和字符串字面量必须使用单引号括起来<code>&#39;&#39;</code>(字面量:直接写到原程序中的固定值)</li>
 <li>每个原义字符串会在每一行都出现</li>
 </ul>
-<pre><code class="highlight sql"><span class="keyword">SELECT</span> ENAME,JOB,ENAME<span class="operator">||</span><span class="string">&#x27;的岗位是&#x27;</span><span class="operator">||</span>JOB,<span class="string">&#x27;浑南&#x27;</span> 公司地址,<span class="number">2000</span> 年终奖金，<span class="string">&#x27;20-5月-2023&#x27;</span> 日期
-<span class="keyword">FROM</span> EMP;</code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> ENAME<span class="token punctuation">,</span>JOB<span class="token punctuation">,</span>ENAME<span class="token operator">||</span><span class="token string">'的岗位是'</span><span class="token operator">||</span>JOB<span class="token punctuation">,</span><span class="token string">'浑南'</span> 公司地址<span class="token punctuation">,</span><span class="token number">2000</span> 年终奖金，<span class="token string">'20-5月-2023'</span> 日期
+<span class="token keyword">FROM</span> EMP<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
 <li><p>消除重复行:DISTINCT</p>
-<pre><code class="highlight sql"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> JOB
-<span class="keyword">FROM</span> EMP;</code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token keyword">DISTINCT</span> JOB
+<span class="token keyword">FROM</span> EMP<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
 <li><p>练习四</p>
-<pre><code class="highlight sql"><span class="number">1.</span>员工试用期<span class="number">6</span>个月，转正后月薪上调<span class="number">20</span><span class="operator">%</span>，请查询出所有员工工作第一年的所有收入（需考虑奖金部分)，
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token number">1.</span>员工试用期<span class="token number">6</span>个月，转正后月薪上调<span class="token number">20</span><span class="token operator">%</span>，请查询出所有员工工作第一年的所有收入（需考虑奖金部分<span class="token punctuation">)</span>，
 要求显示格式为:XXX的第一年总收入为XXX。
-<span class="keyword">SELECT</span> ENAME<span class="operator">||</span><span class="string">&#x27;第一年总收入为&#x27;</span><span class="operator">||</span>((SAL<span class="operator">+</span>NVL(COMM,<span class="number">0</span>))<span class="operator">*</span><span class="number">6</span><span class="operator">+</span>(SAL<span class="operator">*</span><span class="number">1.2</span><span class="operator">+</span>NVL(COMM,<span class="number">0</span>))<span class="operator">*</span><span class="number">6</span>)
-<span class="keyword">FROM</span> EMP;
+<span class="token keyword">SELECT</span> ENAME<span class="token operator">||</span><span class="token string">'第一年总收入为'</span><span class="token operator">||</span><span class="token punctuation">(</span><span class="token punctuation">(</span>SAL<span class="token operator">+</span>NVL<span class="token punctuation">(</span>COMM<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">6</span><span class="token operator">+</span><span class="token punctuation">(</span>SAL<span class="token operator">*</span><span class="token number">1.2</span><span class="token operator">+</span>NVL<span class="token punctuation">(</span>COMM<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">6</span><span class="token punctuation">)</span>
+<span class="token keyword">FROM</span> EMP<span class="token punctuation">;</span>
 
-<span class="number">2.</span>查询员工表中一共有哪几种岗位类型。
-<span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> JOB 岗位类型
-<span class="keyword">FROM</span> EMP;</code></pre></li>
+<span class="token number">2.</span>查询员工表中一共有哪几种岗位类型。
+<span class="token keyword">SELECT</span> <span class="token keyword">DISTINCT</span> JOB 岗位类型
+<span class="token keyword">FROM</span> EMP<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 <h4 id="WHERE子句的使用"><a href="#WHERE子句的使用" class="headerlink" title="WHERE子句的使用"></a>WHERE子句的使用</h4><h5 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h5><ul>
 <li>使用WHERE子句限制返回的记录</li>
 <li>写在FROM子句后面</li>
 </ul>
-<h5 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h5><pre><code class="highlight sql"><span class="keyword">SELECT</span> 列名列表
-<span class="keyword">FROM</span> 表名
-<span class="keyword">WHERE</span> 条件</code></pre>
+<h5 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h5><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> 列名列表
+<span class="token keyword">FROM</span> 表名
+<span class="token keyword">WHERE</span> 条件<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h5 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h5><ul>
 <li><p>&#x3D;、&gt;、&gt;&#x3D;、&lt;、&lt;&#x3D;、&lt;&gt;（不等于）</p>
@@ -365,95 +365,95 @@
 <li><p>比较规则</p>
 <ul>
 <li><p>字符串或日期类型要加上单引号</p>
-<pre><code class="highlight sql"><span class="keyword">SELECT</span> <span class="operator">*</span> 
-<span class="keyword">FROM</span> EMP
-<span class="keyword">WHERE</span> ENAME <span class="operator">=</span> <span class="string">&#x27;SMITH&#x27;</span>;
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> 
+<span class="token keyword">FROM</span> EMP
+<span class="token keyword">WHERE</span> ENAME <span class="token operator">=</span> <span class="token string">'SMITH'</span><span class="token punctuation">;</span>
 
-<span class="keyword">SELECT</span> <span class="operator">*</span> 
-<span class="keyword">FROM</span> EMP
-<span class="keyword">WHERE</span> HIREDATE <span class="operator">&gt;</span> <span class="string">&#x27;20-2月-1981&#x27;</span>;</code></pre>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> 
+<span class="token keyword">FROM</span> EMP
+<span class="token keyword">WHERE</span> HIREDATE <span class="token operator">></span> <span class="token string">'20-2月-1981'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>字符串内容区分大小写</p>
 </li>
 <li><p>练习一:</p>
 </li>
 </ul>
-<pre><code class="highlight sql"><span class="number">1.</span>查询职位为SALESMAN的员工编号、职位、入职日期。
-<span class="keyword">SELECT</span> EMPNO,JOB,HIREDATE
-<span class="keyword">FROM</span> EMP
-<span class="keyword">WHERE</span> JOB <span class="operator">=</span> <span class="string">&#x27;SALESMAN&#x27;</span>;
-<span class="number">2.</span>查询<span class="number">1985</span>年<span class="number">12</span>月<span class="number">31</span>日之前入职的员工姓名及入职日期。
-<span class="keyword">SELECT</span> ENAME,HIREDATE
-<span class="keyword">FROM</span> EMP
-<span class="keyword">WHERE</span> HIREDATE <span class="operator">&lt;</span> <span class="string">&#x27;31-12月-1985&#x27;</span>;
-<span class="number">3.</span>查询部门编号不在<span class="number">10</span>部门的员工姓名、部门编号。
-<span class="keyword">SELECT</span> ENAME,DEPTNO
-<span class="keyword">FROM</span> EMP
-<span class="keyword">WHERE</span> DEPTNO <span class="operator">&lt;&gt;</span> <span class="number">10</span>;</code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token number">1.</span>查询职位为SALESMAN的员工编号、职位、入职日期。
+<span class="token keyword">SELECT</span> EMPNO<span class="token punctuation">,</span>JOB<span class="token punctuation">,</span>HIREDATE
+<span class="token keyword">FROM</span> EMP
+<span class="token keyword">WHERE</span> JOB <span class="token operator">=</span> <span class="token string">'SALESMAN'</span><span class="token punctuation">;</span>
+<span class="token number">2.</span>查询<span class="token number">1985</span>年<span class="token number">12</span>月<span class="token number">31</span>日之前入职的员工姓名及入职日期。
+<span class="token keyword">SELECT</span> ENAME<span class="token punctuation">,</span>HIREDATE
+<span class="token keyword">FROM</span> EMP
+<span class="token keyword">WHERE</span> HIREDATE <span class="token operator">&lt;</span> <span class="token string">'31-12月-1985'</span><span class="token punctuation">;</span>
+<span class="token number">3.</span>查询部门编号不在<span class="token number">10</span>部门的员工姓名、部门编号。
+<span class="token keyword">SELECT</span> ENAME<span class="token punctuation">,</span>DEPTNO
+<span class="token keyword">FROM</span> EMP
+<span class="token keyword">WHERE</span> DEPTNO <span class="token operator">&lt;></span> <span class="token number">10</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>特殊比较运算符</p>
 <ul>
 <li><p>between …  and … 在XXX到XXX之间</p>
-<pre><code class="highlight sql"><span class="keyword">SELECT</span> <span class="operator">*</span>
-<span class="keyword">FROM</span> EMP
-<span class="keyword">WHERE</span> EMPNO <span class="keyword">BETWEEN</span> <span class="number">7800</span> <span class="keyword">AND</span> <span class="number">9999</span>;</code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span>
+<span class="token keyword">FROM</span> EMP
+<span class="token keyword">WHERE</span> EMPNO <span class="token operator">BETWEEN</span> <span class="token number">7800</span> <span class="token operator">AND</span> <span class="token number">9999</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>IN(列表,列表) 或者</p>
-<pre><code class="highlight sql"><span class="keyword">SELECT</span> <span class="operator">*</span>
-<span class="keyword">FROM</span> EMP
-<span class="keyword">WHERE</span> DEPTNO <span class="keyword">IN</span>(<span class="number">20</span>,<span class="number">30</span>);</code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span>
+<span class="token keyword">FROM</span> EMP
+<span class="token keyword">WHERE</span> DEPTNO <span class="token operator">IN</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>LIKE 模糊查询</p>
-<pre><code class="highlight SQL"><span class="comment">/*</span>
-<span class="comment">	使用通配符代替未知的信息</span>
-<span class="comment">	通配符:%表示任意多个字符</span>
-<span class="comment">		  _表示任意一个字符</span>
-<span class="comment">	使用ESCAPE进行转义</span>
-<span class="comment">	SELECT *</span>
-<span class="comment">	FROM EMP</span>
-<span class="comment">	WHERE ENAME LIKE &#x27;%@_%&#x27; ESCAPE &#x27;@&#x27;;</span>
-<span class="comment">*/</span>
-<span class="keyword">SELECT</span> <span class="operator">*</span>
-<span class="keyword">FROM</span> EMP
-<span class="keyword">WHERE</span> ENAME <span class="keyword">LIKE</span> <span class="string">&#x27;__O%&#x27;</span>;</code></pre>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">&#x2F;*
+	使用通配符代替未知的信息
+	通配符:%表示任意多个字符
+		  _表示任意一个字符
+	使用ESCAPE进行转义
+	SELECT *
+	FROM EMP
+	WHERE ENAME LIKE &#39;%@_%&#39; ESCAPE &#39;@&#39;;
+*&#x2F;
+SELECT *
+FROM EMP
+WHERE ENAME LIKE &#39;__O%&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<pre><code class="highlight SQL">
-练习<span class="number">2</span>:
-	<span class="number">1.</span>查询入职日期在<span class="number">82</span>年至<span class="number">85</span>年的员工姓名，入职日期。
-	<span class="keyword">SELECT</span> ENAME,HIREDATE
-	<span class="keyword">FROM</span> EMP
-	<span class="keyword">WHERE</span> HIREDATE <span class="keyword">BETWEEN</span> <span class="string">&#x27;1-1月-1982&#x27;</span> <span class="keyword">AND</span> <span class="string">&#x27;31-12月-1985&#x27;</span>;
-	<span class="number">2.</span>查询月薪在<span class="number">3000</span>到<span class="number">5000</span>的员工姓名，月薪。
-	<span class="keyword">SELECT</span> ENAME,SAL
-	<span class="keyword">FROM</span> EMP
-	<span class="keyword">WHERE</span> SAL <span class="keyword">BETWEEN</span> <span class="number">3000</span> <span class="keyword">AND</span> <span class="number">5000</span>;
-	<span class="number">3.</span>查询部门编号为<span class="number">10</span>或者<span class="number">20</span>的员工姓名，部门编号。
-	<span class="keyword">SELECT</span> ENAME,DEPTNO
-	<span class="keyword">FROM</span> EMP
-	<span class="keyword">WHERE</span> DEPTNO <span class="keyword">IN</span>(<span class="number">10</span>,<span class="number">20</span>);
-	<span class="number">4.</span>查询经理编号为<span class="number">7902</span>，<span class="number">7566</span>，<span class="number">7788</span>的员工姓名，经理编号。
-	<span class="keyword">SELECT</span> ENAME,MGR
-	<span class="keyword">FROM</span> EMP
-	<span class="keyword">WHERE</span> MGR <span class="keyword">IN</span>(<span class="number">7902</span>,<span class="number">7566</span>,<span class="number">7788</span>);</code></pre>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">
+练习2:
+	1.查询入职日期在82年至85年的员工姓名，入职日期。
+	SELECT ENAME,HIREDATE
+	FROM EMP
+	WHERE HIREDATE BETWEEN &#39;1-1月-1982&#39; AND &#39;31-12月-1985&#39;;
+	2.查询月薪在3000到5000的员工姓名，月薪。
+	SELECT ENAME,SAL
+	FROM EMP
+	WHERE SAL BETWEEN 3000 AND 5000;
+	3.查询部门编号为10或者20的员工姓名，部门编号。
+	SELECT ENAME,DEPTNO
+	FROM EMP
+	WHERE DEPTNO IN(10,20);
+	4.查询经理编号为7902，7566，7788的员工姓名，经理编号。
+	SELECT ENAME,MGR
+	FROM EMP
+	WHERE MGR IN(7902,7566,7788);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 </li>
 <li><p>IS NULL 判断空值</p>
 </li>
 </ul>
-<pre><code class="highlight SQL">练习三:
-<span class="number">1.</span>查询员工姓名以W开头的员工姓名。
-<span class="keyword">SELECT</span> ENAME
-<span class="keyword">FROM</span> EMP
-<span class="keyword">WHERE</span> ENAME <span class="keyword">LIKE</span> <span class="string">&#x27;W%&#x27;</span>;
-<span class="number">2.</span>查询员工姓名倒数第<span class="number">2</span>个字符为T的员工姓名。
-<span class="keyword">SELECT</span> ENAME
-<span class="keyword">FROM</span> EMP
-<span class="keyword">WHERE</span> ENAME <span class="keyword">LIKE</span> <span class="string">&#x27;%T_&#x27;</span>;
-<span class="number">3.</span>查询奖金为空的员工姓名，奖金。
-<span class="keyword">SELECT</span> ENAME,COMM
-<span class="keyword">FROM</span> EMP
-<span class="keyword">WHERE</span> COMM <span class="keyword">IS</span> <span class="keyword">NULL</span>;</code></pre>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">练习三:
+1.查询员工姓名以W开头的员工姓名。
+SELECT ENAME
+FROM EMP
+WHERE ENAME LIKE &#39;W%&#39;;
+2.查询员工姓名倒数第2个字符为T的员工姓名。
+SELECT ENAME
+FROM EMP
+WHERE ENAME LIKE &#39;%T_&#39;;
+3.查询奖金为空的员工姓名，奖金。
+SELECT ENAME,COMM
+FROM EMP
+WHERE COMM IS NULL;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 </li>
@@ -463,34 +463,34 @@
 <li>OR(或):两个条件有一个满足就为TRUE;</li>
 <li>NOT(非):对指定条件取相反</li>
 </ul>
-<pre><code class="highlight sql">练习四:
-<span class="number">1.</span>查询工资超过<span class="number">2000</span>并且职位是MANAGER,或者职位是SALESMAN的员工姓名、职位、工资
-<span class="keyword">SELECT</span> ENAME,JOB,SAL
-<span class="keyword">FROM</span> EMP
-<span class="keyword">WHERE</span>  SAL <span class="operator">&gt;</span> <span class="number">2000</span> 
-<span class="keyword">AND</span> JOB <span class="operator">=</span> <span class="string">&#x27;MANAGER&#x27;</span> 
-<span class="keyword">OR</span> JOB <span class="operator">=</span> <span class="string">&#x27;SALESMAN&#x27;</span>  ;
-<span class="number">2.</span>查询工资超过<span class="number">2000</span>并且职位是 MANAGER或SALESMAN的员工姓名、职位、工资。
-<span class="keyword">SELECT</span> ENAME,JOB,SAL
-<span class="keyword">FROM</span> EMP
-<span class="keyword">WHERE</span> (JOB <span class="operator">=</span> <span class="string">&#x27;MANAGER&#x27;</span> <span class="keyword">OR</span> JOB <span class="operator">=</span> <span class="string">&#x27;SALESMAN&#x27;</span>) 
-<span class="keyword">AND</span> SAL <span class="operator">&gt;</span> <span class="number">2000</span> ;
-<span class="number">3.</span>查询部门在<span class="number">10</span>或者<span class="number">20</span>，并且工资在<span class="number">3000</span>到<span class="number">5000</span>之间的员工姓名、部门、工资。
-<span class="keyword">SELECT</span> ENAME,DEPTNO,SAL
-<span class="keyword">FROM</span> EMP
-<span class="keyword">WHERE</span> DEPTNO <span class="keyword">IN</span>(<span class="number">10</span>,<span class="number">20</span>) 
-<span class="keyword">AND</span> SAL <span class="keyword">BETWEEN</span> <span class="number">3000</span> <span class="keyword">AND</span> <span class="number">5000</span>;
-<span class="number">4.</span>查询入职日期在<span class="number">81</span>年，并且职位不是SALES开头的员工姓名、入职日期、职位。
-<span class="keyword">SELECT</span> ENAME,HIREDATE,JOB
-<span class="keyword">FROM</span> EMP
-<span class="keyword">WHERE</span> HIREDATE <span class="keyword">BETWEEN</span> <span class="string">&#x27;1-1月-1981&#x27;</span> <span class="keyword">AND</span> <span class="string">&#x27;31-12月-1981&#x27;</span> 
-<span class="keyword">AND</span> JOB <span class="keyword">NOT</span> <span class="keyword">LIKE</span> <span class="string">&#x27;SALES%&#x27;</span>;
-<span class="number">5.</span>查询职位为SALESMAN或MANAGER，部门编号为<span class="number">10</span>或者<span class="number">20</span>，姓名包含A的员工姓名、职位、部门编号。
-<span class="keyword">SELECT</span> ENAME,JOB,DEPTNO
-<span class="keyword">FROM</span> EMP
-<span class="keyword">WHERE</span> (JOB <span class="operator">=</span> <span class="string">&#x27;MANAGER&#x27;</span> <span class="keyword">OR</span> JOB <span class="operator">=</span> <span class="string">&#x27;SALESMAN&#x27;</span>) 
-<span class="keyword">AND</span> DEPTNO <span class="keyword">IN</span>(<span class="number">10</span>,<span class="number">20</span>) 
-<span class="keyword">AND</span> ENAME <span class="keyword">LIKE</span> <span class="string">&#x27;%A%&#x27;</span>;</code></pre></li>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">练习四:
+<span class="token number">1.</span>查询工资超过<span class="token number">2000</span>并且职位是MANAGER<span class="token punctuation">,</span>或者职位是SALESMAN的员工姓名、职位、工资
+<span class="token keyword">SELECT</span> ENAME<span class="token punctuation">,</span>JOB<span class="token punctuation">,</span>SAL
+<span class="token keyword">FROM</span> EMP
+<span class="token keyword">WHERE</span>  SAL <span class="token operator">></span> <span class="token number">2000</span> 
+<span class="token operator">AND</span> JOB <span class="token operator">=</span> <span class="token string">'MANAGER'</span> 
+<span class="token operator">OR</span> JOB <span class="token operator">=</span> <span class="token string">'SALESMAN'</span>  <span class="token punctuation">;</span>
+<span class="token number">2.</span>查询工资超过<span class="token number">2000</span>并且职位是 MANAGER或SALESMAN的员工姓名、职位、工资。
+<span class="token keyword">SELECT</span> ENAME<span class="token punctuation">,</span>JOB<span class="token punctuation">,</span>SAL
+<span class="token keyword">FROM</span> EMP
+<span class="token keyword">WHERE</span> <span class="token punctuation">(</span>JOB <span class="token operator">=</span> <span class="token string">'MANAGER'</span> <span class="token operator">OR</span> JOB <span class="token operator">=</span> <span class="token string">'SALESMAN'</span><span class="token punctuation">)</span> 
+<span class="token operator">AND</span> SAL <span class="token operator">></span> <span class="token number">2000</span> <span class="token punctuation">;</span>
+<span class="token number">3.</span>查询部门在<span class="token number">10</span>或者<span class="token number">20</span>，并且工资在<span class="token number">3000</span>到<span class="token number">5000</span>之间的员工姓名、部门、工资。
+<span class="token keyword">SELECT</span> ENAME<span class="token punctuation">,</span>DEPTNO<span class="token punctuation">,</span>SAL
+<span class="token keyword">FROM</span> EMP
+<span class="token keyword">WHERE</span> DEPTNO <span class="token operator">IN</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">)</span> 
+<span class="token operator">AND</span> SAL <span class="token operator">BETWEEN</span> <span class="token number">3000</span> <span class="token operator">AND</span> <span class="token number">5000</span><span class="token punctuation">;</span>
+<span class="token number">4.</span>查询入职日期在<span class="token number">81</span>年，并且职位不是SALES开头的员工姓名、入职日期、职位。
+<span class="token keyword">SELECT</span> ENAME<span class="token punctuation">,</span>HIREDATE<span class="token punctuation">,</span>JOB
+<span class="token keyword">FROM</span> EMP
+<span class="token keyword">WHERE</span> HIREDATE <span class="token operator">BETWEEN</span> <span class="token string">'1-1月-1981'</span> <span class="token operator">AND</span> <span class="token string">'31-12月-1981'</span> 
+<span class="token operator">AND</span> JOB <span class="token operator">NOT</span> <span class="token operator">LIKE</span> <span class="token string">'SALES%'</span><span class="token punctuation">;</span>
+<span class="token number">5.</span>查询职位为SALESMAN或MANAGER，部门编号为<span class="token number">10</span>或者<span class="token number">20</span>，姓名包含A的员工姓名、职位、部门编号。
+<span class="token keyword">SELECT</span> ENAME<span class="token punctuation">,</span>JOB<span class="token punctuation">,</span>DEPTNO
+<span class="token keyword">FROM</span> EMP
+<span class="token keyword">WHERE</span> <span class="token punctuation">(</span>JOB <span class="token operator">=</span> <span class="token string">'MANAGER'</span> <span class="token operator">OR</span> JOB <span class="token operator">=</span> <span class="token string">'SALESMAN'</span><span class="token punctuation">)</span> 
+<span class="token operator">AND</span> DEPTNO <span class="token operator">IN</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">)</span> 
+<span class="token operator">AND</span> ENAME <span class="token operator">LIKE</span> <span class="token string">'%A%'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 <h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><ul>
 <li>作用:用来排序</li>
@@ -527,21 +527,21 @@
 <li>笛卡尔积:第一张表的所有行和第二张表的所有行都发生连接</li>
 <li><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20230527134955510.png" alt="image-20230527134955510"></li>
 </ul>
-<pre><code class="highlight sql"><span class="keyword">SELECT</span> <span class="operator">*</span>
-<span class="keyword">FROM</span> EMP,DEPT;</code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span>
+<span class="token keyword">FROM</span> EMP<span class="token punctuation">,</span>DEPT<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <ul>
 <li><p>等值连接</p>
 <ul>
 <li>用等号连接关联的列</li>
 </ul>
-<pre><code class="highlight sql"><span class="keyword">SELECT</span> <span class="operator">*</span> 
-<span class="keyword">FROM</span> EMP,DEPT
-<span class="keyword">WHERE</span> EMP.DEPTNO <span class="operator">=</span> DEPT.DEPTNO;
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> 
+<span class="token keyword">FROM</span> EMP<span class="token punctuation">,</span>DEPT
+<span class="token keyword">WHERE</span> EMP<span class="token punctuation">.</span>DEPTNO <span class="token operator">=</span> DEPT<span class="token punctuation">.</span>DEPTNO<span class="token punctuation">;</span>
 
-<span class="keyword">SELECT</span> EMP.<span class="operator">*</span>,DEPT.DNAME,DEPT.LOC 
-<span class="keyword">FROM</span> EMP,DEPT
-<span class="keyword">WHERE</span> EMP.DEPTNO <span class="operator">=</span> DEPT.DEPTNO;</code></pre>
+<span class="token keyword">SELECT</span> EMP<span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">,</span>DEPT<span class="token punctuation">.</span>DNAME<span class="token punctuation">,</span>DEPT<span class="token punctuation">.</span>LOC 
+<span class="token keyword">FROM</span> EMP<span class="token punctuation">,</span>DEPT
+<span class="token keyword">WHERE</span> EMP<span class="token punctuation">.</span>DEPTNO <span class="token operator">=</span> DEPT<span class="token punctuation">.</span>DEPTNO<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>表连接注意</p>
 <ul>
@@ -552,16 +552,16 @@
 <li><p>非等值连接:不使用等号对表进行连接</p>
 </li>
 </ul>
-<pre><code class="highlight SQL"><span class="keyword">SELECT</span> <span class="operator">*</span>
-<span class="keyword">FROM</span> SALGRADE S,EMP E
-<span class="keyword">WHERE</span> E.SAL <span class="keyword">BETWEEN</span> S.LOSAL <span class="keyword">AND</span> S.HISAL;</code></pre>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">SELECT *
+FROM SALGRADE S,EMP E
+WHERE E.SAL BETWEEN S.LOSAL AND S.HISAL;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <ul>
 <li>内连接:只有匹配的记录才会显示到最终的结果集中</li>
 </ul>
-<pre><code class="highlight sql"><span class="keyword">SELECT</span> <span class="operator">*</span> 
-<span class="keyword">FROM</span> EMP,DEPT
-<span class="keyword">WHERE</span> EMP.DEPTNO <span class="operator">=</span> DEPT.DEPTNO;</code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> 
+<span class="token keyword">FROM</span> EMP<span class="token punctuation">,</span>DEPT
+<span class="token keyword">WHERE</span> EMP<span class="token punctuation">.</span>DEPTNO <span class="token operator">=</span> DEPT<span class="token punctuation">.</span>DEPTNO<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <ul>
 <li>外连接:两个表连接没有匹配的记录也会显示出来，+号写在where条件中需要添加空白行的一段<ul>
@@ -570,12 +570,16 @@
 </ul>
 </li>
 </ul>
-<pre><code class="highlight sql"><span class="keyword">SELECT</span> ENAME,EMPNO,D.DEPTNO,D.DNAME,D.LOC 
-<span class="keyword">FROM</span> EMP E,DEPT D
-<span class="keyword">WHERE</span> E.DEPTNO(<span class="operator">+</span>) <span class="operator">=</span> D.DEPTNO;</code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> ENAME<span class="token punctuation">,</span>EMPNO<span class="token punctuation">,</span>D<span class="token punctuation">.</span>DEPTNO<span class="token punctuation">,</span>D<span class="token punctuation">.</span>DNAME<span class="token punctuation">,</span>D<span class="token punctuation">.</span>LOC 
+<span class="token keyword">FROM</span> EMP E<span class="token punctuation">,</span>DEPT D
+<span class="token keyword">WHERE</span> E<span class="token punctuation">.</span>DEPTNO<span class="token punctuation">(</span><span class="token operator">+</span><span class="token punctuation">)</span> <span class="token operator">=</span> D<span class="token punctuation">.</span>DEPTNO<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-
-
+<ul>
+<li>Oracle风格，表连接特点<ul>
+<li>表连接的条件和行筛选条件都写到where子句中</li>
+</ul>
+</li>
+</ul>
 <h1 id="复习"><a href="#复习" class="headerlink" title="复习"></a>复习</h1><ul>
 <li>Dept(部门表)<ul>
 <li>deptno</li>
