@@ -1,0 +1,517 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8" />
+        <title>Oracle(目前更新到DQL查询语言) | 依夜の小破站</title>
+        <meta name="author" content="依夜" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <link rel="icon" href="/images/favicon2.jpg" />
+        <script src="https://cdn.staticfile.org/vue/3.2.47/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.3.0/css/all.min.css" />
+<link rel="stylesheet" href="/css/fonts.min.css" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+                <div id="loading" v-show="loading">
+                    <div id="loading-circle">
+                        <h2>LOADING</h2>
+                        <p>加载过慢请开启缓存 浏览器默认开启</p>
+                        <img src="/images/loading.gif" />
+                    </div>
+                </div>
+            </transition>
+            <nav id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <div id="desktop-menu">
+        <a class="title" href="/">
+            <span>依夜の小破站</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;首页</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;关于</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;档案</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;类别</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;标签</span>
+        </a>
+        
+    </div>
+    <div id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;依夜の小破站</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">首页</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">关于</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">档案</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">类别</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">标签</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </div>
+</nav>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+            <transition name="into">
+                <div id="main" v-show="!loading">
+                    <div class="article">
+    <div>
+        <h1>Oracle(目前更新到DQL查询语言)</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/5/27
+        </span>
+        
+        <span class="category">
+            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                数据库
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="color: #ff7d73">学习笔记</a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h1 id="Oracle"><a href="#Oracle" class="headerlink" title="Oracle"></a>Oracle</h1><h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3><ul>
+<li>存储在一起的数据集合</li>
+<li>能为多个用户共享</li>
+<li>尽可能小的数据冗余</li>
+<li>与应用程序彼此独立</li>
+</ul>
+<h3 id="数据库管理系统-DBMS"><a href="#数据库管理系统-DBMS" class="headerlink" title="数据库管理系统(DBMS)"></a>数据库管理系统(DBMS)</h3><ul>
+<li>是一种管理数据库的软件</li>
+<li>包括数据库的创建、使用、维护、配置</li>
+<li>数据库命令都要通过数据库管理系统处理</li>
+</ul>
+<h3 id="关系型数据库"><a href="#关系型数据库" class="headerlink" title="关系型数据库"></a>关系型数据库</h3><ul>
+<li>实体以及实体间的各种关系均用关系来表示</li>
+<li>用户的角度来看关系就是一张由行和列组成的二维数据表</li>
+</ul>
+<h3 id="常见关系型数据库"><a href="#常见关系型数据库" class="headerlink" title="常见关系型数据库"></a>常见关系型数据库</h3><ul>
+<li>Oracle 甲骨文</li>
+<li>MySQL 甲骨文</li>
+<li>SQL Server 微软</li>
+<li>DB2 IBM</li>
+<li>Sybase sybase公司</li>
+</ul>
+<h3 id="Oracle数据库简介"><a href="#Oracle数据库简介" class="headerlink" title="Oracle数据库简介:"></a>Oracle数据库简介:</h3><ul>
+<li>目前是世界上最流行的关系型数据库之一</li>
+<li>支持各种操作系统(Windows、Linux、IOS)</li>
+<li>数据库领域一直处于领先地位</li>
+<li>特点:<ul>
+<li>可移植性好</li>
+<li>使用方便，功能强</li>
+<li>适合各种大中小型服务器和微机环境</li>
+</ul>
+</li>
+</ul>
+<h3 id="样例表"><a href="#样例表" class="headerlink" title="样例表"></a>样例表</h3><h4 id="Dept-部门"><a href="#Dept-部门" class="headerlink" title="Dept(部门)"></a>Dept(部门)</h4><ul>
+<li>deptno:部门编号</li>
+<li>dname:部门名称</li>
+<li>loc:部门地址</li>
+</ul>
+<h4 id="Emp-员工表"><a href="#Emp-员工表" class="headerlink" title="Emp(员工表)"></a>Emp(员工表)</h4><ul>
+<li>empno:员工编号</li>
+<li>ename:员工姓名</li>
+<li>job:工作岗位</li>
+<li>mgr:经历编号</li>
+<li>hiredate:入职日期</li>
+<li>sal:薪水</li>
+<li>comm:奖金</li>
+<li>deptno:部门编号</li>
+</ul>
+<h4 id="SalGrade-薪水等级表"><a href="#SalGrade-薪水等级表" class="headerlink" title="SalGrade(薪水等级表)"></a>SalGrade(薪水等级表)</h4><ul>
+<li>GRADE:等级编号</li>
+<li>LOSAL:最低工资</li>
+<li>HISAL:最高工资</li>
+</ul>
+<h3 id="结构化的查询语言-SQL"><a href="#结构化的查询语言-SQL" class="headerlink" title="结构化的查询语言(SQL)"></a>结构化的查询语言(SQL)</h3><ul>
+<li>是操作和检索关系型数据库的标准语言</li>
+<li>二十世纪七十年代由IBM公司开发，目前应用于各种关系型数据库</li>
+<li>分类:<ul>
+<li>数据查询语言(DQL):SELECT，从表中查询数据</li>
+<li>数据操作语句(DML):INSERT,UPDATE,DELETE,用于添加修改删除数据</li>
+<li>事务处理语言(TPL):COMMIT和ROLLBACK，用于提交和回滚事务</li>
+<li>数据控制语言(DCL):GRANT和REVOKE,用于授权和收回授权</li>
+<li>数据定义语言(DDL):CREATE,DROP,ALTER,用于定义销毁和修改数据库对象</li>
+</ul>
+</li>
+</ul>
+<h4 id="基本SELECT语句"><a href="#基本SELECT语句" class="headerlink" title="基本SELECT语句"></a>基本SELECT语句</h4><ul>
+<li><p>SELECT语句</p>
+<ul>
+<li>SELECT子句(SELECT *:查询所有列)</li>
+<li>FROM子句(FROM DEPT:表示从哪张表查询数据)</li>
+</ul>
+</li>
+<li><p>SQL的相关概念</p>
+<ul>
+<li>关键字:SQL语言中的保留字符串</li>
+<li>语句:一条完整的SQL语句(独立执行)</li>
+<li>子句:部分SQL语句(不能独立执行)</li>
+</ul>
+</li>
+<li><p>书写规则:</p>
+<ul>
+<li>不区分大小写</li>
+<li>可以在一行书写也可以多行书写，建议多行书写</li>
+<li>关键字不可以分开，缩写或跨行写</li>
+</ul>
+</li>
+<li><p>选择列</p>
+<ul>
+<li><p>所有列:*</p>
+</li>
+<li><pre><code class="sql">SELECT *
+FROM EMP;
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- </span><br><span class="line"></span><br><span class="line">- 选择指定列:列名之间使用逗号分隔</span><br><span class="line"></span><br><span class="line">- ~~~sql</span><br><span class="line">  SELECT ENAME,HIREDATE </span><br><span class="line">  FROM EMP;</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>算术运算符</p>
+<ul>
+<li><p>+,-,*,&#x2F;,()</p>
+</li>
+<li><p><strong>例题:</strong></p>
+<p><strong>1.员工转正后，月薪上调20%，请查询出所有员工转正后的月薪。</strong><br><strong>2.员工试用期6个月，转正后月薪上调20%，请查询出所有员工工作第一年的年薪所得（不考虑奖金部分.年薪的试用期6个月的月薪+转正后6个月的月薪)</strong></p>
+</li>
+<li><pre><code class="sql">SELECT Ename,SAL,SAL*6+SAL*1.2*6 AS 试用转正年薪,SAL*1.2 AS 转正月薪
+FROM EMP;
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 空值</span><br><span class="line"></span><br><span class="line">  - 空值是一种无效的,未赋值的,未知的,不确定的值</span><br><span class="line">  - 空值不同于0或空格或空字符串</span><br><span class="line">  - 包含空值的算术运算后的结果也为空值</span><br><span class="line"></span><br><span class="line">- 列别名</span><br><span class="line"></span><br><span class="line">  - 用来在当前查询中重命名列名</span><br><span class="line"></span><br><span class="line">  - 书写方式</span><br><span class="line"></span><br><span class="line">    ~~~sql</span><br><span class="line">    列名 列别名</span><br><span class="line">    列名 AS 列别名</span><br></pre></td></tr></table></figure>
+
+- 有三种情况需要在列名两侧加上引号
+  - 列别名中包含空格
+  - 列别名中区分大小写
+  - 列别名中包含特殊字符或关键字
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>NVL(列名,值):空值处理函数,当列名对应的值是空的时候，返回第二个参数，不为空，返回实际值</p>
+</li>
+<li><p>连接操作符</p>
+<ul>
+<li><p>用于连接列与列、列与字符</p>
+</li>
+<li><p>形式上为||</p>
+</li>
+<li><pre><code class="sql">SELECT ENAME,JOB,ENAME||&#39;的岗位是&#39;||JOB
+FROM EMP;
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 原义字符串</span><br><span class="line"></span><br><span class="line">  - 包含在select列表中的一个字符串，一个数字或一个日期</span><br><span class="line"></span><br><span class="line">  - 日期和字符串字面量必须使用单引号括起来`&#x27;&#x27;`(字面量:直接写到原程序中的固定值)</span><br><span class="line"></span><br><span class="line">  - 每个原义字符串会在每一行都出现</span><br><span class="line"></span><br><span class="line">  - ~~~sql</span><br><span class="line">    SELECT ENAME,JOB,ENAME||&#x27;的岗位是&#x27;||JOB,&#x27;浑南&#x27; 公司地址,2000 年终奖金，&#x27;20-5月-2023&#x27; 日期</span><br><span class="line">    FROM EMP;</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>消除重复行:DISTINCT</p>
+<ul>
+<li><pre><code class="sql">SELECT DISTINCT JOB
+FROM EMP;
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 练习四</span><br><span class="line"></span><br><span class="line">  - ~~~sql</span><br><span class="line">    1.员工试用期6个月，转正后月薪上调20%，请查询出所有员工工作第一年的所有收入（需考虑奖金部分)，</span><br><span class="line">    要求显示格式为:XXX的第一年总收入为XXX。</span><br><span class="line">    SELECT ENAME||&#x27;第一年总收入为&#x27;||((SAL+NVL(COMM,0))*6+(SAL*1.2+NVL(COMM,0))*6)</span><br><span class="line">    FROM EMP;</span><br><span class="line">    </span><br><span class="line">    2.查询员工表中一共有哪几种岗位类型。</span><br><span class="line">    SELECT DISTINCT JOB 岗位类型</span><br><span class="line">    FROM EMP;</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="WHERE子句的使用"><a href="#WHERE子句的使用" class="headerlink" title="WHERE子句的使用"></a>WHERE子句的使用</h4><h5 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h5><ul>
+<li>使用WHERE子句限制返回的记录</li>
+<li>写在FROM子句后面</li>
+</ul>
+<h5 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h5><ul>
+<li><pre><code class="sql">SELECT 列名列表
+FROM 表名
+WHERE 条件
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">##### 比较运算符</span><br><span class="line"></span><br><span class="line">- =、&gt;、&gt;=、&lt;、&lt;=、&lt;&gt;（不等于）</span><br><span class="line"></span><br><span class="line">- 比较规则</span><br><span class="line"></span><br><span class="line">  - 字符串或日期类型要加上单引号</span><br><span class="line"></span><br><span class="line">    ~~~sql</span><br><span class="line">    SELECT * </span><br><span class="line">    FROM EMP</span><br><span class="line">    WHERE ENAME = &#x27;SMITH&#x27;;</span><br><span class="line">    </span><br><span class="line">    SELECT * </span><br><span class="line">    FROM EMP</span><br><span class="line">    WHERE HIREDATE &gt; &#x27;20-2月-1981&#x27;;</span><br></pre></td></tr></table></figure>
+
+- 字符串内容区分大小写
+
+- 练习一:
+
+- ~~~sql
+  1.查询职位为SALESMAN的员工编号、职位、入职日期。
+  SELECT EMPNO,JOB,HIREDATE
+  FROM EMP
+  WHERE JOB = &#39;SALESMAN&#39;;
+  2.查询1985年12月31日之前入职的员工姓名及入职日期。
+  SELECT ENAME,HIREDATE
+  FROM EMP
+  WHERE HIREDATE &lt; &#39;31-12月-1985&#39;;
+  3.查询部门编号不在10部门的员工姓名、部门编号。
+  SELECT ENAME,DEPTNO
+  FROM EMP
+  WHERE DEPTNO &lt;&gt; 10;
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 特殊比较运算符</span><br><span class="line"></span><br><span class="line">  - between ...  and ... 在XXX到XXX之间</span><br><span class="line"></span><br><span class="line">    - ~~~SQL</span><br><span class="line">      SELECT *</span><br><span class="line">      FROM EMP</span><br><span class="line">      WHERE EMPNO BETWEEN 7800 AND 9999;</span><br></pre></td></tr></table></figure>
+
+- IN(列表,列表) 或者
+
+  - ~~~sql
+    SELECT *
+    FROM EMP
+    WHERE DEPTNO IN(20,30);
+    <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- LIKE 模糊查询</span><br><span class="line"></span><br><span class="line">  - ~~~sql</span><br><span class="line">    /*</span><br><span class="line">    	使用通配符代替未知的信息</span><br><span class="line">    	通配符:%表示任意多个字符</span><br><span class="line">    		  _表示任意一个字符</span><br><span class="line">    	使用ESCAPE进行转义</span><br><span class="line">    	SELECT *</span><br><span class="line">    	FROM EMP</span><br><span class="line">    	WHERE ENAME LIKE &#x27;%@_%&#x27; ESCAPE &#x27;@&#x27;;</span><br><span class="line">    */</span><br><span class="line">    SELECT *</span><br><span class="line">    FROM EMP</span><br><span class="line">    WHERE ENAME LIKE &#x27;__O%&#x27;;</span><br></pre></td></tr></table></figure>
+
+- ~~~SQL
+  
+  练习2:
+      1.查询入职日期在82年至85年的员工姓名，入职日期。
+      SELECT ENAME,HIREDATE
+      FROM EMP
+      WHERE HIREDATE BETWEEN &#39;1-1月-1982&#39; AND &#39;31-12月-1985&#39;;
+      2.查询月薪在3000到5000的员工姓名，月薪。
+      SELECT ENAME,SAL
+      FROM EMP
+      WHERE SAL BETWEEN 3000 AND 5000;
+      3.查询部门编号为10或者20的员工姓名，部门编号。
+      SELECT ENAME,DEPTNO
+      FROM EMP
+      WHERE DEPTNO IN(10,20);
+      4.查询经理编号为7902，7566，7788的员工姓名，经理编号。
+      SELECT ENAME,MGR
+      FROM EMP
+      WHERE MGR IN(7902,7566,7788);
+  
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- IS NULL 判断空值</span><br><span class="line"></span><br><span class="line">- ~~~sql</span><br><span class="line">  练习三:</span><br><span class="line">  1.查询员工姓名以W开头的员工姓名。</span><br><span class="line">  SELECT ENAME</span><br><span class="line">  FROM EMP</span><br><span class="line">  WHERE ENAME LIKE &#x27;W%&#x27;;</span><br><span class="line">  2.查询员工姓名倒数第2个字符为T的员工姓名。</span><br><span class="line">  SELECT ENAME</span><br><span class="line">  FROM EMP</span><br><span class="line">  WHERE ENAME LIKE &#x27;%T_&#x27;;</span><br><span class="line">  3.查询奖金为空的员工姓名，奖金。</span><br><span class="line">  SELECT ENAME,COMM</span><br><span class="line">  FROM EMP</span><br><span class="line">  WHERE COMM IS NULL;</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+<li><p>逻辑运算符</p>
+<ul>
+<li><p>AND(与):两个条件同时满足就为TRUE;</p>
+</li>
+<li><p>OR(或):两个条件有一个满足就为TRUE;</p>
+</li>
+<li><p>NOT(非):对指定条件取相反</p>
+</li>
+<li><pre><code class="sql">练习四:
+1.查询工资超过2000并且职位是MANAGER,或者职位是SALESMAN的员工姓名、职位、工资
+SELECT ENAME,JOB,SAL
+FROM EMP
+WHERE  SAL &gt; 2000 
+AND JOB = &#39;MANAGER&#39; 
+OR JOB = &#39;SALESMAN&#39;  ;
+2.查询工资超过2000并且职位是 MANAGER或SALESMAN的员工姓名、职位、工资。
+SELECT ENAME,JOB,SAL
+FROM EMP
+WHERE (JOB = &#39;MANAGER&#39; OR JOB = &#39;SALESMAN&#39;) 
+AND SAL &gt; 2000 ;
+3.查询部门在10或者20，并且工资在3000到5000之间的员工姓名、部门、工资。
+SELECT ENAME,DEPTNO,SAL
+FROM EMP
+WHERE DEPTNO IN(10,20) 
+AND SAL BETWEEN 3000 AND 5000;
+4.查询入职日期在81年，并且职位不是SALES开头的员工姓名、入职日期、职位。
+SELECT ENAME,HIREDATE,JOB
+FROM EMP
+WHERE HIREDATE BETWEEN &#39;1-1月-1981&#39; AND &#39;31-12月-1981&#39; 
+AND JOB NOT LIKE &#39;SALES%&#39;;
+5.查询职位为SALESMAN或MANAGER，部门编号为10或者20，姓名包含A的员工姓名、职位、部门编号。
+SELECT ENAME,JOB,DEPTNO
+FROM EMP
+WHERE (JOB = &#39;MANAGER&#39; OR JOB = &#39;SALESMAN&#39;) 
+AND DEPTNO IN(10,20) 
+AND ENAME LIKE &#39;%A%&#39;;
+</code></pre>
+</li>
+<li></li>
+</ul>
+</li>
+</ul>
+<h1 id="复习"><a href="#复习" class="headerlink" title="复习"></a>复习</h1><ul>
+<li>Dept(部门表)<ul>
+<li>deptno</li>
+<li>dname</li>
+<li>loc</li>
+</ul>
+</li>
+<li>Emp(员工表)<ul>
+<li>Empno</li>
+<li>Ename</li>
+<li>job</li>
+<li>mgr</li>
+<li>hiredate</li>
+<li>sal</li>
+<li>comm</li>
+<li>deptno</li>
+</ul>
+</li>
+<li>SalGrade(薪水等级表)<ul>
+<li>Grade</li>
+<li>losal</li>
+<li>hisal</li>
+</ul>
+</li>
+<li>书写<ul>
+<li>不区分大小写</li>
+<li>一行或多行书写，推荐多行书写</li>
+</ul>
+</li>
+<li>列别名<ul>
+<li>阅读方便</li>
+<li>方式<ul>
+<li>列名 列别名</li>
+<li>列名 AS 列别名</li>
+</ul>
+</li>
+<li>列别名可以使用双引号括起来</li>
+</ul>
+</li>
+<li>NVL(列名,列为空时替代的值)</li>
+</ul>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+                    <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2023 依夜の小破站
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;依夜
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+                </div>
+            </transition>
+            
+            <transition name="fade">
+                <div id="preview" ref="preview" v-show="previewShow">
+                    <img id="preview-content" ref="previewContent" />
+                </div>
+            </transition>
+            
+        </div>
+        <script src="/js/main.js"></script>
+        
+        
+
+
+
+
+        
+    </body>
+</html>
