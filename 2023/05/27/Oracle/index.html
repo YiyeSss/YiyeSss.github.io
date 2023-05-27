@@ -174,7 +174,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="color: #03a9f4">学习笔记</a>
+                <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="color: #ff7d73">学习笔记</a>
             </span>
             
         </span>
@@ -579,6 +579,21 @@ WHERE E.SAL BETWEEN S.LOSAL AND S.HISAL;<span aria-hidden="true" class="line-num
 <li>表连接的条件和行筛选条件都写到where子句中</li>
 </ul>
 </li>
+<li>多于两张表的连接</li>
+</ul>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">SELECT ENAME,LOC,GRADE
+FROM EMP E,DEPT D,SALGRADE S
+WHERE E.DEPTNO &#x3D; D.DEPTNO AND E.SAL BETWEEN S.LOSAL AND S.HISAL;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>先将两张表连接起来，再基于已经生成的连接结果(临时表)，再与第三张表连接</p>
+<ul>
+<li><p>自连接</p>
+<ul>
+<li>是一个表通过某种条件和自身进行连接的一种方式，就如同两个表连接一样</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> ENAME<span class="token punctuation">,</span>LOC<span class="token punctuation">,</span>GRADE
+<span class="token keyword">FROM</span> EMP E<span class="token punctuation">,</span>DEPT D<span class="token punctuation">,</span>SALGRADE S
+<span class="token keyword">WHERE</span> E<span class="token punctuation">.</span>DEPTNO <span class="token operator">=</span> D<span class="token punctuation">.</span>DEPTNO <span class="token operator">AND</span> E<span class="token punctuation">.</span>SAL <span class="token operator">BETWEEN</span> S<span class="token punctuation">.</span>LOSAL <span class="token operator">AND</span> S<span class="token punctuation">.</span>HISAL<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 <h1 id="复习"><a href="#复习" class="headerlink" title="复习"></a>复习</h1><ul>
 <li>Dept(部门表)<ul>
