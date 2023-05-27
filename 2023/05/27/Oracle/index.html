@@ -432,6 +432,9 @@ AND ENAME LIKE &#39;%A%&#39;;
 <li>ASC:默认值，升序</li>
 <li>DESC:降序</li>
 <li>注意:空值最大(MySQL则相反)</li>
+<li>可多列排序，先按照前面的列排序，如果前面的列值相同，使用后面的列进行排序</li>
+<li>特殊情况: ORDER BY子句可以出现SELECT子句中没有列出的列</li>
+<li>子句的执行顺序:FROM WHERE SELECT ORDER</li>
 </ul>
 </li>
 </ul>
