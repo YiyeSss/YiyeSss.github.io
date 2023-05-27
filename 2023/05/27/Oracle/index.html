@@ -174,7 +174,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="color: #ffa2c4">学习笔记</a>
+                <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="color: #ff7d73">学习笔记</a>
             </span>
             
         </span>
@@ -274,7 +274,14 @@
 </li>
 <li><pre><code class="sql">SELECT *
 FROM EMP;
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- </span><br><span class="line"></span><br><span class="line">- 选择指定列:列名之间使用逗号分隔</span><br><span class="line"></span><br><span class="line">- ~~~sql</span><br><span class="line">  SELECT ENAME,HIREDATE </span><br><span class="line">  FROM EMP;</span><br></pre></td></tr></table></figure>
+<pre><code class="highlight plaintext">
+- 
+
+- 选择指定列:列名之间使用逗号分隔
+
+- ~~~sql
+  SELECT ENAME,HIREDATE 
+  FROM EMP;</code></pre>
 </code></pre>
 </li>
 </ul>
@@ -288,7 +295,22 @@ FROM EMP;
 </li>
 <li><pre><code class="sql">SELECT Ename,SAL,SAL*6+SAL*1.2*6 AS 试用转正年薪,SAL*1.2 AS 转正月薪
 FROM EMP;
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 空值</span><br><span class="line"></span><br><span class="line">  - 空值是一种无效的,未赋值的,未知的,不确定的值</span><br><span class="line">  - 空值不同于0或空格或空字符串</span><br><span class="line">  - 包含空值的算术运算后的结果也为空值</span><br><span class="line"></span><br><span class="line">- 列别名</span><br><span class="line"></span><br><span class="line">  - 用来在当前查询中重命名列名</span><br><span class="line"></span><br><span class="line">  - 书写方式</span><br><span class="line"></span><br><span class="line">    ~~~sql</span><br><span class="line">    列名 列别名</span><br><span class="line">    列名 AS 列别名</span><br></pre></td></tr></table></figure>
+<pre><code class="highlight plaintext">
+- 空值
+
+  - 空值是一种无效的,未赋值的,未知的,不确定的值
+  - 空值不同于0或空格或空字符串
+  - 包含空值的算术运算后的结果也为空值
+
+- 列别名
+
+  - 用来在当前查询中重命名列名
+
+  - 书写方式
+
+    ~~~sql
+    列名 列别名
+    列名 AS 列别名</code></pre>
 
 - 有三种情况需要在列名两侧加上引号
   - 列别名中包含空格
@@ -308,7 +330,18 @@ FROM EMP;
 </li>
 <li><pre><code class="sql">SELECT ENAME,JOB,ENAME||&#39;的岗位是&#39;||JOB
 FROM EMP;
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 原义字符串</span><br><span class="line"></span><br><span class="line">  - 包含在select列表中的一个字符串，一个数字或一个日期</span><br><span class="line"></span><br><span class="line">  - 日期和字符串字面量必须使用单引号括起来`&#x27;&#x27;`(字面量:直接写到原程序中的固定值)</span><br><span class="line"></span><br><span class="line">  - 每个原义字符串会在每一行都出现</span><br><span class="line"></span><br><span class="line">  - ~~~sql</span><br><span class="line">    SELECT ENAME,JOB,ENAME||&#x27;的岗位是&#x27;||JOB,&#x27;浑南&#x27; 公司地址,2000 年终奖金，&#x27;20-5月-2023&#x27; 日期</span><br><span class="line">    FROM EMP;</span><br></pre></td></tr></table></figure>
+<pre><code class="highlight plaintext">
+- 原义字符串
+
+  - 包含在select列表中的一个字符串，一个数字或一个日期
+
+  - 日期和字符串字面量必须使用单引号括起来`&#x27;&#x27;`(字面量:直接写到原程序中的固定值)
+
+  - 每个原义字符串会在每一行都出现
+
+  - ~~~sql
+    SELECT ENAME,JOB,ENAME||&#x27;的岗位是&#x27;||JOB,&#x27;浑南&#x27; 公司地址,2000 年终奖金，&#x27;20-5月-2023&#x27; 日期
+    FROM EMP;</code></pre>
 </code></pre>
 </li>
 </ul>
@@ -317,7 +350,18 @@ FROM EMP;
 <ul>
 <li><pre><code class="sql">SELECT DISTINCT JOB
 FROM EMP;
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 练习四</span><br><span class="line"></span><br><span class="line">  - ~~~sql</span><br><span class="line">    1.员工试用期6个月，转正后月薪上调20%，请查询出所有员工工作第一年的所有收入（需考虑奖金部分)，</span><br><span class="line">    要求显示格式为:XXX的第一年总收入为XXX。</span><br><span class="line">    SELECT ENAME||&#x27;第一年总收入为&#x27;||((SAL+NVL(COMM,0))*6+(SAL*1.2+NVL(COMM,0))*6)</span><br><span class="line">    FROM EMP;</span><br><span class="line">    </span><br><span class="line">    2.查询员工表中一共有哪几种岗位类型。</span><br><span class="line">    SELECT DISTINCT JOB 岗位类型</span><br><span class="line">    FROM EMP;</span><br></pre></td></tr></table></figure>
+<pre><code class="highlight plaintext">
+- 练习四
+
+  - ~~~sql
+    1.员工试用期6个月，转正后月薪上调20%，请查询出所有员工工作第一年的所有收入（需考虑奖金部分)，
+    要求显示格式为:XXX的第一年总收入为XXX。
+    SELECT ENAME||&#x27;第一年总收入为&#x27;||((SAL+NVL(COMM,0))*6+(SAL*1.2+NVL(COMM,0))*6)
+    FROM EMP;
+    
+    2.查询员工表中一共有哪几种岗位类型。
+    SELECT DISTINCT JOB 岗位类型
+    FROM EMP;</code></pre>
 </code></pre>
 </li>
 </ul>
@@ -331,7 +375,23 @@ FROM EMP;
 <li><pre><code class="sql">SELECT 列名列表
 FROM 表名
 WHERE 条件
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">##### 比较运算符</span><br><span class="line"></span><br><span class="line">- =、&gt;、&gt;=、&lt;、&lt;=、&lt;&gt;（不等于）</span><br><span class="line"></span><br><span class="line">- 比较规则</span><br><span class="line"></span><br><span class="line">  - 字符串或日期类型要加上单引号</span><br><span class="line"></span><br><span class="line">    ~~~sql</span><br><span class="line">    SELECT * </span><br><span class="line">    FROM EMP</span><br><span class="line">    WHERE ENAME = &#x27;SMITH&#x27;;</span><br><span class="line">    </span><br><span class="line">    SELECT * </span><br><span class="line">    FROM EMP</span><br><span class="line">    WHERE HIREDATE &gt; &#x27;20-2月-1981&#x27;;</span><br></pre></td></tr></table></figure>
+<pre><code class="highlight plaintext">
+##### 比较运算符
+
+- =、&gt;、&gt;=、&lt;、&lt;=、&lt;&gt;（不等于）
+
+- 比较规则
+
+  - 字符串或日期类型要加上单引号
+
+    ~~~sql
+    SELECT * 
+    FROM EMP
+    WHERE ENAME = &#x27;SMITH&#x27;;
+    
+    SELECT * 
+    FROM EMP
+    WHERE HIREDATE &gt; &#x27;20-2月-1981&#x27;;</code></pre>
 
 - 字符串内容区分大小写
 
@@ -350,7 +410,15 @@ WHERE 条件
   SELECT ENAME,DEPTNO
   FROM EMP
   WHERE DEPTNO &lt;&gt; 10;
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 特殊比较运算符</span><br><span class="line"></span><br><span class="line">  - between ...  and ... 在XXX到XXX之间</span><br><span class="line"></span><br><span class="line">    - ~~~SQL</span><br><span class="line">      SELECT *</span><br><span class="line">      FROM EMP</span><br><span class="line">      WHERE EMPNO BETWEEN 7800 AND 9999;</span><br></pre></td></tr></table></figure>
+  <pre><code class="highlight plaintext">
+- 特殊比较运算符
+
+  - between ...  and ... 在XXX到XXX之间
+
+    - ~~~SQL
+      SELECT *
+      FROM EMP
+      WHERE EMPNO BETWEEN 7800 AND 9999;</code></pre>
 
 - IN(列表,列表) 或者
 
@@ -358,7 +426,22 @@ WHERE 条件
     SELECT *
     FROM EMP
     WHERE DEPTNO IN(20,30);
-    <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- LIKE 模糊查询</span><br><span class="line"></span><br><span class="line">  - ~~~sql</span><br><span class="line">    /*</span><br><span class="line">    	使用通配符代替未知的信息</span><br><span class="line">    	通配符:%表示任意多个字符</span><br><span class="line">    		  _表示任意一个字符</span><br><span class="line">    	使用ESCAPE进行转义</span><br><span class="line">    	SELECT *</span><br><span class="line">    	FROM EMP</span><br><span class="line">    	WHERE ENAME LIKE &#x27;%@_%&#x27; ESCAPE &#x27;@&#x27;;</span><br><span class="line">    */</span><br><span class="line">    SELECT *</span><br><span class="line">    FROM EMP</span><br><span class="line">    WHERE ENAME LIKE &#x27;__O%&#x27;;</span><br></pre></td></tr></table></figure>
+    <pre><code class="highlight plaintext">
+- LIKE 模糊查询
+
+  - ~~~sql
+    /*
+    	使用通配符代替未知的信息
+    	通配符:%表示任意多个字符
+    		  _表示任意一个字符
+    	使用ESCAPE进行转义
+    	SELECT *
+    	FROM EMP
+    	WHERE ENAME LIKE &#x27;%@_%&#x27; ESCAPE &#x27;@&#x27;;
+    */
+    SELECT *
+    FROM EMP
+    WHERE ENAME LIKE &#x27;__O%&#x27;;</code></pre>
 
 - ~~~SQL
   
@@ -380,7 +463,23 @@ WHERE 条件
       FROM EMP
       WHERE MGR IN(7902,7566,7788);
   
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- IS NULL 判断空值</span><br><span class="line"></span><br><span class="line">- ~~~sql</span><br><span class="line">  练习三:</span><br><span class="line">  1.查询员工姓名以W开头的员工姓名。</span><br><span class="line">  SELECT ENAME</span><br><span class="line">  FROM EMP</span><br><span class="line">  WHERE ENAME LIKE &#x27;W%&#x27;;</span><br><span class="line">  2.查询员工姓名倒数第2个字符为T的员工姓名。</span><br><span class="line">  SELECT ENAME</span><br><span class="line">  FROM EMP</span><br><span class="line">  WHERE ENAME LIKE &#x27;%T_&#x27;;</span><br><span class="line">  3.查询奖金为空的员工姓名，奖金。</span><br><span class="line">  SELECT ENAME,COMM</span><br><span class="line">  FROM EMP</span><br><span class="line">  WHERE COMM IS NULL;</span><br></pre></td></tr></table></figure>
+  <pre><code class="highlight plaintext">
+- IS NULL 判断空值
+
+- ~~~sql
+  练习三:
+  1.查询员工姓名以W开头的员工姓名。
+  SELECT ENAME
+  FROM EMP
+  WHERE ENAME LIKE &#x27;W%&#x27;;
+  2.查询员工姓名倒数第2个字符为T的员工姓名。
+  SELECT ENAME
+  FROM EMP
+  WHERE ENAME LIKE &#x27;%T_&#x27;;
+  3.查询奖金为空的员工姓名，奖金。
+  SELECT ENAME,COMM
+  FROM EMP
+  WHERE COMM IS NULL;</code></pre>
 </code></pre>
 </li>
 <li><p>逻辑运算符</p>
@@ -419,22 +518,53 @@ FROM EMP
 WHERE (JOB = &#39;MANAGER&#39; OR JOB = &#39;SALESMAN&#39;) 
 AND DEPTNO IN(10,20) 
 AND ENAME LIKE &#39;%A%&#39;;
+<pre><code class="highlight plaintext">
+  - 
+
+### 排序
+
+- 作用:用来排序
+- 语法:
+  - ORDER BY&#123;列名|表达式|别名|列号&#125;
+  - ASC:默认值，升序
+  - DESC:降序
+  - 注意:空值最大(MySQL则相反)
+  - 可多列排序，先按照前面的列排序，如果前面的列值相同，使用后面的列进行排序
+  - 特殊情况: ORDER BY子句可以出现SELECT子句中没有列出的列
+  - 子句的执行顺序:FROM WHERE SELECT ORDER
+
+### 表连接
+
+- 为什么需要表连接
+  - 需要查询的数据分布在多张表中
+- 什么是表连接
+  - 连接是在多张表之间通过一定的条件，使得表之间发生关联，进而能从多张表中获取数据
+- 连接的类型
+  - 按连接条件分:等值连接，不等值连接
+  - 按其他的连接方法分:外连接和内连接
+- 多表连接的写法：
+  - Oracle风格或旧式连接
+  - ANSI 99(标准语法)
+- 笛卡尔积:第一张表的所有行和第二张表的所有行都发生连接
+- ![image-20230527134955510](C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20230527134955510.png)
+
+~~~sql
+SELECT *
+FROM EMP,DEPT;</code></pre>
 </code></pre>
 </li>
-<li></li>
 </ul>
 </li>
+<li><p>等值连接</p>
+<ul>
+<li>用等号连接关联的列</li>
 </ul>
-<h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><ul>
-<li>作用:用来排序</li>
-<li>语法:<ul>
-<li>ORDER BY{列名|表达式|别名|列号}</li>
-<li>ASC:默认值，升序</li>
-<li>DESC:降序</li>
-<li>注意:空值最大(MySQL则相反)</li>
-<li>可多列排序，先按照前面的列排序，如果前面的列值相同，使用后面的列进行排序</li>
-<li>特殊情况: ORDER BY子句可以出现SELECT子句中没有列出的列</li>
-<li>子句的执行顺序:FROM WHERE SELECT ORDER</li>
+<pre><code class="highlight sql"><span class="keyword">SELECT</span> <span class="operator">*</span> 
+<span class="keyword">FROM</span> EMP,DEPT
+<span class="keyword">WHERE</span> EMP.DEPTNO <span class="operator">=</span> DEPT.DEPTNO;</code></pre>
+
+<ul>
+<li></li>
 </ul>
 </li>
 </ul>
@@ -478,6 +608,14 @@ AND ENAME LIKE &#39;%A%&#39;;
 </ul>
 </li>
 <li>NVL(列名,列为空时替代的值)</li>
+<li>order by<ul>
+<li>排序</li>
+<li>order by</li>
+<li>空值最大</li>
+<li>多列排序，后面的列在前面的列全相同的情况下起作用</li>
+<li>排序作用在select后</li>
+</ul>
+</li>
 </ul>
 
     </div>
