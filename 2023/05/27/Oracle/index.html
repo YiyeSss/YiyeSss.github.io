@@ -174,7 +174,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="color: #ff7d73">学习笔记</a>
+                <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="color: #00a596">学习笔记</a>
             </span>
             
         </span>
@@ -270,53 +270,56 @@
 </li>
 <li><p>选择列</p>
 <ul>
-<li><p>所有列:*</p>
+<li>所有列:*</li>
+</ul>
+<pre><code class="highlight SQL"><span class="keyword">SELECT</span> <span class="operator">*</span>
+<span class="keyword">FROM</span> EMP;</code></pre>
+
+<ul>
+<li><p>选择指定列:列名之间使用逗号分隔</p>
 </li>
-<li><pre><code class="sql">SELECT *
+<li><pre><code class="sql">SELECT ENAME,HIREDATE 
 FROM EMP;
 <pre><code class="highlight plaintext">
-- 
+- 算术运算符
 
-- 选择指定列:列名之间使用逗号分隔
+  - +,-,*,/,()
 
-- ~~~sql
-  SELECT ENAME,HIREDATE 
-  FROM EMP;</code></pre>
+  - **例题:**
+
+    **1.员工转正后，月薪上调20%，请查询出所有员工转正后的月薪。**
+    **2.员工试用期6个月，转正后月薪上调20%，请查询出所有员工工作第一年的年薪所得（不考虑奖金部分.年薪的试用期6个月的月薪+转正后6个月的月薪)**
+
+  - ~~~sql
+    SELECT Ename,SAL,SAL*6+SAL*1.2*6 AS 试用转正年薪,SAL*1.2 AS 转正月薪
+    FROM EMP;</code></pre>
 </code></pre>
 </li>
 </ul>
 </li>
-<li><p>算术运算符</p>
+<li><p>空值</p>
 <ul>
-<li><p>+,-,*,&#x2F;,()</p>
+<li>空值是一种无效的,未赋值的,未知的,不确定的值</li>
+<li>空值不同于0或空格或空字符串</li>
+<li>包含空值的算术运算后的结果也为空值</li>
+</ul>
 </li>
-<li><p><strong>例题:</strong></p>
-<p><strong>1.员工转正后，月薪上调20%，请查询出所有员工转正后的月薪。</strong><br><strong>2.员工试用期6个月，转正后月薪上调20%，请查询出所有员工工作第一年的年薪所得（不考虑奖金部分.年薪的试用期6个月的月薪+转正后6个月的月薪)</strong></p>
+<li><p>列别名</p>
+<ul>
+<li><p>用来在当前查询中重命名列名</p>
 </li>
-<li><pre><code class="sql">SELECT Ename,SAL,SAL*6+SAL*1.2*6 AS 试用转正年薪,SAL*1.2 AS 转正月薪
-FROM EMP;
-<pre><code class="highlight plaintext">
-- 空值
+<li><p>书写方式</p>
+<pre><code class="highlight sql">列名 列别名
+列名 <span class="keyword">AS</span> 列别名</code></pre>
 
-  - 空值是一种无效的,未赋值的,未知的,不确定的值
-  - 空值不同于0或空格或空字符串
-  - 包含空值的算术运算后的结果也为空值
-
-- 列别名
-
-  - 用来在当前查询中重命名列名
-
-  - 书写方式
-
-    ~~~sql
-    列名 列别名
-    列名 AS 列别名</code></pre>
-
-- 有三种情况需要在列名两侧加上引号
-  - 列别名中包含空格
-  - 列别名中区分大小写
-  - 列别名中包含特殊字符或关键字
-</code></pre>
+<ul>
+<li>有三种情况需要在列名两侧加上引号<ul>
+<li>列别名中包含空格</li>
+<li>列别名中区分大小写</li>
+<li>列别名中包含特殊字符或关键字</li>
+</ul>
+</li>
+</ul>
 </li>
 </ul>
 </li>
@@ -397,176 +400,187 @@ WHERE 条件
 
 - 练习一:
 
-- ~~~sql
-  1.查询职位为SALESMAN的员工编号、职位、入职日期。
-  SELECT EMPNO,JOB,HIREDATE
-  FROM EMP
-  WHERE JOB = &#39;SALESMAN&#39;;
-  2.查询1985年12月31日之前入职的员工姓名及入职日期。
-  SELECT ENAME,HIREDATE
-  FROM EMP
-  WHERE HIREDATE &lt; &#39;31-12月-1985&#39;;
-  3.查询部门编号不在10部门的员工姓名、部门编号。
-  SELECT ENAME,DEPTNO
-  FROM EMP
-  WHERE DEPTNO &lt;&gt; 10;
-  <pre><code class="highlight plaintext">
-- 特殊比较运算符
-
-  - between ...  and ... 在XXX到XXX之间
-
-    - ~~~SQL
-      SELECT *
-      FROM EMP
-      WHERE EMPNO BETWEEN 7800 AND 9999;</code></pre>
-
-- IN(列表,列表) 或者
-
-  - ~~~sql
-    SELECT *
-    FROM EMP
-    WHERE DEPTNO IN(20,30);
-    <pre><code class="highlight plaintext">
-- LIKE 模糊查询
-
-  - ~~~sql
-    /*
-    	使用通配符代替未知的信息
-    	通配符:%表示任意多个字符
-    		  _表示任意一个字符
-    	使用ESCAPE进行转义
-    	SELECT *
-    	FROM EMP
-    	WHERE ENAME LIKE &#x27;%@_%&#x27; ESCAPE &#x27;@&#x27;;
-    */
-    SELECT *
-    FROM EMP
-    WHERE ENAME LIKE &#x27;__O%&#x27;;</code></pre>
-
-- ~~~SQL
-  
-  练习2:
-      1.查询入职日期在82年至85年的员工姓名，入职日期。
-      SELECT ENAME,HIREDATE
-      FROM EMP
-      WHERE HIREDATE BETWEEN &#39;1-1月-1982&#39; AND &#39;31-12月-1985&#39;;
-      2.查询月薪在3000到5000的员工姓名，月薪。
-      SELECT ENAME,SAL
-      FROM EMP
-      WHERE SAL BETWEEN 3000 AND 5000;
-      3.查询部门编号为10或者20的员工姓名，部门编号。
-      SELECT ENAME,DEPTNO
-      FROM EMP
-      WHERE DEPTNO IN(10,20);
-      4.查询经理编号为7902，7566，7788的员工姓名，经理编号。
-      SELECT ENAME,MGR
-      FROM EMP
-      WHERE MGR IN(7902,7566,7788);
-  
-  <pre><code class="highlight plaintext">
-- IS NULL 判断空值
-
-- ~~~sql
-  练习三:
-  1.查询员工姓名以W开头的员工姓名。
-  SELECT ENAME
-  FROM EMP
-  WHERE ENAME LIKE &#x27;W%&#x27;;
-  2.查询员工姓名倒数第2个字符为T的员工姓名。
-  SELECT ENAME
-  FROM EMP
-  WHERE ENAME LIKE &#x27;%T_&#x27;;
-  3.查询奖金为空的员工姓名，奖金。
-  SELECT ENAME,COMM
-  FROM EMP
-  WHERE COMM IS NULL;</code></pre>
+<pre><code class="highlight sql"><span class="number">1.</span>查询职位为SALESMAN的员工编号、职位、入职日期。
+<span class="keyword">SELECT</span> EMPNO,JOB,HIREDATE
+<span class="keyword">FROM</span> EMP
+<span class="keyword">WHERE</span> JOB <span class="operator">=</span> <span class="string">&#x27;SALESMAN&#x27;</span>;
+<span class="number">2.</span>查询<span class="number">1985</span>年<span class="number">12</span>月<span class="number">31</span>日之前入职的员工姓名及入职日期。
+<span class="keyword">SELECT</span> ENAME,HIREDATE
+<span class="keyword">FROM</span> EMP
+<span class="keyword">WHERE</span> HIREDATE <span class="operator">&lt;</span> <span class="string">&#x27;31-12月-1985&#x27;</span>;
+<span class="number">3.</span>查询部门编号不在<span class="number">10</span>部门的员工姓名、部门编号。
+<span class="keyword">SELECT</span> ENAME,DEPTNO
+<span class="keyword">FROM</span> EMP
+<span class="keyword">WHERE</span> DEPTNO <span class="operator">&lt;&gt;</span> <span class="number">10</span>;</code></pre>
 </code></pre>
+</li>
+<li><p>特殊比较运算符</p>
+<ul>
+<li><p>between …  and … 在XXX到XXX之间</p>
+<pre><code class="highlight sql"><span class="keyword">SELECT</span> <span class="operator">*</span>
+<span class="keyword">FROM</span> EMP
+<span class="keyword">WHERE</span> EMPNO <span class="keyword">BETWEEN</span> <span class="number">7800</span> <span class="keyword">AND</span> <span class="number">9999</span>;</code></pre>
+</li>
+<li><p>IN(列表,列表) 或者</p>
+<pre><code class="highlight sql"><span class="keyword">SELECT</span> <span class="operator">*</span>
+<span class="keyword">FROM</span> EMP
+<span class="keyword">WHERE</span> DEPTNO <span class="keyword">IN</span>(<span class="number">20</span>,<span class="number">30</span>);</code></pre>
+</li>
+<li><p>LIKE 模糊查询</p>
+<pre><code class="highlight SQL"><span class="comment">/*</span>
+<span class="comment">	使用通配符代替未知的信息</span>
+<span class="comment">	通配符:%表示任意多个字符</span>
+<span class="comment">		  _表示任意一个字符</span>
+<span class="comment">	使用ESCAPE进行转义</span>
+<span class="comment">	SELECT *</span>
+<span class="comment">	FROM EMP</span>
+<span class="comment">	WHERE ENAME LIKE &#x27;%@_%&#x27; ESCAPE &#x27;@&#x27;;</span>
+<span class="comment">*/</span>
+<span class="keyword">SELECT</span> <span class="operator">*</span>
+<span class="keyword">FROM</span> EMP
+<span class="keyword">WHERE</span> ENAME <span class="keyword">LIKE</span> <span class="string">&#x27;__O%&#x27;</span>;</code></pre>
+
+<pre><code class="highlight SQL">
+练习<span class="number">2</span>:
+	<span class="number">1.</span>查询入职日期在<span class="number">82</span>年至<span class="number">85</span>年的员工姓名，入职日期。
+	<span class="keyword">SELECT</span> ENAME,HIREDATE
+	<span class="keyword">FROM</span> EMP
+	<span class="keyword">WHERE</span> HIREDATE <span class="keyword">BETWEEN</span> <span class="string">&#x27;1-1月-1982&#x27;</span> <span class="keyword">AND</span> <span class="string">&#x27;31-12月-1985&#x27;</span>;
+	<span class="number">2.</span>查询月薪在<span class="number">3000</span>到<span class="number">5000</span>的员工姓名，月薪。
+	<span class="keyword">SELECT</span> ENAME,SAL
+	<span class="keyword">FROM</span> EMP
+	<span class="keyword">WHERE</span> SAL <span class="keyword">BETWEEN</span> <span class="number">3000</span> <span class="keyword">AND</span> <span class="number">5000</span>;
+	<span class="number">3.</span>查询部门编号为<span class="number">10</span>或者<span class="number">20</span>的员工姓名，部门编号。
+	<span class="keyword">SELECT</span> ENAME,DEPTNO
+	<span class="keyword">FROM</span> EMP
+	<span class="keyword">WHERE</span> DEPTNO <span class="keyword">IN</span>(<span class="number">10</span>,<span class="number">20</span>);
+	<span class="number">4.</span>查询经理编号为<span class="number">7902</span>，<span class="number">7566</span>，<span class="number">7788</span>的员工姓名，经理编号。
+	<span class="keyword">SELECT</span> ENAME,MGR
+	<span class="keyword">FROM</span> EMP
+	<span class="keyword">WHERE</span> MGR <span class="keyword">IN</span>(<span class="number">7902</span>,<span class="number">7566</span>,<span class="number">7788</span>);</code></pre>
+
+
+</li>
+<li><p>IS NULL 判断空值</p>
+</li>
+</ul>
+<pre><code class="highlight SQL">练习三:
+<span class="number">1.</span>查询员工姓名以W开头的员工姓名。
+<span class="keyword">SELECT</span> ENAME
+<span class="keyword">FROM</span> EMP
+<span class="keyword">WHERE</span> ENAME <span class="keyword">LIKE</span> <span class="string">&#x27;W%&#x27;</span>;
+<span class="number">2.</span>查询员工姓名倒数第<span class="number">2</span>个字符为T的员工姓名。
+<span class="keyword">SELECT</span> ENAME
+<span class="keyword">FROM</span> EMP
+<span class="keyword">WHERE</span> ENAME <span class="keyword">LIKE</span> <span class="string">&#x27;%T_&#x27;</span>;
+<span class="number">3.</span>查询奖金为空的员工姓名，奖金。
+<span class="keyword">SELECT</span> ENAME,COMM
+<span class="keyword">FROM</span> EMP
+<span class="keyword">WHERE</span> COMM <span class="keyword">IS</span> <span class="keyword">NULL</span>;</code></pre>
+
+
 </li>
 <li><p>逻辑运算符</p>
 <ul>
-<li><p>AND(与):两个条件同时满足就为TRUE;</p>
-</li>
-<li><p>OR(或):两个条件有一个满足就为TRUE;</p>
-</li>
-<li><p>NOT(非):对指定条件取相反</p>
-</li>
-<li><pre><code class="sql">练习四:
-1.查询工资超过2000并且职位是MANAGER,或者职位是SALESMAN的员工姓名、职位、工资
-SELECT ENAME,JOB,SAL
-FROM EMP
-WHERE  SAL &gt; 2000 
-AND JOB = &#39;MANAGER&#39; 
-OR JOB = &#39;SALESMAN&#39;  ;
-2.查询工资超过2000并且职位是 MANAGER或SALESMAN的员工姓名、职位、工资。
-SELECT ENAME,JOB,SAL
-FROM EMP
-WHERE (JOB = &#39;MANAGER&#39; OR JOB = &#39;SALESMAN&#39;) 
-AND SAL &gt; 2000 ;
-3.查询部门在10或者20，并且工资在3000到5000之间的员工姓名、部门、工资。
-SELECT ENAME,DEPTNO,SAL
-FROM EMP
-WHERE DEPTNO IN(10,20) 
-AND SAL BETWEEN 3000 AND 5000;
-4.查询入职日期在81年，并且职位不是SALES开头的员工姓名、入职日期、职位。
-SELECT ENAME,HIREDATE,JOB
-FROM EMP
-WHERE HIREDATE BETWEEN &#39;1-1月-1981&#39; AND &#39;31-12月-1981&#39; 
-AND JOB NOT LIKE &#39;SALES%&#39;;
-5.查询职位为SALESMAN或MANAGER，部门编号为10或者20，姓名包含A的员工姓名、职位、部门编号。
-SELECT ENAME,JOB,DEPTNO
-FROM EMP
-WHERE (JOB = &#39;MANAGER&#39; OR JOB = &#39;SALESMAN&#39;) 
-AND DEPTNO IN(10,20) 
-AND ENAME LIKE &#39;%A%&#39;;
-<pre><code class="highlight plaintext">
-  - 
-
-### 排序
-
-- 作用:用来排序
-- 语法:
-  - ORDER BY&#123;列名|表达式|别名|列号&#125;
-  - ASC:默认值，升序
-  - DESC:降序
-  - 注意:空值最大(MySQL则相反)
-  - 可多列排序，先按照前面的列排序，如果前面的列值相同，使用后面的列进行排序
-  - 特殊情况: ORDER BY子句可以出现SELECT子句中没有列出的列
-  - 子句的执行顺序:FROM WHERE SELECT ORDER
-
-### 表连接
-
-- 为什么需要表连接
-  - 需要查询的数据分布在多张表中
-- 什么是表连接
-  - 连接是在多张表之间通过一定的条件，使得表之间发生关联，进而能从多张表中获取数据
-- 连接的类型
-  - 按连接条件分:等值连接，不等值连接
-  - 按其他的连接方法分:外连接和内连接
-- 多表连接的写法：
-  - Oracle风格或旧式连接
-  - ANSI 99(标准语法)
-- 笛卡尔积:第一张表的所有行和第二张表的所有行都发生连接
-- ![image-20230527134955510](C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20230527134955510.png)
-
-~~~sql
-SELECT *
-FROM EMP,DEPT;</code></pre>
-</code></pre>
-</li>
+<li>AND(与):两个条件同时满足就为TRUE;</li>
+<li>OR(或):两个条件有一个满足就为TRUE;</li>
+<li>NOT(非):对指定条件取相反</li>
+</ul>
+<pre><code class="highlight sql">练习四:
+<span class="number">1.</span>查询工资超过<span class="number">2000</span>并且职位是MANAGER,或者职位是SALESMAN的员工姓名、职位、工资
+<span class="keyword">SELECT</span> ENAME,JOB,SAL
+<span class="keyword">FROM</span> EMP
+<span class="keyword">WHERE</span>  SAL <span class="operator">&gt;</span> <span class="number">2000</span> 
+<span class="keyword">AND</span> JOB <span class="operator">=</span> <span class="string">&#x27;MANAGER&#x27;</span> 
+<span class="keyword">OR</span> JOB <span class="operator">=</span> <span class="string">&#x27;SALESMAN&#x27;</span>  ;
+<span class="number">2.</span>查询工资超过<span class="number">2000</span>并且职位是 MANAGER或SALESMAN的员工姓名、职位、工资。
+<span class="keyword">SELECT</span> ENAME,JOB,SAL
+<span class="keyword">FROM</span> EMP
+<span class="keyword">WHERE</span> (JOB <span class="operator">=</span> <span class="string">&#x27;MANAGER&#x27;</span> <span class="keyword">OR</span> JOB <span class="operator">=</span> <span class="string">&#x27;SALESMAN&#x27;</span>) 
+<span class="keyword">AND</span> SAL <span class="operator">&gt;</span> <span class="number">2000</span> ;
+<span class="number">3.</span>查询部门在<span class="number">10</span>或者<span class="number">20</span>，并且工资在<span class="number">3000</span>到<span class="number">5000</span>之间的员工姓名、部门、工资。
+<span class="keyword">SELECT</span> ENAME,DEPTNO,SAL
+<span class="keyword">FROM</span> EMP
+<span class="keyword">WHERE</span> DEPTNO <span class="keyword">IN</span>(<span class="number">10</span>,<span class="number">20</span>) 
+<span class="keyword">AND</span> SAL <span class="keyword">BETWEEN</span> <span class="number">3000</span> <span class="keyword">AND</span> <span class="number">5000</span>;
+<span class="number">4.</span>查询入职日期在<span class="number">81</span>年，并且职位不是SALES开头的员工姓名、入职日期、职位。
+<span class="keyword">SELECT</span> ENAME,HIREDATE,JOB
+<span class="keyword">FROM</span> EMP
+<span class="keyword">WHERE</span> HIREDATE <span class="keyword">BETWEEN</span> <span class="string">&#x27;1-1月-1981&#x27;</span> <span class="keyword">AND</span> <span class="string">&#x27;31-12月-1981&#x27;</span> 
+<span class="keyword">AND</span> JOB <span class="keyword">NOT</span> <span class="keyword">LIKE</span> <span class="string">&#x27;SALES%&#x27;</span>;
+<span class="number">5.</span>查询职位为SALESMAN或MANAGER，部门编号为<span class="number">10</span>或者<span class="number">20</span>，姓名包含A的员工姓名、职位、部门编号。
+<span class="keyword">SELECT</span> ENAME,JOB,DEPTNO
+<span class="keyword">FROM</span> EMP
+<span class="keyword">WHERE</span> (JOB <span class="operator">=</span> <span class="string">&#x27;MANAGER&#x27;</span> <span class="keyword">OR</span> JOB <span class="operator">=</span> <span class="string">&#x27;SALESMAN&#x27;</span>) 
+<span class="keyword">AND</span> DEPTNO <span class="keyword">IN</span>(<span class="number">10</span>,<span class="number">20</span>) 
+<span class="keyword">AND</span> ENAME <span class="keyword">LIKE</span> <span class="string">&#x27;%A%&#x27;</span>;</code></pre></li>
+</ul>
+<h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><ul>
+<li>作用:用来排序</li>
+<li>语法:<ul>
+<li>ORDER BY{列名|表达式|别名|列号}</li>
+<li>ASC:默认值，升序</li>
+<li>DESC:降序</li>
+<li>注意:空值最大(MySQL则相反)</li>
+<li>可多列排序，先按照前面的列排序，如果前面的列值相同，使用后面的列进行排序</li>
+<li>特殊情况: ORDER BY子句可以出现SELECT子句中没有列出的列</li>
+<li>子句的执行顺序:FROM WHERE SELECT ORDER</li>
 </ul>
 </li>
+</ul>
+<h3 id="表连接"><a href="#表连接" class="headerlink" title="表连接"></a>表连接</h3><ul>
+<li>为什么需要表连接<ul>
+<li>需要查询的数据分布在多张表中</li>
+</ul>
+</li>
+<li>什么是表连接<ul>
+<li>连接是在多张表之间通过一定的条件，使得表之间发生关联，进而能从多张表中获取数据</li>
+</ul>
+</li>
+<li>连接的类型<ul>
+<li>按连接条件分:等值连接，不等值连接</li>
+<li>按其他的连接方法分:外连接和内连接</li>
+</ul>
+</li>
+<li>多表连接的写法：<ul>
+<li>Oracle风格或旧式连接</li>
+<li>ANSI 99(标准语法)</li>
+</ul>
+</li>
+<li>笛卡尔积:第一张表的所有行和第二张表的所有行都发生连接</li>
+<li><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20230527134955510.png" alt="image-20230527134955510"></li>
+</ul>
+<pre><code class="highlight sql"><span class="keyword">SELECT</span> <span class="operator">*</span>
+<span class="keyword">FROM</span> EMP,DEPT;</code></pre>
+
+<ul>
 <li><p>等值连接</p>
 <ul>
 <li>用等号连接关联的列</li>
 </ul>
 <pre><code class="highlight sql"><span class="keyword">SELECT</span> <span class="operator">*</span> 
 <span class="keyword">FROM</span> EMP,DEPT
-<span class="keyword">WHERE</span> EMP.DEPTNO <span class="operator">=</span> DEPT.DEPTNO;</code></pre>
+<span class="keyword">WHERE</span> EMP.DEPTNO <span class="operator">=</span> DEPT.DEPTNO;
 
+<span class="keyword">SELECT</span> EMP.<span class="operator">*</span>,DEPT.DNAME,DEPT.LOC 
+<span class="keyword">FROM</span> EMP,DEPT
+<span class="keyword">WHERE</span> EMP.DEPTNO <span class="operator">=</span> DEPT.DEPTNO;</code></pre>
+</li>
+<li><p>表连接注意</p>
 <ul>
-<li></li>
+<li>未明确定义的列:两张表中都存在的名称相同的列，解决方法:在列名前加上表名作为前缀</li>
+<li>通常在表连接的时候，会给表起别名，目的是书写方便，一旦起了别名，在当前查询中，不能再使用原来的表名，一律使用表别名替代</li>
 </ul>
 </li>
+<li><p>非等值连接:不使用等号对表进行连接</p>
+</li>
+</ul>
+<pre><code class="highlight SQL"><span class="keyword">SELECT</span> <span class="operator">*</span>
+<span class="keyword">FROM</span> SALGRADE S,EMP E
+<span class="keyword">WHERE</span> E.SAL <span class="keyword">BETWEEN</span> S.LOSAL <span class="keyword">AND</span> S.HISAL;</code></pre>
+
+<ul>
+<li>内连接:只有匹配的记录才会显示到最终的结果集中</li>
 </ul>
 <h1 id="复习"><a href="#复习" class="headerlink" title="复习"></a>复习</h1><ul>
 <li>Dept(部门表)<ul>
