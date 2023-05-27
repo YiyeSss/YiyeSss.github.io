@@ -174,7 +174,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="color: #00a596">学习笔记</a>
+                <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="color: #ff7d73">学习笔记</a>
             </span>
             
         </span>
@@ -276,26 +276,21 @@
 <span class="keyword">FROM</span> EMP;</code></pre>
 
 <ul>
-<li><p>选择指定列:列名之间使用逗号分隔</p>
+<li>选择指定列:列名之间使用逗号分隔</li>
+</ul>
+<pre><code class="highlight sql"><span class="keyword">SELECT</span> ENAME,HIREDATE 
+<span class="keyword">FROM</span> EMP;</code></pre>
 </li>
-<li><pre><code class="sql">SELECT ENAME,HIREDATE 
-FROM EMP;
-<pre><code class="highlight plaintext">
-- 算术运算符
-
-  - +,-,*,/,()
-
-  - **例题:**
-
-    **1.员工转正后，月薪上调20%，请查询出所有员工转正后的月薪。**
-    **2.员工试用期6个月，转正后月薪上调20%，请查询出所有员工工作第一年的年薪所得（不考虑奖金部分.年薪的试用期6个月的月薪+转正后6个月的月薪)**
-
-  - ~~~sql
-    SELECT Ename,SAL,SAL*6+SAL*1.2*6 AS 试用转正年薪,SAL*1.2 AS 转正月薪
-    FROM EMP;</code></pre>
-</code></pre>
+<li><p>算术运算符</p>
+<ul>
+<li><p>+,-,*,&#x2F;,()</p>
+</li>
+<li><p><strong>例题:</strong></p>
+<p><strong>1.员工转正后，月薪上调20%，请查询出所有员工转正后的月薪。</strong><br><strong>2.员工试用期6个月，转正后月薪上调20%，请查询出所有员工工作第一年的年薪所得（不考虑奖金部分.年薪的试用期6个月的月薪+转正后6个月的月薪)</strong></p>
 </li>
 </ul>
+<pre><code class="highlight sql"><span class="keyword">SELECT</span> Ename,SAL,SAL<span class="operator">*</span><span class="number">6</span><span class="operator">+</span>SAL<span class="operator">*</span><span class="number">1.2</span><span class="operator">*</span><span class="number">6</span> <span class="keyword">AS</span> 试用转正年薪,SAL<span class="operator">*</span><span class="number">1.2</span> <span class="keyword">AS</span> 转正月薪
+<span class="keyword">FROM</span> EMP;</code></pre>
 </li>
 <li><p>空值</p>
 <ul>
@@ -327,79 +322,62 @@ FROM EMP;
 </li>
 <li><p>连接操作符</p>
 <ul>
-<li><p>用于连接列与列、列与字符</p>
-</li>
-<li><p>形式上为||</p>
-</li>
-<li><pre><code class="sql">SELECT ENAME,JOB,ENAME||&#39;的岗位是&#39;||JOB
-FROM EMP;
-<pre><code class="highlight plaintext">
-- 原义字符串
-
-  - 包含在select列表中的一个字符串，一个数字或一个日期
-
-  - 日期和字符串字面量必须使用单引号括起来`&#x27;&#x27;`(字面量:直接写到原程序中的固定值)
-
-  - 每个原义字符串会在每一行都出现
-
-  - ~~~sql
-    SELECT ENAME,JOB,ENAME||&#x27;的岗位是&#x27;||JOB,&#x27;浑南&#x27; 公司地址,2000 年终奖金，&#x27;20-5月-2023&#x27; 日期
-    FROM EMP;</code></pre>
-</code></pre>
-</li>
+<li>用于连接列与列、列与字符</li>
+<li>形式上为||</li>
 </ul>
+<pre><code class="highlight sql"><span class="keyword">SELECT</span> ENAME,JOB,ENAME<span class="operator">||</span><span class="string">&#x27;的岗位是&#x27;</span><span class="operator">||</span>JOB
+<span class="keyword">FROM</span> EMP;</code></pre>
+</li>
+<li><p>原义字符串</p>
+<ul>
+<li>包含在select列表中的一个字符串，一个数字或一个日期</li>
+<li>日期和字符串字面量必须使用单引号括起来<code>&#39;&#39;</code>(字面量:直接写到原程序中的固定值)</li>
+<li>每个原义字符串会在每一行都出现</li>
+</ul>
+<pre><code class="highlight sql"><span class="keyword">SELECT</span> ENAME,JOB,ENAME<span class="operator">||</span><span class="string">&#x27;的岗位是&#x27;</span><span class="operator">||</span>JOB,<span class="string">&#x27;浑南&#x27;</span> 公司地址,<span class="number">2000</span> 年终奖金，<span class="string">&#x27;20-5月-2023&#x27;</span> 日期
+<span class="keyword">FROM</span> EMP;</code></pre>
 </li>
 <li><p>消除重复行:DISTINCT</p>
-<ul>
-<li><pre><code class="sql">SELECT DISTINCT JOB
-FROM EMP;
-<pre><code class="highlight plaintext">
-- 练习四
+<pre><code class="highlight sql"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> JOB
+<span class="keyword">FROM</span> EMP;</code></pre>
+</li>
+<li><p>练习四</p>
+<pre><code class="highlight sql"><span class="number">1.</span>员工试用期<span class="number">6</span>个月，转正后月薪上调<span class="number">20</span><span class="operator">%</span>，请查询出所有员工工作第一年的所有收入（需考虑奖金部分)，
+要求显示格式为:XXX的第一年总收入为XXX。
+<span class="keyword">SELECT</span> ENAME<span class="operator">||</span><span class="string">&#x27;第一年总收入为&#x27;</span><span class="operator">||</span>((SAL<span class="operator">+</span>NVL(COMM,<span class="number">0</span>))<span class="operator">*</span><span class="number">6</span><span class="operator">+</span>(SAL<span class="operator">*</span><span class="number">1.2</span><span class="operator">+</span>NVL(COMM,<span class="number">0</span>))<span class="operator">*</span><span class="number">6</span>)
+<span class="keyword">FROM</span> EMP;
 
-  - ~~~sql
-    1.员工试用期6个月，转正后月薪上调20%，请查询出所有员工工作第一年的所有收入（需考虑奖金部分)，
-    要求显示格式为:XXX的第一年总收入为XXX。
-    SELECT ENAME||&#x27;第一年总收入为&#x27;||((SAL+NVL(COMM,0))*6+(SAL*1.2+NVL(COMM,0))*6)
-    FROM EMP;
-    
-    2.查询员工表中一共有哪几种岗位类型。
-    SELECT DISTINCT JOB 岗位类型
-    FROM EMP;</code></pre>
-</code></pre>
-</li>
-</ul>
-</li>
+<span class="number">2.</span>查询员工表中一共有哪几种岗位类型。
+<span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> JOB 岗位类型
+<span class="keyword">FROM</span> EMP;</code></pre></li>
 </ul>
 <h4 id="WHERE子句的使用"><a href="#WHERE子句的使用" class="headerlink" title="WHERE子句的使用"></a>WHERE子句的使用</h4><h5 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h5><ul>
 <li>使用WHERE子句限制返回的记录</li>
 <li>写在FROM子句后面</li>
 </ul>
-<h5 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h5><ul>
-<li><pre><code class="sql">SELECT 列名列表
-FROM 表名
-WHERE 条件
-<pre><code class="highlight plaintext">
-##### 比较运算符
+<h5 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h5><pre><code class="highlight sql"><span class="keyword">SELECT</span> 列名列表
+<span class="keyword">FROM</span> 表名
+<span class="keyword">WHERE</span> 条件</code></pre>
 
-- =、&gt;、&gt;=、&lt;、&lt;=、&lt;&gt;（不等于）
+<h5 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h5><ul>
+<li><p>&#x3D;、&gt;、&gt;&#x3D;、&lt;、&lt;&#x3D;、&lt;&gt;（不等于）</p>
+</li>
+<li><p>比较规则</p>
+<ul>
+<li><p>字符串或日期类型要加上单引号</p>
+<pre><code class="highlight sql"><span class="keyword">SELECT</span> <span class="operator">*</span> 
+<span class="keyword">FROM</span> EMP
+<span class="keyword">WHERE</span> ENAME <span class="operator">=</span> <span class="string">&#x27;SMITH&#x27;</span>;
 
-- 比较规则
-
-  - 字符串或日期类型要加上单引号
-
-    ~~~sql
-    SELECT * 
-    FROM EMP
-    WHERE ENAME = &#x27;SMITH&#x27;;
-    
-    SELECT * 
-    FROM EMP
-    WHERE HIREDATE &gt; &#x27;20-2月-1981&#x27;;</code></pre>
-
-- 字符串内容区分大小写
-
-- 练习一:
-
+<span class="keyword">SELECT</span> <span class="operator">*</span> 
+<span class="keyword">FROM</span> EMP
+<span class="keyword">WHERE</span> HIREDATE <span class="operator">&gt;</span> <span class="string">&#x27;20-2月-1981&#x27;</span>;</code></pre>
+</li>
+<li><p>字符串内容区分大小写</p>
+</li>
+<li><p>练习一:</p>
+</li>
+</ul>
 <pre><code class="highlight sql"><span class="number">1.</span>查询职位为SALESMAN的员工编号、职位、入职日期。
 <span class="keyword">SELECT</span> EMPNO,JOB,HIREDATE
 <span class="keyword">FROM</span> EMP
@@ -412,7 +390,6 @@ WHERE 条件
 <span class="keyword">SELECT</span> ENAME,DEPTNO
 <span class="keyword">FROM</span> EMP
 <span class="keyword">WHERE</span> DEPTNO <span class="operator">&lt;&gt;</span> <span class="number">10</span>;</code></pre>
-</code></pre>
 </li>
 <li><p>特殊比较运算符</p>
 <ul>
@@ -582,6 +559,23 @@ WHERE 条件
 <ul>
 <li>内连接:只有匹配的记录才会显示到最终的结果集中</li>
 </ul>
+<pre><code class="highlight sql"><span class="keyword">SELECT</span> <span class="operator">*</span> 
+<span class="keyword">FROM</span> EMP,DEPT
+<span class="keyword">WHERE</span> EMP.DEPTNO <span class="operator">=</span> DEPT.DEPTNO;</code></pre>
+
+<ul>
+<li>外连接:两个表连接没有匹配的记录也会显示出来，+号写在where条件中需要添加空白行的一段<ul>
+<li>主表:该表中的所有数据至少出现一次</li>
+<li>从表:只有匹配上的记录才显示(+号写在从表一端)</li>
+</ul>
+</li>
+</ul>
+<pre><code class="highlight sql"><span class="keyword">SELECT</span> ENAME,EMPNO,D.DEPTNO,D.DNAME,D.LOC 
+<span class="keyword">FROM</span> EMP E,DEPT D
+<span class="keyword">WHERE</span> E.DEPTNO(<span class="operator">+</span>) <span class="operator">=</span> D.DEPTNO;</code></pre>
+
+
+
 <h1 id="复习"><a href="#复习" class="headerlink" title="复习"></a>复习</h1><ul>
 <li>Dept(部门表)<ul>
 <li>deptno</li>
