@@ -34,6 +34,8 @@
 
 
 
+<script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+
 
 
 <link rel="stylesheet" href="/css/main.css" />
@@ -174,7 +176,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="color: #03a9f4">学习笔记</a>
+                <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="color: #00bcd4">学习笔记</a>
             </span>
             
         </span>
@@ -1216,6 +1218,10 @@ ON 连接条件;<span aria-hidden="true" class="line-numbers-rows"><span></span>
     
     
     
+    <div id="comment">
+        <div id="twikoo-container"></div>
+    </div>
+    
     
 </div>
 
@@ -1252,6 +1258,16 @@ ON 连接条件;<span aria-hidden="true" class="line-numbers-rows"><span></span>
         
 
 
+
+<script>
+    twikoo.init({
+        el: "#twikoo-container",
+        envId: "",
+        region: "",
+        path: location.pathname,
+        lang: "zh-CN",
+    })
+</script>
 
 
         
