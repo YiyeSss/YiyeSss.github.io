@@ -3,7 +3,7 @@
 <html lang="zh-CN">
     <head>
         <meta charset="utf-8" />
-        <title>Categories: 数据库 | 依夜の妙妙屋</title>
+        <title>若依管理系统学习使用经验(佛系更新中) | 依夜の妙妙屋</title>
         <meta name="author" content="依夜" />
         <meta name="description" content="" />
         <meta name="keywords" content="" />
@@ -29,6 +29,12 @@
 <script src="/js/lib/preview.js"></script>
 
 
+
+
+
+
+
+<script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
 
 
 
@@ -141,37 +147,20 @@
 
             <transition name="into">
                 <div id="main" v-show="!loading">
-                    <div id="archives">
-    
-    <div class="categories-tags">
-        
-        
-        <span>
-            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="background: linear-gradient(120deg, #9abbf7 0%, #ffbbf4 100%)">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                数据库
-            </a>
+                    <div class="article">
+    <div>
+        <h1>若依管理系统学习使用经验(佛系更新中)</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/6/3
         </span>
         
-        
-        
-        
-        
-        <span>
-            <a href="/categories/%E6%97%A5%E5%B8%B8/" style="background: #00a596">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                日常
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%BB%8F%E9%AA%8C/" style="background: #03a9f4">
+        <span class="category">
+            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%BB%8F%E9%AA%8C/">
                 <span class="icon">
                     <i class="fa-solid fa-bookmark fa-fw"></i>
                 </span>
@@ -180,77 +169,74 @@
         </span>
         
         
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="color: #ff7d73">学习笔记</a>
+            </span>
+            
+        </span>
+        
     </div>
     
-    <div class="timeline">
-        <div class="timeline-tail"></div>
-        <div class="timeline-content">
-            <div class="item-time">2023/5/27</div>
-            <a href="/2023/05/27/Oracle/">
-                <h3>Oracle(目前更新到分组函数)</h3>
-            </a>
-            <div class="info">
-                
-                <span class="category">
-                    <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <span class="icon">
-                            <i class="fa-solid fa-bookmark fa-fw"></i>
-                        </span>
-                        数据库
-                    </a>
-                </span>
-                
-                
-                <span class="tags">
-                    <span class="icon">
-                        <i class="fa-solid fa-tags fa-fw"></i>
-                    </span>
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="color: #00bcd4">学习笔记</a>
-                    </span>
-                    
-                </span>
-                
-            </div>
-        </div>
+    <div class="content" v-pre>
+        <p><img src="/../images/fbg5.jpg"></p>
+<h1 id="话说在前"><a href="#话说在前" class="headerlink" title="话说在前"></a>话说在前</h1><blockquote>
+<p>本文章仅用来共享我个人使用时遇见的问题以及自己在使用中学会的一些使用方式</p>
+</blockquote>
+<h1 id="什么是若依"><a href="#什么是若依" class="headerlink" title="什么是若依:"></a>什么是若依:</h1><p>若依是一套全部开源的快速开发平台(可以参考人人开源)，便于实现各种管理系统的快速开发</p>
+<h1 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h1><blockquote>
+<p>MySQL &gt;&#x3D; 5.7</p>
+<p>JDK &gt;&#x3D; 1.8</p>
+<p>Maven &gt;&#x3D; 3.0</p>
+<p>Redis(我个人使用的是5.0.14.1)</p>
+<p>NodeJS</p>
+<p>运行软件:IDEA(当然eclipse也是可以的)</p>
+</blockquote>
+<p>若依官网:ruoyi.vip</p>
+<p>若依Gitee源码仓库:<a target="_blank" rel="noopener" href="https://gitee.com/y_project/RuoYi-Vue">RuoYi-Vue: 🎉 基于SpringBoot，Spring Security，JWT，Vue &amp; Element 的前后端分离权限管理系统，同时提供了 Vue3 的版本 (gitee.com)</a></p>
+<h1 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h1><p>将从gitee上下载好的若依项目使用IDEA或eclipse打开，等待maven根据pom文件下载框架依赖以及jar包</p>
+<h2 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库:"></a>连接数据库:</h2><p>建立一个名为ry的数据库(当然,起别的名字也可以,但要注意在配置文件内改变默认的数据库名称),在数据库内运行文件内自带的两个sql文件</p>
+<h3 id="修改数据库连接"><a href="#修改数据库连接" class="headerlink" title="修改数据库连接:"></a>修改数据库连接:</h3><p>编辑<code>resources</code>目录下的<code>application-druid.yml</code></p>
+<p><code>url</code>为数据库地址,<code>username</code>为数据库账号,<code>password</code>为数据库密码</p>
+<h3 id="修改服务器配置"><a href="#修改服务器配置" class="headerlink" title="修改服务器配置"></a>修改服务器配置</h3><p>编辑<code>resources</code>目录下的<code>application.yml</code></p>
+<p><code>port</code>为端口号</p>
+<h3 id="在运行软件内开始运行"><a href="#在运行软件内开始运行" class="headerlink" title="在运行软件内开始运行"></a>在运行软件内开始运行</h3><p>显示:</p>
+<pre><code class="java">(♥◠‿◠)ﾉﾞ  若依启动成功   ლ(´ڡ`ლ)ﾞ  
+ .-------.       ____     __        
+ |  _ _   \      \   \   /  /    
+ | ( &#39; )  |       \  _. /  &#39;       
+ |(_ o _) /        _( )_ .&#39;         
+ | (_,_).&#39; __  ___(_ o _)&#39;          
+ |  |\ \  |  ||   |(_,_)&#39;         
+ |  | \ `&#39;   /|   `-&#39;  /           
+ |  |  \    /  \      /           
+ &#39;&#39;-&#39;   `&#39;-&#39;    `-..-&#39;    
+</code></pre>
+<p>即为运行成功</p>
+<h4 id="无法启动的一些常见原因"><a href="#无法启动的一些常见原因" class="headerlink" title="无法启动的一些常见原因:"></a>无法启动的一些常见原因:</h4><p>1.Redis未启动或Redis本身设有密码(启动redis或者把密码配置好就行)</p>
+<p>2.数据库未连接</p>
+<h2 id="前端运行"><a href="#前端运行" class="headerlink" title="前端运行"></a>前端运行</h2><p>找到<code>ruoyi-ui</code>文件夹,在<code>ruoyi-ui</code>内打开控制台,输入<code>npm install</code>下载依赖,再输入<code>npm run dev</code>运行前端VUE项目(PS:端口号在<code>vue-config.js</code>文件内修改)</p>
+<p>运行成功后在浏览器内输入<code>localhost:80</code>(默认端口),即可进入登录页面</p>
+<h3 id="关于验证码的问题；"><a href="#关于验证码的问题；" class="headerlink" title="关于验证码的问题；"></a>关于验证码的问题；</h3><p>如果登录界面没有验证码图片内容，说明后端端口没连接上或后端没运行,将后端代码运行或连接端口就可以解决(所以说没事别乱改默认端口,后面有苦给你吃哦)</p>
+<hr>
+<p>更新内容至此，下次更新随缘</p>
+
     </div>
     
-    <div class="timeline">
-        <div class="timeline-tail"></div>
-        <div class="timeline-content">
-            <div class="item-time">2023/5/24</div>
-            <a href="/2023/05/24/MySQL/">
-                <h3>MySQL(目前更新到DQL查询语言)</h3>
-            </a>
-            <div class="info">
-                
-                <span class="category">
-                    <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <span class="icon">
-                            <i class="fa-solid fa-bookmark fa-fw"></i>
-                        </span>
-                        数据库
-                    </a>
-                </span>
-                
-                
-                <span class="tags">
-                    <span class="icon">
-                        <i class="fa-solid fa-tags fa-fw"></i>
-                    </span>
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="color: #ff7d73">学习笔记</a>
-                    </span>
-                    
-                </span>
-                
-            </div>
-        </div>
+    
+    
+    
+    
+    
+    <div id="comment">
+        <div id="twikoo-container"></div>
     </div>
+    
     
 </div>
 
@@ -283,6 +269,22 @@
             
         </div>
         <script src="/js/main.js"></script>
+        
+        
+
+
+
+<script>
+    twikoo.init({
+        el: "#twikoo-container",
+        envId: "",
+        region: "",
+        path: location.pathname,
+        lang: "zh-CN",
+    })
+</script>
+
+
         
     </body>
 </html>
