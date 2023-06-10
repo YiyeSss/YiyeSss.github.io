@@ -156,7 +156,7 @@
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2023/6/3
+            2023/6/10
         </span>
         
         <span class="category">
@@ -176,7 +176,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="color: #00bcd4">学习笔记</a>
+                <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="color: #ff7d73">学习笔记</a>
             </span>
             
         </span>
@@ -631,17 +631,17 @@ WHERE E.DEPTNO = D.DEPTNO AND E.SAL BETWEEN S.LOSAL AND S.HISAL;
 </li>
 </ul>
 <h3 id="分组函数"><a href="#分组函数" class="headerlink" title="分组函数"></a>分组函数</h3><ul>
-<li><p>MAX函数:取最大值</p>
+<li><p><code>MAX函数</code>:取最大值</p>
 </li>
-<li><p>MIN函数:取最小值</p>
+<li><p><code>MIN函数</code>:取最小值</p>
 </li>
-<li><p>SUM函数:求和</p>
+<li><p><code>SUM函数</code>:求和</p>
 </li>
-<li><p>AVG函数:求平均数</p>
+<li><p><code>AVG函数</code>:求平均数</p>
 </li>
-<li><p>COUNT函数:查询总的记录数(空值不算)</p>
+<li><p><code>COUNT函数</code>:查询总的记录数(空值不算):<code>COUNT(*)</code>指行数</p>
 </li>
-<li><p>DISTINCT函数:去重</p>
+<li><p><code>DISTINCT函数</code>:去重</p>
 </li>
 <li><p>GROUP BY子句</p>
 <pre><code class="sql">SELECT 列名
@@ -650,11 +650,12 @@ WHERE 条件
 GROUP BY 分组列
 ORDER BY 列名;
 -- 多值的列和分组函数不能混用
--- GROUP BY A,B 先按A分组，在分组内再按B分组
+-- GROUP BY A,B 没有先后之分，按AB相同分组
 -- 分组的条件不能写在WHERE后面
 -- 执行顺序:FROM WHERE GROUP SELECT ORDER
 -- 分组函数AVG是在GROUP期间完成的一个语句，WHERE执行分组函数时还未计算出结果
 -- 解决方法如下的HAVING语句
+-- 一旦分组，SELECT后只能写分组条件和分组函数(但MySQL与之不同)
 </code></pre>
 </li>
 <li><p>HAVING子句:负责分组条件的筛选</p>
@@ -681,6 +682,97 @@ SELECT ...
 HAVING ...
 ORDER BY ...
 </code></pre>
+</li>
+</ul>
+<h3 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h3><ul>
+<li><p>括号中的查询称为子查询</p>
+</li>
+<li><p>使用注意:</p>
+<ul>
+<li>子查询用括号括起来</li>
+<li>放在比较运算符的右边</li>
+<li>大多数情况下，子查询不需要排序</li>
+</ul>
+</li>
+<li><p>子查询分类:</p>
+<ul>
+<li>单行子查询:子查询中返回单行单列，使用的比较运算符:<code>&gt;=</code>、<code>&lt;=</code>、<code>&gt;</code>、<code>&lt;</code>、<code>&lt;&gt;</code>、<code>=</code></li>
+</ul>
+<pre><code class="SQL">-- 查询比该部门平均薪水低的员工信息
+SELECT *
+FROM EMP E JOIN
+(SELECT DEPTNO,AVG(SAL) AVGSAL
+    FROM EMP
+    GROUP BY DEPTNO
+) A ON E.DEPTNO = A.DEPTNO
+  WHERE E.SAL &lt; A.AVGSAL;
+</code></pre>
+<ul>
+<li>多行子查询:子查询中返回多行单列，使用的比较运算符:<code>IN</code>、<code>ANY</code>、<code>ALL</code></li>
+<li><code>IN</code>:和以前介绍的功能一致，判断是否与子查询的任意一个返回值相同。</li>
+</ul>
+<pre><code class="SQL">-- 查询是经理的员工姓名，工资。
+SELECT ENAME,SAL
+FROM EMP
+WHERE EMPNO IN(
+SELECT MGR
+FROM EMP
+);
+</code></pre>
+<ul>
+<li><code>ANY</code>:表示和子查询的任意一行结果进行比较，有一个满足条件即可。</li>
+</ul>
+<pre><code class="SQL">-- 查询是经理的员工姓名，工资。(ANY)
+SELECT ENAME,SAL
+FROM EMP
+WHERE EMPNO = ANY(
+SELECT MGR
+FROM EMP
+);
+-- 查询部门编号不为10，且工资比10部门任意一名工资高的员工编号，姓名，职位，工资。
+SELECT EMPNO,ENAME,JOB,SAL
+FROM EMP
+WHERE DEPTNO &lt;&gt; 10 
+AND SAL &gt; ANY(
+    SELECT SAL
+    FROM EMP
+    WHERE DEPTNO = 10
+);
+</code></pre>
+<ul>
+<li><code>ALL</code>:表示和子查询的所有行结果进行比较，每一行必须都满足条件。</li>
+</ul>
+<pre><code class="SQL">-- 查询部门编号不为10，且工资比10部门所有员工工资高的员工编号，姓名，职位，工资。
+SELECT EMPNO,ENAME,JOB,SAL
+FROM EMP
+WHERE DEPTNO &lt;&gt; 10 
+AND SAL &gt; ALL(
+    SELECT SAL
+    FROM EMP
+    WHERE DEPTNO = 10
+);
+</code></pre>
+<ul>
+<li>多列子查询:子查询中返回多行多列</li>
+</ul>
+<pre><code class="SQL">-- 查询各个部门收入最低的人的姓名
+SELECT ENAME
+FROM EMP
+WHERE (SAL,DEPTNO) IN (SELECT MIN(SAL),DEPTNO FROM EMP GROUP BY DEPTNO);
+-- 1.查询职位及经理和10部门任意一个员工职位及经理相同的员工姓名，职位，不包括10部门员工
+SELECT ENAME,JOB
+FROM EMP
+WHERE(JOB,MGR) IN (SELECT JOB,MGR FROM EMP WHERE DEPTNO = 10)
+AND DEPTNO &lt;&gt; 10;
+-- 2.查询职位及经理和10部门任意一个员工职位或经理相同的员工姓名，职位，不包括10部门员工
+SELECT ENAME,JOB
+FROM EMP
+WHERE (JOB IN (SELECT JOB FROM EMP WHERE DEPTNO = 10)
+OR MGR IN (SELECT MGR FROM EMP WHERE DEPTNO = 10))
+AND DEPTNO &lt;&gt; 10;
+</code></pre>
+</li>
+<li><p>注意:如果子查询中有空值，就不能使用<code>NOT IN</code>运算符</p>
 </li>
 </ul>
 <h1 id="复习"><a href="#复习" class="headerlink" title="复习"></a>复习</h1><ul>
