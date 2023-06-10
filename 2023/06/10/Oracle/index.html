@@ -176,7 +176,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="color: #ff7d73">学习笔记</a>
+                <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="color: #03a9f4">学习笔记</a>
             </span>
             
         </span>
@@ -685,7 +685,7 @@ ORDER BY ...
 </li>
 </ul>
 <h3 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h3><ul>
-<li><p>括号中的查询称为子查询</p>
+<li><p>括号中的查询称为子查询，外面的查询为父查询，子查询可以独立执行，先执行子查询得到确定的结果，父查询基于这些结果再执行</p>
 </li>
 <li><p>使用注意:</p>
 <ul>
@@ -775,55 +775,47 @@ AND DEPTNO &lt;&gt; 10;
 <li><p>注意:如果子查询中有空值，就不能使用<code>NOT IN</code>运算符</p>
 </li>
 </ul>
-<h1 id="复习"><a href="#复习" class="headerlink" title="复习"></a>复习</h1><ul>
-<li>Dept(部门表)<ul>
-<li>deptno</li>
-<li>dname</li>
-<li>loc</li>
+<h3 id="ROWNUM"><a href="#ROWNUM" class="headerlink" title="ROWNUM"></a>ROWNUM</h3><ul>
+<li><code>ROWNUM</code>是一个伪列，伪列是使用上类似于表中的列而实际没有存储在表中的特殊对象</li>
+<li><code>ROWNUM</code>的功能是在每次查询时返回结果集的<code>顺序数</code>，这个顺序数是在记录输出时才一步一步产生的，第一行显示1，第二行显示2，以此类推</li>
+<li><code>ROWNUM</code>只能进行小于和小于等于的运算，不能执行大于或大于等于运算</li>
 </ul>
-</li>
-<li>Emp(员工表)<ul>
-<li>Empno</li>
-<li>Ename</li>
-<li>job</li>
-<li>mgr</li>
-<li>hiredate</li>
-<li>sal</li>
-<li>comm</li>
-<li>deptno</li>
+<h3 id="TOP-N"><a href="#TOP-N" class="headerlink" title="TOP-N"></a>TOP-N</h3><ul>
+<li>是实现表中按照某个列排序输出最大或最小的N条记录</li>
 </ul>
-</li>
-<li>SalGrade(薪水等级表)<ul>
-<li>Grade</li>
-<li>losal</li>
-<li>hisal</li>
+<pre><code class="SQL">SELECT ROWNUM,A.ENAME
+FROM
+(SELECT ENAME
+FROM EMP ORDER BY SAL DESC) A
+WHERE ROWNUM &lt; 3;
+</code></pre>
+<h3 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h3><ul>
+<li>pagesize 每页的记录数</li>
+<li>pagenum 目标页数</li>
 </ul>
-</li>
-<li>书写<ul>
-<li>不区分大小写</li>
-<li>一行或多行书写，推荐多行书写</li>
-</ul>
-</li>
-<li>列别名<ul>
-<li>阅读方便</li>
-<li>方式<ul>
-<li>列名 列别名</li>
-<li>列名 AS 列别名</li>
-</ul>
-</li>
-<li>列别名可以使用双引号括起来</li>
-</ul>
-</li>
-<li>NVL(列名,列为空时替代的值)</li>
-<li>order by<ul>
-<li>排序</li>
-<li>order by</li>
-<li>空值最大</li>
-<li>多列排序，后面的列在前面的列全相同的情况下起作用</li>
-<li>排序作用在select后</li>
-</ul>
-</li>
-</ul>
+<pre><code class="SQL">-- 1.按照每页显示5条记录，分别查询工资最高的第1页，第2页，第3页信息，要求显示员工姓名、入职日期、部门名称、工资。
+ SELECT B.ENAME 姓名, B.HIREDATE 入职日期, DNAME 部门名称, B.SAL 工资
+  FROM (SELECT A.*, ROWNUM NM
+          FROM (SELECT * FROM EMP ORDER BY SAL DESC) A
+         WHERE ROWNUM &lt;= 5) B
+  JOIN DEPT D
+    ON B.DEPTNO = D.DEPTNO
+ WHERE NM &gt;= 1;
+ SELECT B.ENAME 姓名, B.HIREDATE 入职日期, DNAME 部门名称, B.SAL 工资
+  FROM (SELECT A.*, ROWNUM NM
+          FROM (SELECT * FROM EMP ORDER BY SAL DESC) A
+         WHERE ROWNUM &lt;= 10) B
+  JOIN DEPT D
+    ON B.DEPTNO = D.DEPTNO
+ WHERE NM &gt;= 6;
+SELECT B.ENAME 姓名, B.HIREDATE 入职日期, DNAME 部门名称, B.SAL 工资
+  FROM (SELECT A.*, ROWNUM NM
+          FROM (SELECT * FROM EMP ORDER BY SAL DESC) A
+         WHERE ROWNUM &lt;= 15) B
+  JOIN DEPT D
+    ON B.DEPTNO = D.DEPTNO
+ WHERE NM &gt;= 11;
+</code></pre>
 
     </div>
     
