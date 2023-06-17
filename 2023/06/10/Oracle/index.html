@@ -3,7 +3,7 @@
 <html lang="zh-CN">
     <head>
         <meta charset="utf-8" />
-        <title>Oracle(目前更新到分组函数) | 依夜の妙妙屋</title>
+        <title>Oracle(目前更新到相关子查询) | 依夜の妙妙屋</title>
         <meta name="author" content="依夜" />
         <meta name="description" content="" />
         <meta name="keywords" content="" />
@@ -149,7 +149,7 @@
                 <div id="main" v-show="!loading">
                     <div class="article">
     <div>
-        <h1>Oracle(目前更新到分组函数)</h1>
+        <h1>Oracle(目前更新到相关子查询)</h1>
     </div>
     <div class="info">
         <span class="date">
@@ -176,7 +176,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="color: #03a9f4">学习笔记</a>
+                <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="color: #00bcd4">学习笔记</a>
             </span>
             
         </span>
@@ -790,8 +790,8 @@ FROM EMP ORDER BY SAL DESC) A
 WHERE ROWNUM &lt; 3;
 </code></pre>
 <h3 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h3><ul>
-<li>pagesize 每页的记录数</li>
-<li>pagenum 目标页数</li>
+<li>pagesize 每页的记录数(每页最多有多少行)</li>
+<li>pagenum 目标页数(第几页)</li>
 </ul>
 <pre><code class="SQL">-- 1.按照每页显示5条记录，分别查询工资最高的第1页，第2页，第3页信息，要求显示员工姓名、入职日期、部门名称、工资。
  SELECT B.ENAME 姓名, B.HIREDATE 入职日期, DNAME 部门名称, B.SAL 工资
@@ -816,6 +816,42 @@ SELECT B.ENAME 姓名, B.HIREDATE 入职日期, DNAME 部门名称, B.SAL 工资
     ON B.DEPTNO = D.DEPTNO
  WHERE NM &gt;= 11;
 </code></pre>
+<h3 id="相关子查询"><a href="#相关子查询" class="headerlink" title="相关子查询"></a>相关子查询</h3><ul>
+<li>当子查询中引用的父查询表中的一个列时,Oracle服务器执行相关子查询</li>
+<li>执行过程:<ul>
+<li>取得父查询的候选行</li>
+<li>用候选行被子查询引用列的值执行子查询</li>
+<li>用来自子查询的值确认或取消候选行</li>
+<li>重复上面三步直到父查询中没有剩余的候选行为止</li>
+</ul>
+</li>
+<li>相关子查询不可以独立执行</li>
+</ul>
+<pre><code class="SQL">-- 查询工资高于部门平均薪水的员工信息
+SELECT *
+FROM EMP E
+WHERE SAL &gt; (SELECT AVG(SAL) FROM EMP WHERE DEPTNO = E.DEPTNO);
+</code></pre>
+<ul>
+<li><p>EXISTS:判断是否存在,操作过程:</p>
+<ul>
+<li>子查询如果有记录找到，子查询语句不会继续执行，返回值为true</li>
+<li>子查询中如果到表的末尾也没找到，返回false</li>
+</ul>
+<pre><code class="SQL">-- 查询是经理的员工姓名
+SELECT ENAME
+FROM EMP E
+WHERE EXISTS(SELECT (&#39;1&#39;) FROM EMP WHERE E.EMPNO = MGR );
+</code></pre>
+</li>
+<li><p>NOT EXISTS:与上面相反，判断子查询是否没有返回值，如果没有返回值，表达式为true，如果找到一条返回值，则为false</p>
+<pre><code class="SQL">-- 查询不是经理的员工姓名
+SELECT ENAME
+FROM EMP E
+WHERE NOT EXISTS(SELECT (&#39;1&#39;) FROM EMP WHERE E.EMPNO = MGR );
+</code></pre>
+</li>
+</ul>
 
     </div>
     
