@@ -176,7 +176,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="color: #03a9f4">学习笔记</a>
+                <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="color: #ff7d73">学习笔记</a>
             </span>
             
         </span>
@@ -241,11 +241,11 @@
 <li>E-R(entity-relationship，实体-联系)模型中有三个主要概念是:实体集，属性，联系集</li>
 <li>一个实体集(class)对应于数据库中的一个表(table)，一个实体(instance)则对应于数据库表中的一行(row)，也称为一条记录(record)。一个属性(attribute)对应于数据库表中的一列(column)，也称为一个字段(field)<img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20230412224030506.png" alt="image-20230412224030506"></li>
 </ul>
-<pre class="line-numbers language-none"><code class="language-none">OBM思想体现:
+<pre><code>OBM思想体现:
 数据库中的一个表&lt;---&gt;Java或Python中的一个类
 表中的一条数据&lt;---&gt;类中的一个对象(或实体)
-表中的一个列&lt;---&gt;类中的一个字段、属性<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
+表中的一个列&lt;---&gt;类中的一个字段、属性
+</code></pre>
 <ul>
 <li>表与表之间的关系:一对一，一对多，多对多，自我引用</li>
 </ul>
@@ -257,13 +257,13 @@
 <p><a style="color:red"><strong>方式3:通过安装包提供的卸载功能卸载</strong></a></p>
 <h4 id="步骤3-清理注册表-选做"><a href="#步骤3-清理注册表-选做" class="headerlink" title="步骤3:清理注册表(选做)"></a>步骤3:清理注册表(选做)</h4><p>如果前几步做了，安装还是失败那么可以清理注册表</p>
 <p>在系统搜索框中运行<em><strong>regedit</strong></em></p>
-<pre class="line-numbers language-none"><code class="language-none">HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\Eventlog\Application\MySQL服务目录删除
+<pre><code>HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\Eventlog\Application\MySQL服务目录删除
 HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\MySQL服务目录删除
 HKEY_LOCAL_MACHINE\SYSTEM\ControlSete02\Services\Eventlog\Application\MySQL服务目录删除
 HKEY_LOCAL_MACHINE\SYSTEM\ControlSet002\Services\MySQL服务目录删除
 HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSetlServices\EventlogApplication\MySQL服务目录删除
-HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MySQL服务删除<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MySQL服务删除
+</code></pre>
 <p style="color:red">注册表中的ControlSet001,ControlSet002,不一定是001和002,可能是005、006之类</p>
 
 <h4 id="步骤4-删除环境变量，重启电脑"><a href="#步骤4-删除环境变量，重启电脑" class="headerlink" title="步骤4:删除环境变量，重启电脑"></a>步骤4:删除环境变量，重启电脑</h4><hr>
@@ -272,14 +272,14 @@ HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MySQL服务删除<span aria
 <p><strong>2.打开官网，点击DOWNLOADS</strong></p>
 <p>然后点击MySQL Community(GPL) Downloads</p>
 <hr>
-<h3 id="MySQL的启动与停止"><a href="#MySQL的启动与停止" class="headerlink" title="MySQL的启动与停止"></a>MySQL的启动与停止</h3><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">##停止MySQL
+<h3 id="MySQL的启动与停止"><a href="#MySQL的启动与停止" class="headerlink" title="MySQL的启动与停止"></a>MySQL的启动与停止</h3><pre><code class="mysql">##停止MySQL
 net stop MySQL服务名
 ##启动MySQL
-net start MySQL服务名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="MySQL的登录与退出"><a href="#MySQL的登录与退出" class="headerlink" title="MySQL的登录与退出"></a>MySQL的登录与退出</h3><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">服务器登录:mysql -h localhost -p 3306 -u roop -p
-本机简写:mysql -u root -p密码<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
+net start MySQL服务名
+</code></pre>
+<h3 id="MySQL的登录与退出"><a href="#MySQL的登录与退出" class="headerlink" title="MySQL的登录与退出"></a>MySQL的登录与退出</h3><pre><code class="mysql">服务器登录:mysql -h localhost -p 3306 -u roop -p
+本机简写:mysql -u root -p密码
+</code></pre>
 <ul>
 <li>最前面的mysql你可以理解成一个关键字或者理解成一个固定的命令，是固定写法，类似于java、jdk中的javac命令或java命令</li>
 <li>-h表示host,即主机的ip地址</li>
@@ -301,16 +301,16 @@ net start MySQL服务名<span aria-hidden="true" class="line-numbers-rows"><span
 <p>4.查看其他库的所有表</p>
 <p><code>show tables from 库名</code></p>
 <p>5.创建表</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CREATE table 表名&#123;
+<pre><code class="mysql">CREATE table 表名&#123;
 
-	列名 列类型,
+    列名 列类型,
 
-	列名 列类型,
+    列名 列类型,
 
-	...
+    ...
 
-&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+&#125;;
+</code></pre>
 <p>6.查看表结构</p>
 <p><code>desc 表名</code></p>
 <p>7.查看服务器的版本</p>
@@ -327,57 +327,57 @@ net start MySQL服务名<span aria-hidden="true" class="line-numbers-rows"><span
 <p> 单行注释：– 注释文字</p>
 <p> 多行注释：&#x2F;* 注释文字 *&#x2F;e1k</p>
 <h2 id="DQL语言"><a href="#DQL语言" class="headerlink" title="DQL语言"></a>DQL语言</h2><h3 id="数据查询语言"><a href="#数据查询语言" class="headerlink" title="数据查询语言"></a>数据查询语言</h3><h4 id="基础查询"><a href="#基础查询" class="headerlink" title="基础查询"></a>基础查询</h4><p><strong>语法:</strong></p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT 查询列表
-FROM 表名;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
+<pre><code class="mysql">SELECT 查询列表
+FROM 表名;
+</code></pre>
 <p>类似于:<code>System.out.println();</code></p>
 <p><strong>特点:</strong></p>
 <p>1.查询列表可以是：表中的字段、常量值、表达式、函数</p>
 <p>2.查询的结果是一个虚拟的表格</p>
 <p><strong>1.查询表中的单个字段</strong></p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT last_name
-FROM employees;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
+<pre><code class="mysql">SELECT last_name
+FROM employees;
+</code></pre>
 <p><strong>2.查询表中的多个字段</strong></p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT last_name,job_id
-FROM employees;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
+<pre><code class="mysql">SELECT last_name,job_id
+FROM employees;
+</code></pre>
 <p><strong>3.查询表中的所有字段</strong></p>
 <p>第一种方式:双击(可视化工具)</p>
 <p>第二种方式:</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT * FROM employees;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<pre><code class="mysql">SELECT * FROM employees;
+</code></pre>
 <blockquote>
 <p>tips:</p>
 <p>​		查询前:<strong>USE 库名;</strong>#进入指定的数据库</p>
 <p>​		当表名和关键字重复时，表名用着重号包裹，如<code>name</code></p>
 </blockquote>
 <p><strong>4.查询常量值</strong></p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT 100;
-SELECT &#39;john&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
+<pre><code class="mysql">SELECT 100;
+SELECT &#39;john&#39;;
+</code></pre>
 <blockquote>
 <p>tips:字符型和日期型的常量值必须用单引号引起来，数值型不需要。</p>
 </blockquote>
 <p><strong>5.查询表达式</strong></p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT 100*98;
-SELECT 100&amp;98;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
+<pre><code class="mysql">SELECT 100*98;
+SELECT 100&amp;98;
+</code></pre>
 <p><strong>6.查询函数</strong></p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT VERSION(实参列表);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<pre><code class="mysql">SELECT VERSION(实参列表);
+</code></pre>
 <p><strong>7.起别名</strong></p>
 <ul>
 <li>便于理解</li>
 <li>如果要查询的字段有重名的情况，使用别名可以区分开</li>
 </ul>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">##方式一:使用AS
+<pre><code class="mysql">##方式一:使用AS
 SELECT 100*98 AS 结果(别名)
 ##方式二:使用空格
 SELECT last_name 姓,first_name 名 FROM employees;
 #案例:查询salary，显示结果为out put
-SELECT salary AS &#39;out put&#39; FROM employees;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+SELECT salary AS &#39;out put&#39; FROM employees;
+</code></pre>
 <p><strong>8.去重</strong></p>
 <p>关键字:<strong>DISTINCT</strong></p>
 <p><strong>去掉重复的数据</strong></p>
@@ -392,25 +392,25 @@ SELECT salary AS &#39;out put&#39; FROM employees;<span aria-hidden="true" class
 <ul>
 <li>仅仅有一个功能:运算符</li>
 </ul>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT 100+90;#两个操作数都为数值型，则做加法运算
+<pre><code class="mysql">SELECT 100+90;#两个操作数都为数值型，则做加法运算
 SELECT &#39;123&#39;+90;##其中一方为字符型，则试图将字符型数值转换成数值型，如果转换成功则继续做加法运算
 SELECT &#39;john&#39;+90;#如果转换失败，则将字符型数值转换成0
-SELECT null+10;#只要一方为null，则结果肯定为null<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
+SELECT null+10;#只要一方为null，则结果肯定为null
+</code></pre>
 <p>案例:查询员工名和姓连接成一个字段并显示姓名</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT CONCAT(&#39;A&#39;,&#39;B&#39;,&#39;C&#39;)AS 结果
+<pre><code class="mysql">SELECT CONCAT(&#39;A&#39;,&#39;B&#39;,&#39;C&#39;)AS 结果
 ##CONCAT()函数用于将两个字符串连接为一个字符串
 SELECT CONCAT(last_name,first_name) AS 姓名
-FROM employees;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
+FROM employees;
+</code></pre>
 <p><strong>附加</strong></p>
 <ul>
 <li><strong>IFNULL函数</strong></li>
 </ul>
 <p>MySQL的<code>IFNULL</code>函数是MySQL控制流函数之一，它接受两个参数，如果不是NULL，则返回第一个参数，如果是NULL，则返回第二个参数，两个参数可以是文字值或表达式</p>
 <p>以下说明了<code>IFNULL</code>函数的语法:</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">IFNULL(expression_1,expression_2);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<pre><code class="mysql">IFNULL(expression_1,expression_2);
+</code></pre>
 <p>如果<code>expression_1</code>不为NULL，则<code>IFNULL</code>函数返回<code>expression_1</code>否则返回<code>expression_2</code>的结果。</p>
 <p><code>IFNULL</code>函数根据使用的上下文返回字符串或数字</p>
 <p>如果要返回基于<code>TRUE</code>或<code>FALSE</code>条件的值，而不是<code>NULL</code>，则应使用IF函数</p>
@@ -426,26 +426,26 @@ FROM employees;<span aria-hidden="true" class="line-numbers-rows"><span></span><
 <p><strong>重要:</strong> 使用 <strong>ISNULL</strong> 函数确定表达式是否包含 <strong>Null</strong> 值。 在某些情况下，预期计算结果为<strong>True</strong>的表达式（例如 If Var &#x3D; Null 和 If Var &lt;&gt; Null）始终<strong>为 False。</strong> 这是因为包含NULL<strong>的任何表达式本身为</strong>Null，<strong>因此为</strong>False。</p>
 <hr>
 <h4 id="条件查询"><a href="#条件查询" class="headerlink" title="条件查询"></a>条件查询</h4><p><strong>语法：</strong></p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT 查询列表
+<pre><code class="mysql">SELECT 查询列表
 FROM 表名
 WHERE 筛选条件;#类似于IF语句
-#执行语句顺序:2、3、1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
+#执行语句顺序:2、3、1
+</code></pre>
 <p><strong>分类:</strong></p>
 <p><strong>1.按条件表达式</strong></p>
 <ul>
 <li>简单条件运算符:&gt;&lt;&#x3D;,!&#x3D;或&lt;&gt;(建议这个)&gt;&#x3D;&lt;&#x3D;</li>
 </ul>
 <p>案例一:查询工资&gt;12000的员工信息</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT *
+<pre><code class="mysql">SELECT *
 FROM employees
-WHERE salary&gt;12000<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
+WHERE salary&gt;12000
+</code></pre>
 <p>案例二:查询部门编号不等于90号的员工名和部门编号</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT last_name,department_id
+<pre><code class="mysql">SELECT last_name,department_id
 FROM employees
-WHERE department_id&lt;&gt;90;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
+WHERE department_id&lt;&gt;90;
+</code></pre>
 <p><strong>2.按逻辑表达式筛选</strong></p>
 <p>作用:用于连接条件表达式</p>
 <ul>
@@ -453,18 +453,18 @@ WHERE department_id&lt;&gt;90;<span aria-hidden="true" class="line-numbers-rows"
 </ul>
 <p>建议使用MySQL里自带的and or not</p>
 <p>案例一:查询工资在10000到20000之间的员工名、工资、以及奖金</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT last_name,salary,commission_pct
+<pre><code class="mysql">SELECT last_name,salary,commission_pct
 FROM employees
-WHERE salary &gt;&#x3D; 10000
-AND salary &lt;&#x3D; 20000;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
+WHERE salary &gt;= 10000
+AND salary &lt;= 20000;
+</code></pre>
 <p>案列二:查询部门编号不是在90到110之间，或者工资高于15000的员工信息</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT *
+<pre><code class="mysql">SELECT *
 FROM employees
-WHERE department_id &lt;&#x3D;90
-OR department_id &gt;&#x3D; 110
-OR salary &gt;&#x3D; 15000;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+WHERE department_id &lt;=90
+OR department_id &gt;= 110
+OR salary &gt;= 15000;
+</code></pre>
 <p><strong>3.模糊查询</strong></p>
 <p><strong>like</strong></p>
 <p>特点:一般和通配符搭配使用</p>
@@ -473,22 +473,22 @@ OR salary &gt;&#x3D; 15000;<span aria-hidden="true" class="line-numbers-rows"><s
 <li>_ 任意单个字符</li>
 </ul>
 <p>案例一:查询员工名中包含字符a的员工信息</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT *
+<pre><code class="mysql">SELECT *
 FROM employees
-WHERE last_name LIKE &#39;%a%&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
+WHERE last_name LIKE &#39;%a%&#39;;
+</code></pre>
 <p>案例二:查询员工名中第三个字符为e，第五个字符为a的员工名和工资</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT last_name,salary
+<pre><code class="mysql">SELECT last_name,salary
 FROM employees
-WHERE last_name LIKE &#39;__e_a%&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
+WHERE last_name LIKE &#39;__e_a%&#39;;
+</code></pre>
 <p>案例三:查询员工名中第二个字符为_的员工名</p>
 <p><strong>ESCAPE转译</strong></p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT last_name
+<pre><code class="mysql">SELECT last_name
 FROM employees
 WHERE last_name LIKE &#39;_\_%&#39;;
-#或者last_name LIKE &#39;_$_%&#39; ESCAPE &#39;$&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
+#或者last_name LIKE &#39;_$_%&#39; ESCAPE &#39;$&#39;;
+</code></pre>
 <p><strong>between and</strong></p>
 <p>特点:</p>
 <ul>
@@ -497,11 +497,11 @@ WHERE last_name LIKE &#39;_\_%&#39;;
 <li>两个临界值不要调换顺序</li>
 </ul>
 <p>案例一:查询员工编号在100到120之间的员工信息</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT *
+<pre><code class="mysql">SELECT *
 FROM employees
 WHERE manager_id BETWEEN 100
-AND 120;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
+AND 120;
+</code></pre>
 <p><strong>in</strong></p>
 <p>含义:判断某字段的值是否属于in列表中的某一项</p>
 <p>特点:</p>
@@ -511,10 +511,10 @@ AND 120;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></
 <li>不支持通配符</li>
 </ul>
 <p>案例一:查询员工的工种编号是IT_PROG&#x2F;AD_VP、AD_PRES中的一个员工名和工种编号</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT last_name,job_id
+<pre><code class="mysql">SELECT last_name,job_id
 FROM employees
-WHERE job_id IN(&#39;IT_PROG&#39;,&#39;AD_VP&#39;,&#39;AD_PRES&#39;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
+WHERE job_id IN(&#39;IT_PROG&#39;,&#39;AD_VP&#39;,&#39;AD_PRES&#39;);
+</code></pre>
 <p><strong>is null</strong></p>
 <p>特点:</p>
 <ul>
@@ -523,26 +523,26 @@ WHERE job_id IN(&#39;IT_PROG&#39;,&#39;AD_VP&#39;,&#39;AD_PRES&#39;);<span aria-
 <li>is不能判断数值(不能当&#x3D;来用)</li>
 </ul>
 <p>案例一:查询没有奖金的员工名和奖金率</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT 
+<pre><code class="mysql">SELECT 
 last_name,commission_pct
 FROM employees
-WHERE commission_pct IS NULL;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
+WHERE commission_pct IS NULL;
+</code></pre>
 <p><strong>附加:安全等于&lt;&#x3D;&gt;</strong></p>
 <ul>
 <li>可以判断null值</li>
 </ul>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT last_name,commission_pct
+<pre><code class="mysql">SELECT last_name,commission_pct
 FROM employees
-WHERE commission_pct &lt;&#x3D;&gt; NULL;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
+WHERE commission_pct &lt;=&gt; NULL;
+</code></pre>
 <ul>
 <li>也可以判断数值</li>
 </ul>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT *
+<pre><code class="mysql">SELECT *
 FROM employees
-WHERE salary &lt;&#x3D;&gt; 12000;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
+WHERE salary &lt;=&gt; 12000;
+</code></pre>
 <blockquote>
 <p>tips:</p>
 <ul>
@@ -550,55 +550,55 @@ WHERE salary &lt;&#x3D;&gt; 12000;<span aria-hidden="true" class="line-numbers-r
 <li>&lt;&#x3D;&gt;:及可以判断NULL值，又可以判断普通的数值，可读性较低</li>
 </ul>
 </blockquote>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT last_name, department_id, salary*12*(1+IFNULL(commission_pct,0)) AS 年薪
+<pre><code class="mysql">SELECT last_name, department_id, salary*12*(1+IFNULL(commission_pct,0)) AS 年薪
 FROM
-employees;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
+employees;
+</code></pre>
 <hr>
 <h4 id="排序查询"><a href="#排序查询" class="headerlink" title="排序查询"></a>排序查询</h4><p><strong>语法</strong>:</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT 查询列表
+<pre><code class="mysql">SELECT 查询列表
 FROM 表
 【WHERE 筛选条件】
-ORDER BY 排序列表【ASC|DESC】<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
+ORDER BY 排序列表【ASC|DESC】
+</code></pre>
 <p><strong>特点</strong>:</p>
 <p>1.ASC:升序,DESC:降序,如果不写默认是升序</p>
 <p>2.ORDER BY字句中可以支持单个字段、多个字段、表达式、函数、别名</p>
 <p>3.ORDER BY字句一般是放再查询语句的最后面，limit字句除外</p>
 <p>案例一:查询员工信息，要求工资从高到低排序</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT *
+<pre><code class="mysql">SELECT *
 FROM employeeS
-ORDER BY salary DESC;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
+ORDER BY salary DESC;
+</code></pre>
 <p>案例二:查询部门编号&gt;&#x3D;90的员工信息，按入职信息先后进行排序【添加筛选条件】</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT *
+<pre><code class="mysql">SELECT *
 FROM employees
-WHERE department_id &gt;&#x3D; 90
-ORDER BY hiredate ASC;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
+WHERE department_id &gt;= 90
+ORDER BY hiredate ASC;
+</code></pre>
 <p>案例三:按年薪的高低显示员工的信息和年薪【按表达式排序】</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT *,salary*12*(1+IFNULL(commission_pct,0)) AS 年薪
+<pre><code class="mysql">SELECT *,salary*12*(1+IFNULL(commission_pct,0)) AS 年薪
 FROM employees
-ORDER BY salary*12*(1+IFNULL(commission_pct,0)) DESC;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
+ORDER BY salary*12*(1+IFNULL(commission_pct,0)) DESC;
+</code></pre>
 <p>案例四:按年薪的高低显示员工的信息和年薪【按别名排序】</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT *,salary*12*(1+IFNULL(commission_pct,0)) AS 年薪
+<pre><code class="mysql">SELECT *,salary*12*(1+IFNULL(commission_pct,0)) AS 年薪
 FROM employees
-ORDER BY 年薪 DESC;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
+ORDER BY 年薪 DESC;
+</code></pre>
 <p>案例五:按姓名的长度显示员工的姓名和工资【按函数排序】</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT 
+<pre><code class="mysql">SELECT 
 LENGTH(last_name), #字节长度
 last_name,
 salary
 FROM employees
-ORDER BY LENGTH(last_name) DESC;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+ORDER BY LENGTH(last_name) DESC;
+</code></pre>
 <p>案例六:查询员工信息,要求先按工资升序排序，再按员工编号降序排序【按多个字段排序】</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT *
+<pre><code class="mysql">SELECT *
 FROM employees
-ORDER BY salary ASC,employee_id DESC;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
+ORDER BY salary ASC,employee_id DESC;
+</code></pre>
 <hr>
 <h4 id="常见函数"><a href="#常见函数" class="headerlink" title="常见函数"></a>常见函数</h4><p><strong>概念</strong></p>
 <p>类似于Java的语法，将一组逻辑语句封装在方法体中，对外暴露方法名。</p>
@@ -629,31 +629,31 @@ ORDER BY salary ASC,employee_id DESC;<span aria-hidden="true" class="line-number
 <li><strong>LENGTH</strong></li>
 </ul>
 <p>获取参数值的字节个数</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT LENGTH(&#39;john&#39;);
+<pre><code class="mysql">SELECT LENGTH(&#39;john&#39;);
 SELECT LENGTH(&#39;数据库MySQL&#39;);
 
-SHOW VARIABLES LIKE &#39;%char%&#39;;#查询当前系统的字符集设置<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
+SHOW VARIABLES LIKE &#39;%char%&#39;;#查询当前系统的字符集设置
+</code></pre>
 <ul>
 <li><strong>CONCAT</strong></li>
 </ul>
 <p>拼接字符串</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT CONCAT(last_name,&#39;_&#39;,first_name)姓名
-FROM employees<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
+<pre><code class="mysql">SELECT CONCAT(last_name,&#39;_&#39;,first_name)姓名
+FROM employees
+</code></pre>
 <ul>
 <li><strong>UPPER(大写)、lower(小写)</strong></li>
 </ul>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT UPPER(&#39;joh&#39;);
+<pre><code class="mysql">SELECT UPPER(&#39;joh&#39;);
 SELECT LOWER(&#39;john&#39;);
-SELECT LOWER(&#39;JOHN&#39;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
+SELECT LOWER(&#39;JOHN&#39;);
+</code></pre>
 <p>案例一:将姓变大写，名变小写，然后拼接</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT CONCAT(
-	UPPER(last_name),&#39;_&#39;,LOWER(first_name)
+<pre><code class="mysql">SELECT CONCAT(
+    UPPER(last_name),&#39;_&#39;,LOWER(first_name)
 )AS 姓名
-FROM employees;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
+FROM employees;
+</code></pre>
 <ul>
 <li>SUBSTR、SUBSRING</li>
 </ul>
@@ -661,238 +661,238 @@ FROM employees;<span aria-hidden="true" class="line-numbers-rows"><span></span><
 <blockquote>
 <p>注意:索引从1开始</p>
 </blockquote>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">#截取从指定索引出后面所有的字符
+<pre><code class="mysql">#截取从指定索引出后面所有的字符
 SELECT SUBSTR(&#39;罗密欧与朱丽叶&#39;,5) out_put;#朱丽叶
 #截取从指定索引处指定字符长度的字符
-SELECT SUBSTR(&#39;罗密欧与朱丽叶,1,3(截几位)&#39;) out_put;#罗密欧<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
+SELECT SUBSTR(&#39;罗密欧与朱丽叶,1,3(截几位)&#39;) out_put;#罗密欧
+</code></pre>
 <p>案例一：姓名中首字符大写，其他字符小写，然后用_拼接显示出来</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT CONCAT(
-	UPPER(SUBSTR(last_name,1,1)),
+<pre><code class="mysql">SELECT CONCAT(
+    UPPER(SUBSTR(last_name,1,1)),
     &#39;_&#39;,
     LOWER(SUBSTR(last_name,2))
 )AS 姓名
-FROM employees;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+FROM employees;
+</code></pre>
 <ul>
 <li><strong>INSTR</strong></li>
 </ul>
 <p>返回字符串中子字符串第一次出现的位置。如果在<code>str</code>中找不到子字符串，则<code>INSTR()</code>函数返回零。</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT INSTR(&#39;罗密欧与朱丽叶&#39;,&#39;朱&#39;);#5<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<pre><code class="mysql">SELECT INSTR(&#39;罗密欧与朱丽叶&#39;,&#39;朱&#39;);#5
+</code></pre>
 <ul>
 <li><strong>TRIM</strong></li>
 </ul>
 <p>除掉一个字串中的字头或字尾</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT LENGTH(TRIM(&#39;张翠山&#39;)) AS out_put；#张翠山
+<pre><code class="mysql">SELECT LENGTH(TRIM(&#39;张翠山&#39;)) AS out_put；#张翠山
 SELECT TRIM(&#39;a&#39; FROM &#39;aaaaaa张aaaaa翠山aaaaaaaa&#39;) 
-AS out_put;#张aaaaa翠山<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
+AS out_put;#张aaaaa翠山
+</code></pre>
 <ul>
 <li><strong>LPAD</strong></li>
 </ul>
 <p>用指定的字符实现左填充指定长度</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT LPAD(&#39;拉姆达&#39;,10,&#39;*&#39;)
+<pre><code class="mysql">SELECT LPAD(&#39;拉姆达&#39;,10,&#39;*&#39;)
 AS out_put;#*******拉姆达
 SELECT LPAD(&#39;拉姆达&#39;,2,&#39;*&#39;)
-AS out_put#拉姆  从右面截断<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
+AS out_put#拉姆  从右面截断
+</code></pre>
 <ul>
 <li><strong>RPAD</strong></li>
 </ul>
 <p>用指定的字符实现右填充指定长度</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT RPAD(&#39;拉姆达&#39;,10,&#39;ab&#39;)
+<pre><code class="mysql">SELECT RPAD(&#39;拉姆达&#39;,10,&#39;ab&#39;)
 AS out_put;
 #out_put
-#拉姆达abababa<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
+#拉姆达abababa
+</code></pre>
 <ul>
 <li>REPLACE</li>
 </ul>
 <p>替换</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT REPLACE(&#39;JAVA与MySQL&#39;,&#39;MySQL&#39;,&#39;JS&#39;) AS out_put;
+<pre><code class="mysql">SELECT REPLACE(&#39;JAVA与MySQL&#39;,&#39;MySQL&#39;,&#39;JS&#39;) AS out_put;
 #JAVA与JS
 SELECT REPLACE(&#39;MySQL与JAVA与MySQL&#39;,&#39;MySQL&#39;,&#39;JS&#39;) AS out_put;
-#JS与JAVA与JS   全部替换<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
+#JS与JAVA与JS   全部替换
+</code></pre>
 <p><strong>数学函数</strong></p>
 <ul>
 <li><strong>ROUND</strong></li>
 </ul>
 <p>四舍五入</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT ROUND(1.65);#2
+<pre><code class="mysql">SELECT ROUND(1.65);#2
 SELECT ROUND(-1.65);#-2
-SELECT ROUND(1.567,2);#1.57<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
+SELECT ROUND(1.567,2);#1.57
+</code></pre>
 <ul>
 <li><strong>CEIL</strong></li>
 </ul>
 <p>向上取整,返回&gt;&#x3D;该参数的最小整数</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT CEIL(1.001);#2
-SELECT CEIL(-1.001);#-1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
+<pre><code class="mysql">SELECT CEIL(1.001);#2
+SELECT CEIL(-1.001);#-1
+</code></pre>
 <ul>
 <li><strong>FLOOR</strong></li>
 </ul>
 <p>向下取整，返回&lt;&#x3D;该参数的最大整数</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT FLOOR(9.99);#9
-SELECT FLOOR(-9.99);#-10<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
+<pre><code class="mysql">SELECT FLOOR(9.99);#9
+SELECT FLOOR(-9.99);#-10
+</code></pre>
 <ul>
 <li><strong>TRUNCATE</strong></li>
 </ul>
 <p>截断</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT TRUNCATE(1.65,1);#1.6<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<pre><code class="mysql">SELECT TRUNCATE(1.65,1);#1.6
+</code></pre>
 <ul>
 <li><strong>MOD</strong></li>
 </ul>
 <p>取余</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT MOD(10,3);#1
+<pre><code class="mysql">SELECT MOD(10,3);#1
 SELECT MOD(-10,-3);#-1
 #被除数为正结果为正，若为负，结果为负
 #相当于
-SELECT 10%3;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+SELECT 10%3;
+</code></pre>
 <p>MOD(A,B): A-A&#x2F;B*B;</p>
 <p><strong>日期函数</strong></p>
 <ul>
 <li><strong>NOW</strong></li>
 </ul>
 <p>返回当前系统日期+时间</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT NOW();
-#2023-04-15 22:56:09<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
+<pre><code class="mysql">SELECT NOW();
+#2023-04-15 22:56:09
+</code></pre>
 <ul>
 <li><strong>CURDATE</strong></li>
 </ul>
 <p>返回当前系统日期，不包含时间</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT CURDATA();
-#2023-04-15<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
+<pre><code class="mysql">SELECT CURDATA();
+#2023-04-15
+</code></pre>
 <ul>
 <li><strong>CURTIME</strong></li>
 </ul>
 <p>返回当前时间，不包含日期</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT CURTIME();
-#22:59:05<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
+<pre><code class="mysql">SELECT CURTIME();
+#22:59:05
+</code></pre>
 <ul>
 <li>可以获得指定部分,年,月,日,小时,分钟,秒</li>
 </ul>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT YEAR(NOW()) AS 年;
+<pre><code class="mysql">SELECT YEAR(NOW()) AS 年;
 SELECT YEAR(hiredata) 年 FROM employees;
 
 SELECT MONTH(NOW()) AS 月;
 #返回数字
 SELECT MONTHNAME(NOW()) AS 月;
-#返回英文<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+#返回英文
+</code></pre>
 <ul>
 <li><strong>STR_TO_DATE</strong></li>
 </ul>
 <p>将日期格式的字符转换成指定格式的日期</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT
+<pre><code class="mysql">SELECT
 STR_TO_DATE(&#39;13-9-1999&#39;,&#39;%d-%m-%Y&#39;);
-#%Y是四位年份 %y指两位年份<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
+#%Y是四位年份 %y指两位年份
+</code></pre>
 <ul>
 <li><strong>DATE_FORMAT</strong></li>
 </ul>
 <p>将日期转换成字符</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT
-DATE_FORMAT(&#39;2018&#x2F;6&#x2F;6&#39;,&#39;%Y年%m月%d日&#39;);
-#2018年06月06日<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
+<pre><code class="mysql">SELECT
+DATE_FORMAT(&#39;2018/6/6&#39;,&#39;%Y年%m月%d日&#39;);
+#2018年06月06日
+</code></pre>
 <p><img src="https://stq555.com/img/202203021321186.png" alt="img"></p>
 <p>案例一:查询有奖金的员工名和入职日期(xx月&#x2F;xx日 xx年)</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT 
+<pre><code class="mysql">SELECT 
 last_name,
-DATE_FORMAT(hiredate,&#39;%m月&#x2F;%d日 %Y年&#39;)
+DATE_FORMAT(hiredate,&#39;%m月/%d日 %Y年&#39;)
 FROM employees
-WHERE commission_pct IS NOT NULL ;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+WHERE commission_pct IS NOT NULL ;
+</code></pre>
 <p><strong>其他函数</strong></p>
 <ul>
 <li><strong>VERSION</strong></li>
 </ul>
 <p>版本号</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT VERSION();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<pre><code class="mysql">SELECT VERSION();
+</code></pre>
 <ul>
 <li><strong>DATABASE</strong></li>
 </ul>
 <p>查看当前数据库</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT DATABASE();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<pre><code class="mysql">SELECT DATABASE();
+</code></pre>
 <ul>
 <li><strong>USER</strong></li>
 </ul>
 <p>查询当前用户</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT USER();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<pre><code class="mysql">SELECT USER();
+</code></pre>
 <p><strong>流程控制函数</strong></p>
 <ul>
 <li><strong>IF函数</strong></li>
 </ul>
 <p>if else的效果</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT
-IF(&#39;10&gt;5&#39;,&#39;大&#39;,&#39;小&#39;);#大<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
+<pre><code class="mysql">SELECT
+IF(&#39;10&gt;5&#39;,&#39;大&#39;,&#39;小&#39;);#大
+</code></pre>
 <ul>
 <li><strong>CASE函数</strong></li>
 </ul>
 <p>使用一:类似于Switch case语句的效果</p>
 <p>语法:</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CASE 要判断的字段或表达式
+<pre><code class="mysql">CASE 要判断的字段或表达式
 WHEN 常量1 THEN 要显示的值1或语句1
 WHEN 常量2 THEN 要显示的值2或语句2
 ...
 ELSE 要现实的值n或语句n
-END;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+END;
+</code></pre>
 <p>案例一:查询员工的工资,要求</p>
 <p>部门号&#x3D;30,显示的工资为1.1倍</p>
 <p>部门号&#x3D;40,显示的工资为1.2倍</p>
 <p>部门号&#x3D;50,显示的工资为1.3倍</p>
 <p>其他部门，显示的工资为原工资</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT salary 原始工资,department_id,
+<pre><code class="mysql">SELECT salary 原始工资,department_id,
 CASE department_id
 WHEN 30 THEN salary*1.1
 WHEN 40 THEN salary*1.2
 WHEN 50 THEN salary*1.3
 ELSE salary
 END AS 工资
-FROM employees;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+FROM employees;
+</code></pre>
 <p>使用二:类似多重IF</p>
 <p>语法:</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">CASE 
+<pre><code class="mysql">CASE 
 WHEN 条件一 THEN 要显示值1或语句1
 WHEN 条件一 THEN 要显示值2或语句2
 ...
 ELSE 要显示的值n或语句n
-END;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+END;
+</code></pre>
 <p>案例一：查询员工的工资的情况</p>
 <p>如果工资&gt;20000，显示A级别</p>
 <p>如果工资&gt;15000，显示B级别</p>
 <p>如果工资&gt;10000，显示C级别</p>
 <p>否则显示D级别</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT salary,
+<pre><code class="mysql">SELECT salary,
 CASE 
 WHEN salary&gt;20000 THEN &#39;A&#39;
 WHEN salary&gt;15000 THEN &#39;B&#39;
 WHEN salary&gt;10000 THEN &#39;C&#39;
 ELSE &#39;D&#39;
 END AS 工资级别
-FROM employees;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+FROM employees;
+</code></pre>
 <hr>
 <h4 id="分组函数"><a href="#分组函数" class="headerlink" title="分组函数"></a>分组函数</h4><p>功能:用作统计使用，又称为聚合函数、统计函数、组函数</p>
 <p>分类：SUM求和、AVG平均值、MAX最大值、MIN最小值、COUNT计算个数</p>
 <p><strong>1.简单实用</strong></p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">#sum
+<pre><code class="mysql">#sum
 SELECT SUM(salary)
 FROM employees;
 #avg
@@ -909,8 +909,8 @@ SELECT COUNT(salary)
 FROM employees;
 #全部放一起使用
 SELECT SUM(salary) 和,AVG(salary) 平均值,MAX(salary) 最大值,MIN(salary) 最小值,COUNT(salary) 个数
-FROM employees;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+FROM employees;
+</code></pre>
 <p>特点:</p>
 <p>2.参数支持哪些类型</p>
 <ul>
@@ -919,29 +919,29 @@ FROM employees;<span aria-hidden="true" class="line-numbers-rows"><span></span><
 <li>以上分组函数都忽略NULL值</li>
 </ul>
 <p>3.可以和DISTINCT搭配实现去重运算</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT SUM(DISTINCT salary),COUNT(salary)
+<pre><code class="mysql">SELECT SUM(DISTINCT salary),COUNT(salary)
 FROM employees;
 SELECT COUNT(DISTINCT salary),COUNT(salary)
-FROM employees;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
+FROM employees;
+</code></pre>
 <p>4.COUNT函数单独介绍</p>
 <p>一般用COUNT(*)统计行数</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT COUNT(salary)
+<pre><code class="mysql">SELECT COUNT(salary)
 FROM employees;
 #统计行数
 SELECT COUNT(*)
 FROM employees;
 #插入一列1，查看行数
 SELECT COUNT(1)
-FROM employees;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+FROM employees;
+</code></pre>
 <p>效率:</p>
 <p>MYISAM存储引擎下，<code>COUNT(*)</code>的效率高</p>
 <p>INNODB存储引擎下，<code>COUNT(*)</code>和<code>COUNT(*)</code>的效率差不多，比<code>COUNT(字段)</code>要高一些。</p>
 <p>5.和分组函数一同查询的字段有限制</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT AVG(salary),employee_id
-FROM employees;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
+<pre><code class="mysql">SELECT AVG(salary),employee_id
+FROM employees;
+</code></pre>
 <p><code>AVG()</code>查询完是一个表格，而employee_id是107个</p>
 <p>但是只能显示出两者中一个。</p>
 <blockquote>
@@ -949,17 +949,17 @@ FROM employees;<span aria-hidden="true" class="line-numbers-rows"><span></span><
 </blockquote>
 <p><strong>7.DATEDIFF函数</strong></p>
 <p>计算日期差</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT DATEDIFF(&#39;2017-10-1&#39;,&#39;2017-9-29&#39;);
-#2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
+<pre><code class="mysql">SELECT DATEDIFF(&#39;2017-10-1&#39;,&#39;2017-9-29&#39;);
+#2
+</code></pre>
 <hr>
 <h4 id="分组查询"><a href="#分组查询" class="headerlink" title="分组查询"></a>分组查询</h4><p>语法:</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT 分组函数,列(要求出现在group by的后面)
+<pre><code class="mysql">SELECT 分组函数,列(要求出现在group by的后面)
 FROM 表
 【WHERE 筛选条件】
 GROUP BY 分组的列表
-【ORDER BY 字句】<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+【ORDER BY 字句】
+</code></pre>
 <blockquote>
 <p>tips:查询列表比较特殊，要求是分组函数和group by后面出现的字段</p>
 </blockquote>
@@ -1000,65 +1000,65 @@ GROUP BY 分组的列表
 <p><strong>1.添加分组前的筛选</strong></p>
 <p>简单的分组查询</p>
 <p>案例一:查询每个工种的最高工资</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT MAX(salary)
+<pre><code class="mysql">SELECT MAX(salary)
 FROM employees
-GROUP BY job_id;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
+GROUP BY job_id;
+</code></pre>
 <p>案例二：查询每个位置上的部门个数</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT COUNT(department_id)
+<pre><code class="mysql">SELECT COUNT(department_id)
 FROM employees
-GROUP BY location_id;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
+GROUP BY location_id;
+</code></pre>
 <p> 添加筛选条件：</p>
 <p>案例一：查询邮箱中包含a字符的，每个部门的平均工资</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT AVG(salary),department_id
+<pre><code class="mysql">SELECT AVG(salary),department_id
 FROM employees
 WHERE emile LIKE &#39;%a%&#39;
-GROUP BY department_id;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
+GROUP BY department_id;
+</code></pre>
 <p>案例二：查询有奖金的每个领导手下员工的最高工资</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT MAX(salary),manager_id
+<pre><code class="mysql">SELECT MAX(salary),manager_id
 FROM employees
 WHERE commission_pct is not null
-GROUP BY manager_id;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
+GROUP BY manager_id;
+</code></pre>
 <p><strong>2.添加分组后筛选</strong></p>
 <p>添加复杂的筛选条件</p>
 <p>案例一：查询哪个部门的员工个数&gt;2</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT COUNT(*) AS 员工个数,department_id
+<pre><code class="mysql">SELECT COUNT(*) AS 员工个数,department_id
 FROM employees
 GROUP BY department_id
-HAVING COUNT(*)&gt;2;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
+HAVING COUNT(*)&gt;2;
+</code></pre>
 <p>注意是先找出每个部门的员工个数，再筛选出大于5的。所以是分组后筛选，要用HAVING（而不是WHERE），放在GROUP BY 的后面</p>
 <p>案例二：查询每个工种有奖金的员工的最高工资&gt;12000的工种编号和最高工资</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT MAX(salary) AS 最高工资,job_id
+<pre><code class="mysql">SELECT MAX(salary) AS 最高工资,job_id
 FROM employees
 WHERE commission_pct is not null
 GROUP BY job_id   
-HAVING MAX(salary)&gt;12000;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+HAVING MAX(salary)&gt;12000;
+</code></pre>
 <p>案例三：查询领导编号&gt;102的，最低工资&gt;5000的领导的编号是哪个，及其最低工资</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT MIN(salary),manager_id
+<pre><code class="mysql">SELECT MIN(salary),manager_id
 FROM employees
 WHERE manager_id &gt; 102
 GROUP manager_id
-HAVING MIN(salary) &gt; 5000 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+HAVING MIN(salary) &gt; 5000 
+</code></pre>
 <p><strong>3.按表达式或函数分组</strong></p>
 <p>案例一：按员工姓名的长度分组，查询每一组的员工个数，筛选员工个数&gt;5的有哪些</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT LENGTH(last_name),COUNT(*)
+<pre><code class="mysql">SELECT LENGTH(last_name),COUNT(*)
 FROM employees
 GROUP BY LENGTH(last_name)
-HAVING COUNT(*)&gt;5;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
+HAVING COUNT(*)&gt;5;
+</code></pre>
 <p><strong>5.添加排序</strong></p>
 <p>案例一：查询每个部门每个工种的员工的平均工资，并且按平均工资的高低显示</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT AVG(salary),department_id,job_id
+<pre><code class="mysql">SELECT AVG(salary),department_id,job_id
 FROM employees
 GROUP BY department_id,job_id
-ORDER BY AVG(salary) DESC;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
+ORDER BY AVG(salary) DESC;
+</code></pre>
 <hr>
 <h4 id="连接查询"><a href="#连接查询" class="headerlink" title="连接查询"></a>连接查询</h4><p>含义：又称多表查询，当查询的字段来自于多个表时，就会用到连接查询</p>
 <p>笛卡尔乘积现象：表1 有m行 ，表2 有n行 ，结果&#x3D;m*n行</p>
@@ -1089,118 +1089,115 @@ ORDER BY AVG(salary) DESC;<span aria-hidden="true" class="line-numbers-rows"><sp
 <li>可以搭配前面介绍的所有字句使用，比如排序、分组、筛选</li>
 </ul>
 <p>案例一：查询男女对应的名字</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT NAME,boyname
+<pre><code class="mysql">SELECT NAME,boyname
 FROM                       
 boys,beauty
-WHERE beauty.boyfriend_id &#x3D; boys.id;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
+WHERE beauty.boyfriend_id = boys.id;
+</code></pre>
 <p>案例二:查询员工名和对应的部门名</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT last_name,department_name
+<pre><code class="mysql">SELECT last_name,department_name
 FROM
 departments,employees
 WHERE
-departments.department_id &#x3D; employees.department_id;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+departments.department_id = employees.department_id;
+</code></pre>
 <p>为表起别名：</p>
 <p>案例一：查询员工名、工种号、工种名</p>
 <ul>
 <li>提高语句的简洁度</li>
 <li>区分多个重名的字段</li>
 </ul>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT CONCAT(last_name,first_name),e.job_id,job_name
+<pre><code class="mysql">SELECT CONCAT(last_name,first_name),e.job_id,job_name
 FROM employees e,jobs j
-WHERE e.job_id &#x3D; j.job_id;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
+WHERE e.job_id = j.job_id;
+</code></pre>
 <blockquote>
 <p>tips：如果为表起了别名，则查询的字段就不能使用原来的表名去限定</p>
 <p>两个表的顺序是可以调换的</p>
 </blockquote>
 <p>加筛选：</p>
 <p>案例一：查询有奖金的员工名、部门名</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT CONCAT(last_name,first_name),department_name,commission_pct
+<pre><code class="mysql">SELECT CONCAT(last_name,first_name),department_name,commission_pct
 FROM employees e,departments d
-WHERE e.department_id &#x3D; d.department_id
-AND e.commission_pct IS NOT NULL;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
+WHERE e.department_id = d.department_id
+AND e.commission_pct IS NOT NULL;
+</code></pre>
 <p>案例二:查询城市名中第二个字符为o的部门名和城市名</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT department_name,city
+<pre><code class="mysql">SELECT department_name,city
 FROM departments d,locations l
-WHERE d.location_id &#x3D; l.location_id
-AND city LIKE &#39;_o%&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
+WHERE d.location_id = l.location_id
+AND city LIKE &#39;_o%&#39;;
+</code></pre>
 <p>加分组：</p>
 <p>案例一：查询每个城市的部门个数</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT COUNT(*),city
+<pre><code class="mysql">SELECT COUNT(*),city
 FROM departments d,locations l
-WHERE d.location_id &#x3D; l.location_id
-GROUP BY city;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
+WHERE d.location_id = l.location_id
+GROUP BY city;
+</code></pre>
 <p>案例二：查询有奖金的每个部门的部门名和部门的领导编号和该部门的最低工资</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT MIN(salary),manager_id,department_name
+<pre><code class="mysql">SELECT MIN(salary),manager_id,department_name
 FROM departments d,employees e
-WHERE d.department_id &#x3D; e.department_id AND commission_pct is not null
-GROUP BY department_name,d.manager_id;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
+WHERE d.department_id = e.department_id AND commission_pct is not null
+GROUP BY department_name,d.manager_id;
+</code></pre>
 <p>加排序：</p>
 <p>案例一：查询每个工种的工种名和员工的个数，并且按员工个数降序</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT job_name 工种名,COUNT(*) 员工个数
+<pre><code class="mysql">SELECT job_name 工种名,COUNT(*) 员工个数
 FROM employees e,jobs j
-WHERE e.job_id &#x3D; j.job_id
+WHERE e.job_id = j.job_id
 GROUP BY job_name
-ORDER BY COUNT(*) DESC;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+ORDER BY COUNT(*) DESC;
+</code></pre>
 <p>三表连接：</p>
 <p>案例一：查询员工名、部门名和所在的城市</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT 
+<pre><code class="mysql">SELECT 
 CONCAT(last_name,first_name) 员工名,
 department_name 部门名,
 city 城市
 FROM employees e,departments d,locations l
-WHERE e.department_id &#x3D; d.department_id
-AND e.location_id &#x3D; l.location_id;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+WHERE e.department_id = d.department_id
+AND e.location_id = l.location_id;
+</code></pre>
 <p><strong>2.非等值连接</strong></p>
 <p>语法</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT 查询列表
-FROM 表1 别名,表2 别名
-WHERE 非等值的连接条件
-【and 筛选条件】
-【GROUP BY 分组字段】
-【HAVING 分组后的筛选】
-【ORDER BY 排序字段】
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
+<pre><code class="mysql">        SELECT 查询列表
+        FROM 表1 别名,表2 别名
+        WHERE 非等值的连接条件
+        【and 筛选条件】
+        【GROUP BY 分组字段】
+        【HAVING 分组后的筛选】
+        【ORDER BY 排序字段】
+</code></pre>
 <p>案例一：查询员工的工资和工资级别</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT salary,grade_level
+<pre><code class="mysql">SELECT salary,grade_level
 FROM employees e,job_grades g
-WHERE salary BETWEEN g.lowest_sal AND g.highest_sal;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
+WHERE salary BETWEEN g.lowest_sal AND g.highest_sal;
+</code></pre>
 <p><strong>3.自连接</strong></p>
 <p>案例一：查询员工名和上级的名称</p>
-<pre class="line-numbers language-MYSQL" data-language="MYSQL"><code class="language-MYSQL">SELECT e.employee_id,e.last_name,m.lat_name,m.employee_id
+<pre><code class="MYSQL">SELECT e.employee_id,e.last_name,m.lat_name,m.employee_id
 FROM employees e ,employees m
-WHERE e.manager_id &#x3D; m.employee_id;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
+WHERE e.manager_id = m.employee_id;
+</code></pre>
 <p><strong>二.sql99标准</strong></p>
 <p>语法：</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT 查询列表
+<pre><code class="mysql">SELECT 查询列表
 FROM 表1 别名 【连接类型】
 JOIN 表2 别名
 ON 连接条件
 【WHERE 筛选条件】
 【GROUP BY 分组】
 【HAVING 筛选条件】
-【ORDER BY 排序列表】<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+【ORDER BY 排序列表】
+</code></pre>
 <p><strong>1.内连接</strong></p>
 <p>连接类型：inner</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">SELECT 查询列表
+<pre><code class="mysql">SELECT 查询列表
 FROM 表1 别名
 INNER JOIN 表2 别名
-ON 连接条件;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
+ON 连接条件;
+</code></pre>
 <p>分类：</p>
 <p><strong>1.等值连接</strong></p>
 <p>特点：</p>

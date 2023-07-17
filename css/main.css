@@ -35,7 +35,8 @@
 #archives .tags .tag,
 .article .info .category,
 .article .info .tags,
-.article .info .tags .tag {
+.article .info .tags .tag,
+.article.info.friendlink {
     display: inline-block;
     margin-right: 10px;
 }
