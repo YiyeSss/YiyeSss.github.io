@@ -1,200 +1,202 @@
 
-<!DOCTYPE html>
-<html lang="zh-CN">
+    <!DOCTYPE html>
+    <html lang="zh-CN"
+            
+          
+    >
     <head>
-        <meta charset="utf-8" />
-        <title>MySQL | 依夜の妙妙屋</title>
-        <meta name="author" content="依夜" />
-        <meta name="description" content="" />
-        <meta name="keywords" content="" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-        <link rel="icon" href="/images/favicon2.jpg" />
-        <script src="https://cdn.staticfile.org/vue/3.2.47/vue.global.prod.min.js"></script>
-<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.3.0/css/all.min.css" />
-<link rel="stylesheet" href="/css/fonts.min.css" />
-<script> const mixins = {}; </script>
+    <meta charset="utf-8">
+    
 
-<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    
 
+    
+    <title>
+        MySQL |
+        
+        依夜の妙妙屋</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CUbuntu%20Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+    
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/v4-font-face.min.css">
 
-<script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
-<link
-    rel="stylesheet"
-    href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/github.min.css"
-/>
-<script src="/js/lib/highlight.js"></script>
+    
+<link rel="stylesheet" href="/css/loader.css">
 
+    <meta name="description" content="MySQL数据库学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL">
+<meta property="og:url" content="http://yiyecreb.top/2023/07/18/MySql/index.html">
+<meta property="og:site_name" content="依夜の妙妙屋">
+<meta property="og:description" content="MySQL数据库学习笔记">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yiyecreb.top/images/fbg3.jpg">
+<meta property="article:published_time" content="2023-07-17T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-07-19T06:07:10.059Z">
+<meta property="article:author" content="依夜">
+<meta property="article:tag" content="学习笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yiyecreb.top/images/fbg3.jpg">
+    
+    
+        <link rel="shortcut icon" href="/images/favicon2.jpg">
+    
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/typeface-source-code-pro@1.1.13/index.css">
 
+    
+    
+<link rel="stylesheet" href="/css/style.css">
 
-<script src="/js/lib/preview.js"></script>
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
 
+    
+    
+    
+    
+    
+<script src="https://unpkg.com/pace-js@1.2.4/pace.min.js"></script>
 
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/wowjs@1.1.3/css/libs/animate.css">
 
+        
+<script src="https://unpkg.com/wowjs@1.1.3/dist/wow.min.js"></script>
 
+        <script>
+          new WOW({
+            offset: 0,
+            mobile: true,
+            live: false
+          }).init();
+        </script>
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
 
-
-
-<script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
-
-
-
-<link rel="stylesheet" href="/css/main.css" />
-
-    <meta name="generator" content="Hexo 6.3.0"></head>
     <body>
-        <div id="layout">
-            <transition name="fade">
-                <div id="loading" v-show="loading">
-                    <div id="loading-circle">
-                        <h2>LOADING</h2>
-                        <p>加载过慢请开启缓存 浏览器默认开启</p>
-                        <img src="/images/loading.gif" />
-                    </div>
-                </div>
-            </transition>
-            <nav id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
-    <div id="desktop-menu">
-        <a class="title" href="/">
-            <span>依夜の妙妙屋</span>
-        </a>
-        
-        <a href="/">
-            <i class="fa-solid fa-house fa-fw"></i>
-            <span>&ensp;首页</span>
-        </a>
-        
-        <a href="/about">
-            <i class="fa-solid fa-id-card fa-fw"></i>
-            <span>&ensp;关于</span>
-        </a>
-        
-        <a href="/archives">
-            <i class="fa-solid fa-box-archive fa-fw"></i>
-            <span>&ensp;档案</span>
-        </a>
-        
-        <a href="/categories">
-            <i class="fa-solid fa-bookmark fa-fw"></i>
-            <span>&ensp;类别</span>
-        </a>
-        
-        <a href="/tags">
-            <i class="fa-solid fa-tags fa-fw"></i>
-            <span>&ensp;标签</span>
-        </a>
-        
+    
+<div id='loader'>
+  <div class="loading-left-bg"></div>
+  <div class="loading-right-bg"></div>
+  <div class="spinner-box">
+    <div class="loading-taichi">
+      <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+      <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="#ff6e6b" />
+      <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z" fill="#fd0d00" />
+      <path d="M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95" fill="#fd0d00" />
+    </svg>
     </div>
-    <div id="mobile-menu">
-        <div class="title" @click="showMenuItems = !showMenuItems">
-            <i class="fa-solid fa-bars fa-fw"></i>
-            <span>&emsp;依夜の妙妙屋</span>
-        </div>
-        <transition name="slide">
-            <div class="items" v-show="showMenuItems">
+    <div class="loading-word">正在连接海拉鲁...</div>
+  </div>
+</div>
+</div>
+
+<script>
+  const endLoading = function() {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loader').classList.add("loading");
+  }
+  window.addEventListener('load', endLoading);
+  document.getElementById('loader').addEventListener('click', endLoading);
+</script>
+
+
+    <div id="container">
+        <div id="wrap">
+            <header id="header">
+    
+        <img data-src="../images/fbg3.jpg" data-sizes="auto" alt="MySQL" class="lazyload">
+    
+    <div id="header-outer" class="outer">
+        <div id="header-title" class="inner">
+            <div id="logo-wrap">
                 
-                <a href="/">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-house fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">首页</div>
-                    </div>
-                </a>
-                
-                <a href="/about">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-id-card fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">关于</div>
-                    </div>
-                </a>
-                
-                <a href="/archives">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-box-archive fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">档案</div>
-                    </div>
-                </a>
-                
-                <a href="/categories">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-bookmark fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">类别</div>
-                    </div>
-                </a>
-                
-                <a href="/tags">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-tags fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">标签</div>
-                    </div>
-                </a>
+                    
+                    
+                        <a href="/" id="logo"><h1>MySQL</h1></a>
+                    
                 
             </div>
-        </transition>
-    </div>
-</nav>
-<transition name="fade">
-    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
-</transition>
-
-            <transition name="into">
-                <div id="main" v-show="!loading">
-                    <div class="article">
-    <div>
-        <h1>MySQL</h1>
-    </div>
-    <div class="info">
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2023/7/18
-        </span>
-        
-        <span class="category">
-            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                数据库
-            </a>
-        </span>
-        
-        
-        <span class="tags">
-            <span class="icon">
-                <i class="fa-solid fa-tags fa-fw"></i>
-            </span>
             
-            <span class="tag">
                 
-                <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="color: #03a9f4">学习笔记</a>
-            </span>
+                
             
-        </span>
-        
+        </div>
+        <div id="header-inner">
+            <nav id="main-nav">
+                <a id="main-nav-toggle" class="nav-icon"></a>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/">首页</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/archives">归档</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/about">关于</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/friend">友链</a>
+                    </span>
+                
+            </nav>
+            <nav id="sub-nav">
+                
+                
+            </nav>
+            <div id="search-form-wrap">
+                <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yiyecreb.top"></form>
+            </div>
+        </div>
     </div>
-    
-    <div class="content" v-pre>
-        <p><img src="/../images/fbg3.jpg"></p>
+</header>
+
+            <div id="content" class="outer">
+                <section id="main"><article id="post-MySql" class="h-entry article article-type-post"
+         itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <div class="article-inner">
+        <div class="article-meta">
+            <div class="article-date wow slideInLeft">
+    <a href="/2023/07/18/MySql/" class="article-date-link">
+        <time datetime="2023-07-17T16:00:00.000Z"
+              itemprop="datePublished">2023-07-18</time>
+    </a>
+</div>
+
+            
+    <div class="article-category wow slideInLeft">
+        <a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+    </div>
+
+
+        </div>
+        <div class="hr-line"></div>
+        
+
+        <div class="e-content article-entry" itemprop="articleBody">
+            
+                <p><img src="/../images/fbg3.jpg"></p>
 <h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h1><h2 id="表连接"><a href="#表连接" class="headerlink" title="表连接"></a>表连接</h2><ol>
 <li><p>全外连接:MySQL不支持,使用union来解决</p>
 </li>
 <li><p>union是MySQL中用来组合两个或多个select语句的结果集的一个操作符</p>
 </li>
 <li><p>基本语法:</p>
-<pre><code class="sql">SELECT COLUMN_NAME(S) FROM TABLE1
-UNION
-SELECT COLUMN_NAME(S) FROM TABLE2
-</code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> COLUMN_NAME<span class="token punctuation">(</span>S<span class="token punctuation">)</span> <span class="token keyword">FROM</span> TABLE1
+<span class="token keyword">UNION</span>
+<span class="token keyword">SELECT</span> COLUMN_NAME<span class="token punctuation">(</span>S<span class="token punctuation">)</span> <span class="token keyword">FROM</span> TABLE2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li>使用规则:<ul>
 <li>union内的每个select语句必须拥有相同数量的列，并且对应列也拥有兼容的数据类型</li>
@@ -213,8 +215,8 @@ SELECT COLUMN_NAME(S) FROM TABLE2
 <li>TPL:事务控制语言,commit,rollback,savepoint</li>
 </ol>
 <h2 id="DML"><a href="#DML" class="headerlink" title="DML"></a>DML</h2><h3 id="插入语句"><a href="#插入语句" class="headerlink" title="插入语句"></a>插入语句</h3><p>语法:</p>
-<pre><code class="sql">insert into 表名 (列名列表) values (对应值的列表)
-</code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">insert</span> <span class="token keyword">into</span> 表名 <span class="token punctuation">(</span>列名列表<span class="token punctuation">)</span> <span class="token keyword">values</span> <span class="token punctuation">(</span>对应值的列表<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <ul>
 <li><p>列名列表可以省略，对应值输入的顺序与表的设计顺序一致，而且每列都要插入值</p>
 </li>
@@ -225,88 +227,413 @@ SELECT COLUMN_NAME(S) FROM TABLE2
 </ul>
 </li>
 <li><p>一次插入多行记录</p>
-<pre><code class="sql">insert into 表名(列名列表) values (对应的列表),(对应的列表),(对应的列表)...
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">insert</span> <span class="token keyword">into</span> 表名<span class="token punctuation">(</span>列名列表<span class="token punctuation">)</span> <span class="token keyword">values</span> <span class="token punctuation">(</span>对应的列表<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span>对应的列表<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span>对应的列表<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
 
-insert into 表名(列名列表) 子查询;
+<span class="token keyword">insert</span> <span class="token keyword">into</span> 表名<span class="token punctuation">(</span>列名列表<span class="token punctuation">)</span> 子查询<span class="token punctuation">;</span>
 
-insert into emp_copy
-select * from emp where DEPTNO = 10;
-</code></pre>
-</li>
+<span class="token keyword">insert</span> <span class="token keyword">into</span> emp_copy
+<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> emp <span class="token keyword">where</span> DEPTNO <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
-<h3 id="快速创建表-DDL"><a href="#快速创建表-DDL" class="headerlink" title="快速创建表(DDL)"></a>快速创建表(DDL)</h3><pre><code class="sql">create table 表名
-as
-子查询;
+<h3 id="快速创建表-DDL"><a href="#快速创建表-DDL" class="headerlink" title="快速创建表(DDL)"></a>快速创建表(DDL)</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token keyword">table</span> 表名
+<span class="token keyword">as</span>
+子查询<span class="token punctuation">;</span>
 
-create table emp_copy
-as
-select * from emp where 1 &lt;&gt; 1;
-</code></pre>
+<span class="token keyword">create</span> <span class="token keyword">table</span> emp_copy
+<span class="token keyword">as</span>
+<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> emp <span class="token keyword">where</span> <span class="token number">1</span> <span class="token operator">&lt;></span> <span class="token number">1</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="更新语句"><a href="#更新语句" class="headerlink" title="更新语句"></a>更新语句</h3><p>语法:</p>
-<pre><code class="sql">update 表名
-set 列名 = 值,列名 = 值,列名 = 值,列名 = 值,列名 = 值,列名 = 值...
-[where 条件]
-</code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">update</span> 表名
+<span class="token keyword">set</span> 列名 <span class="token operator">=</span> 值<span class="token punctuation">,</span>列名 <span class="token operator">=</span> 值<span class="token punctuation">,</span>列名 <span class="token operator">=</span> 值<span class="token punctuation">,</span>列名 <span class="token operator">=</span> 值<span class="token punctuation">,</span>列名 <span class="token operator">=</span> 值<span class="token punctuation">,</span>列名 <span class="token operator">=</span> 值<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">[</span><span class="token keyword">where</span> 条件<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
+<p>例题:</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 把员工的工资改为其部门的平均薪水</span>
+<span class="token keyword">update</span> emp e1<span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token keyword">select</span> DEPTNO<span class="token punctuation">,</span><span class="token function">avg</span><span class="token punctuation">(</span>sal<span class="token punctuation">)</span> avgsal <span class="token keyword">from</span> emp <span class="token keyword">group</span> <span class="token keyword">by</span> DEPTNO <span class="token punctuation">)</span> e2
+<span class="token keyword">set</span> e1<span class="token punctuation">.</span>SAL <span class="token operator">=</span> e2<span class="token punctuation">.</span>avgsal
+<span class="token keyword">where</span> e1<span class="token punctuation">.</span>DEPTNO <span class="token operator">=</span> e2<span class="token punctuation">.</span>deptno<span class="token punctuation">;</span>
+
+<span class="token keyword">update</span>  emp e1 <span class="token keyword">join</span> <span class="token punctuation">(</span><span class="token keyword">select</span> DEPTNO<span class="token punctuation">,</span><span class="token function">avg</span><span class="token punctuation">(</span>sal<span class="token punctuation">)</span> avgsal <span class="token keyword">from</span> emp <span class="token keyword">group</span> <span class="token keyword">by</span> DEPTNO <span class="token punctuation">)</span> e2
+<span class="token keyword">on</span> e1 <span class="token punctuation">.</span>DEPTNO  <span class="token operator">=</span> e2<span class="token punctuation">.</span>DEPTNO
+<span class="token keyword">set</span> e1<span class="token punctuation">.</span>SAL <span class="token operator">=</span> e2<span class="token punctuation">.</span>avgsal<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="删除语句"><a href="#删除语句" class="headerlink" title="删除语句"></a>删除语句</h3><p>语法:</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">delete</span> <span class="token keyword">from</span> 表名
+<span class="token punctuation">[</span><span class="token keyword">where</span> 条件<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>例题:</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 3.删除工资大于所在部门平均工资的员工记录</span>
+
+<span class="token keyword">delete</span>  <span class="token keyword">from</span> emp 
+<span class="token keyword">where</span> EMPNO  <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token keyword">select</span> EMPNO <span class="token keyword">from</span>
+<span class="token punctuation">(</span><span class="token keyword">select</span> e2<span class="token punctuation">.</span>EMPNO <span class="token keyword">from</span> emp e2
+<span class="token keyword">join</span> <span class="token punctuation">(</span><span class="token keyword">select</span> DEPTNO<span class="token punctuation">,</span><span class="token function">avg</span><span class="token punctuation">(</span>sal<span class="token punctuation">)</span> avgsal <span class="token keyword">from</span> emp e <span class="token keyword">group</span> <span class="token keyword">by</span> DEPTNO<span class="token punctuation">)</span> a <span class="token keyword">on</span> e2<span class="token punctuation">.</span>DEPTNO <span class="token operator">=</span> a<span class="token punctuation">.</span>deptno <span class="token keyword">where</span> e2<span class="token punctuation">.</span>SAL <span class="token operator">></span> a<span class="token punctuation">.</span>avgsal<span class="token punctuation">)</span> b
+<span class="token punctuation">)</span>
+
+<span class="token keyword">delete</span> emp
+<span class="token keyword">from</span> emp <span class="token keyword">join</span> <span class="token punctuation">(</span><span class="token keyword">select</span> DEPTNO<span class="token punctuation">,</span><span class="token function">avg</span><span class="token punctuation">(</span>sal<span class="token punctuation">)</span> avgsal <span class="token keyword">from</span> emp e <span class="token keyword">group</span> <span class="token keyword">by</span> DEPTNO<span class="token punctuation">)</span> e
+<span class="token keyword">on</span> emp<span class="token punctuation">.</span>DEPTNO  <span class="token operator">=</span> e<span class="token punctuation">.</span>DEPTNO 
+<span class="token keyword">where</span> emp<span class="token punctuation">.</span>SAL <span class="token operator">></span> e<span class="token punctuation">.</span>avgsal<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="截断表-DDL"><a href="#截断表-DDL" class="headerlink" title="截断表(DDL)"></a>截断表(DDL)</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">truncate</span> <span class="token keyword">table</span> 表名<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>作用:删除表中所有数据</p>
+<p>truncate与delete的区别</p>
+<ul>
+<li>truncate属于DDL语句,它只能删除表中的所有记录，释放空间，使用rollback不可以回滚</li>
+<li>delete属于DML语句，可以删除表中指定的记录，但不释放空间，使用rollback可以回滚</li>
+</ul>
+<h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><ol>
+<li><p>事务也称作工作单元，是由一个或多个SQL语句组成的操作序列，这些SQL语句作为一个完整的工作单元，要么全部执行成功，要么全部执行失败，目的是保证数据的一致性(与业务逻辑相一致)</p>
+</li>
+<li><p>事务控制语言:TCL</p>
+<p>主要用来对组成事务的DML语句的操作结果进行确认或取消，确认也就是使DML操作生效，使用commit语句，取消也就是使DML操作失效，使用rollback语句来回滚</p>
+</li>
+<li><p>事物的特性:ACID</p>
+<ul>
+<li>原子性:事务就像原子一样，不可分割</li>
+<li>一致性:一旦事务完成，不管是成功(提交)还是失败(回滚)，整个系统处于一致的状态</li>
+<li>隔离性:一个事务的执行不会被另一个事务所干扰</li>
+<li>持久性:事务一旦提交，对事务的改变是永久的，不可以再回滚</li>
+</ul>
+</li>
+<li><p>MySQL是默认是执行事务自动提交</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">set</span> autocommit <span class="token operator">=</span> <span class="token number">0</span> 禁止自动提交<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">set</span> autocommit <span class="token operator">=</span> <span class="token number">1</span> 自动提交<span class="token punctuation">(</span>系统默认<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>隐式提交:</p>
+<ul>
+<li>执行了DDL语句</li>
+<li>执行了DCL语句</li>
+</ul>
+</li>
+<li><p>隐式回滚:</p>
+<ul>
+<li>客户端强制退出</li>
+<li>客户端连到服务器端异常</li>
+<li>系统崩溃</li>
+</ul>
+</li>
+<li><p>保存点:如果在一个事务内，想要回滚到指定位置，不是回滚到事务的起始点，可以通过保存点来实现</p>
+<ul>
+<li>设置保存点:<code>savepoint 保存点名</code></li>
+<li>回滚到保存点:<code>rollback to 保存点名</code></li>
+<li>注意:回滚到保存点，事务没有结束</li>
+</ul>
+</li>
+</ol>
+
+            
+        </div>
+        <footer class="article-footer">
+            <a data-url="http://yiyecreb.top/2023/07/18/MySql/" data-id="clk9brza0000jp8uf8mn3g2bo" data-title="MySQL"
+               class="article-share-link">分享</a>
+            
+            
+            
+            
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">学习笔记</a></li></ul>
+
+
+        </footer>
     </div>
     
-    
-    
-    
-    
-    
-    <div id="comment">
-        <div id="twikoo-container"></div>
-    </div>
-    
-    
-</div>
-
-                    <footer id="footer">
-    <div id="footer-wrap">
-        <div>
-            &copy;
-            2022 - 2023 依夜の妙妙屋
-            <span id="footer-icon">
-                <i class="fa-solid fa-font-awesome fa-fw"></i>
-            </span>
-            &commat;依夜
-        </div>
-        <div>
-            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
-            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
-        </div>
         
+    <nav id="article-nav" class="wow fadeInUp">
+        
+        
+            <div class="article-nav-link-wrap article-nav-link-right">
+                
+                    
+                    
+                        <img data-src="/covers/fbg5.jpg" data-sizes="auto" alt="Oracle" class="lazyload">
+                    
+                
+                <a href="/2023/06/17/Oracle/"></a>
+                <div class="article-nav-caption">后一篇</div>
+                <h3 class="article-nav-title">
+                    
+                        Oracle
+                    
+                </h3>
+            </div>
+        
+    </nav>
+
+
+    
+</article>
+
+
+
+
+
+
+
+
+
+
+
+</section>
+                
+                    <aside id="sidebar">
+    <div class="sidebar-wrap wow fadeInRight">
+        <div class="sidebar-author">
+            <img data-src="/avatar/avatar.jpg" data-sizes="auto" alt="依夜" class="lazyload">
+            <div class="sidebar-author-name">依夜</div>
+            <div class="sidebar-description"></div>
+        </div>
+        <div class="sidebar-state">
+            <div class="sidebar-state-article">
+                <div>文章</div>
+                <div class="sidebar-state-number">6</div>
+            </div>
+            <div class="sidebar-state-category">
+                <div>分类</div>
+                <div class="sidebar-state-number">3</div>
+            </div>
+            <div class="sidebar-state-tag">
+                <div>标签</div>
+                <div class="sidebar-state-number">2</div>
+            </div>
+        </div>
+        <div class="sidebar-social">
+            
+                <div class=icon-github>
+                    <a href=https://github.com/YiyeSss itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-twitter>
+                    <a href=https://twitter.com/YiyeSs itemprop="url" target="_blank"></a>
+                </div>
+            
+        </div>
+        <div class="sidebar-menu">
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">首页</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/archives"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">归档</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/about"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">关于</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/friend"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">友链</div>
+                </div>
+            
+        </div>
+    </div>
+    
+        
+    <div class="widget-wrap wow fadeInRight">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%BB%8F%E9%AA%8C/">学习经验</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E5%B8%B8/">日常</a></li></ul>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="widget-wrap wow fadeInRight">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">学习笔记</a> <a href="/tags/%E6%97%A5%E5%B8%B8%E5%88%86%E4%BA%AB/" style="font-size: 10px;">日常分享</a>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="widget-wrap wow fadeInRight">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">五月 2023</a></li></ul>
+        </div>
+    </div>
+
+
+    
+</aside>
+
+                
+            </div>
+            <footer id="footer" class="wow fadeInUp">
+    <div style="width: 100%; overflow: hidden"><div class="footer-line"></div></div>
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            
+            <div>
+                <span class="icon-copyright"></span>
+                2020-2023
+                <span class="footer-info-sep"></span>
+                依夜
+            </div>
+            
+                <div>
+                    基于&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>&nbsp;
+                    Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" target="_blank">Reimu</a>
+                </div>
+            
+            
+                <div>
+                    <span class="icon-brush"></span>
+                    6.2k
+                    &nbsp;|&nbsp;
+                    <span class="icon-coffee"></span>
+                    00:25
+                </div>
+            
+            
+                <div>
+                    <span class="icon-eye"></span>
+                    <span id="busuanzi_container_site_pv">总访问量&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+                    &nbsp;|&nbsp;
+                    <span class="icon-user"></span>
+                    <span id="busuanzi_container_site_uv">总访客量&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+                </div>
+            
+        </div>
     </div>
 </footer>
 
-                </div>
-            </transition>
+        </div>
+        <nav id="mobile-nav">
+    <div class="sidebar-wrap">
+        <div class="sidebar-author">
+            <img data-src="/avatar/avatar.jpg" data-sizes="auto" alt="依夜" class="lazyload">
+            <div class="sidebar-author-name">依夜</div>
+            <div class="sidebar-description"></div>
+        </div>
+        <div class="sidebar-state">
+            <div class="sidebar-state-article">
+                <div>文章</div>
+                <div class="sidebar-state-number">6</div>
+            </div>
+            <div class="sidebar-state-category">
+                <div>分类</div>
+                <div class="sidebar-state-number">3</div>
+            </div>
+            <div class="sidebar-state-tag">
+                <div>标签</div>
+                <div class="sidebar-state-number">2</div>
+            </div>
+        </div>
+        <div class="sidebar-social">
             
-            <transition name="fade">
-                <div id="preview" ref="preview" v-show="previewShow">
-                    <img id="preview-content" ref="previewContent" />
+                <div class=icon-github>
+                    <a href=https://github.com/YiyeSss itemprop="url" target="_blank"></a>
                 </div>
-            </transition>
+            
+                <div class=icon-twitter>
+                    <a href=https://twitter.com/YiyeSs itemprop="url" target="_blank"></a>
+                </div>
             
         </div>
-        <script src="/js/main.js"></script>
+        <div class="sidebar-menu">
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">首页</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/archives"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">归档</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/about"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">关于</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/friend"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">友链</div>
+                </div>
+            
+        </div>
+    </div>
+</nav>
+
         
-        
+<script src="https://unpkg.com/jquery@3.7.0/dist/jquery.min.js"></script>
+
+
+<script src="https://unpkg.com/lazysizes@5.3.2/lazysizes.min.js"></script>
+
+
+<script src="https://unpkg.com/clipboard@2.0.11/dist/clipboard.min.js"></script>
 
 
 
-<script>
-    twikoo.init({
-        el: "#twikoo-container",
-        envId: "",
-        region: "",
-        path: location.pathname,
-        lang: "zh-CN",
-    })
-</script>
+    
+<script src="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
 
-        
-    </body>
-</html>
+
+    
+<script src="https://unpkg.com/busuanzi@2.3.0/bsz.pure.mini.js"></script>
+
+
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <div class="site-search">
+        <div class="algolia-popup popup">
+            <div class="algolia-search">
+                <span class="algolia-search-input-icon"></span>
+                <div class="algolia-search-input" id="algolia-search-input"></div>
+            </div>
+
+            <div class="algolia-results">
+                <div id="algolia-stats"></div>
+                <div id="algolia-hits"></div>
+                <div id="algolia-pagination" class="algolia-pagination"></div>
+            </div>
+
+            <span class="popup-btn-close"></span>
+        </div>
+    </div>
+    <!-- hexo injector body_end start -->
+<script src="/js/insertHighlight.js"></script>
+<!-- hexo injector body_end end --></body>
+    </html>
+
