@@ -3,7 +3,7 @@
 <html lang="zh-CN">
     <head>
         <meta charset="utf-8" />
-        <title>标签 | 依夜の妙妙屋</title>
+        <title>MySQL | 依夜の妙妙屋</title>
         <meta name="author" content="依夜" />
         <meta name="description" content="" />
         <meta name="keywords" content="" />
@@ -29,6 +29,12 @@
 <script src="/js/lib/preview.js"></script>
 
 
+
+
+
+
+
+<script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
 
 
 
@@ -141,33 +147,118 @@
 
             <transition name="into">
                 <div id="main" v-show="!loading">
-                    <div id="archives">
-    
-    <div class="categories-tags">
+                    <div class="article">
+    <div>
+        <h1>MySQL</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2023/7/18
+        </span>
         
-        
-        <span>
-            <a href="/tags/%E6%97%A5%E5%B8%B8%E5%88%86%E4%BA%AB/" style="background: #ffa2c4">
+        <span class="category">
+            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">
                 <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
                 </span>
-                日常分享
+                数据库
             </a>
         </span>
         
         
-        
-        <span>
-            <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="background: #ffa2c4">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                学习笔记
-            </a>
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="color: #03a9f4">学习笔记</a>
+            </span>
+            
         </span>
-        
         
     </div>
+    
+    <div class="content" v-pre>
+        <p><img src="/../images/fbg3.jpg"></p>
+<h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h1><h2 id="表连接"><a href="#表连接" class="headerlink" title="表连接"></a>表连接</h2><ol>
+<li><p>全外连接:MySQL不支持,使用union来解决</p>
+</li>
+<li><p>union是MySQL中用来组合两个或多个select语句的结果集的一个操作符</p>
+</li>
+<li><p>基本语法:</p>
+<pre><code class="sql">SELECT COLUMN_NAME(S) FROM TABLE1
+UNION
+SELECT COLUMN_NAME(S) FROM TABLE2
+</code></pre>
+<ul>
+<li>使用规则:<ul>
+<li>union内的每个select语句必须拥有相同数量的列，并且对应列也拥有兼容的数据类型</li>
+</ul>
+</li>
+<li>union会去掉重复行</li>
+<li>如果不想去掉重复行：使用union all</li>
+</ul>
+</li>
+</ol>
+<h2 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h2><ol>
+<li>DQL:数据查询语言:select</li>
+<li>DML:数据操作语言,insert,update,delete</li>
+<li>DDL:数据定义语言:create,alter,drop</li>
+<li>DCL:数据控制语言:grant,remoke</li>
+<li>TPL:事务控制语言,commit,rollback,savepoint</li>
+</ol>
+<h2 id="DML"><a href="#DML" class="headerlink" title="DML"></a>DML</h2><h3 id="插入语句"><a href="#插入语句" class="headerlink" title="插入语句"></a>插入语句</h3><p>语法:</p>
+<pre><code class="sql">insert into 表名 (列名列表) values (对应值的列表)
+</code></pre>
+<ul>
+<li><p>列名列表可以省略，对应值输入的顺序与表的设计顺序一致，而且每列都要插入值</p>
+</li>
+<li><p>插入空值</p>
+<ul>
+<li>列名列表中不写值为空的列</li>
+<li>值设置为空(null)</li>
+</ul>
+</li>
+<li><p>一次插入多行记录</p>
+<pre><code class="sql">insert into 表名(列名列表) values (对应的列表),(对应的列表),(对应的列表)...
+
+insert into 表名(列名列表) 子查询;
+
+insert into emp_copy
+select * from emp where DEPTNO = 10;
+</code></pre>
+</li>
+</ul>
+<h3 id="快速创建表-DDL"><a href="#快速创建表-DDL" class="headerlink" title="快速创建表(DDL)"></a>快速创建表(DDL)</h3><pre><code class="sql">create table 表名
+as
+子查询;
+
+create table emp_copy
+as
+select * from emp where 1 &lt;&gt; 1;
+</code></pre>
+<h3 id="更新语句"><a href="#更新语句" class="headerlink" title="更新语句"></a>更新语句</h3><p>语法:</p>
+<pre><code class="sql">update 表名
+set 列名 = 值,列名 = 值,列名 = 值,列名 = 值,列名 = 值,列名 = 值...
+[where 条件]
+</code></pre>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    <div id="comment">
+        <div id="twikoo-container"></div>
+    </div>
+    
     
 </div>
 
@@ -200,6 +291,22 @@
             
         </div>
         <script src="/js/main.js"></script>
+        
+        
+
+
+
+<script>
+    twikoo.init({
+        el: "#twikoo-container",
+        envId: "",
+        region: "",
+        path: location.pathname,
+        lang: "zh-CN",
+    })
+</script>
+
+
         
     </body>
 </html>
