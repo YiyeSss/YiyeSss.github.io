@@ -32,7 +32,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yiyecreb.top/images/fbg3.jpg">
 <meta property="article:published_time" content="2023-07-17T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-07-19T06:07:10.059Z">
+<meta property="article:modified_time" content="2023-07-19T08:17:45.616Z">
 <meta property="article:author" content="依夜">
 <meta property="article:tag" content="学习笔记">
 <meta name="twitter:card" content="summary">
@@ -323,6 +323,56 @@
 </ul>
 </li>
 </ol>
+<h2 id="数据库与数据表的管理"><a href="#数据库与数据表的管理" class="headerlink" title="数据库与数据表的管理"></a>数据库与数据表的管理</h2><h3 id="数据库的操作"><a href="#数据库的操作" class="headerlink" title="数据库的操作"></a>数据库的操作</h3><ol>
+<li><p>创建数据库</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token keyword">database</span> <span class="token punctuation">[</span><span class="token keyword">if</span> <span class="token operator">not</span> <span class="token keyword">exists</span><span class="token punctuation">]</span> 数据库名 <span class="token punctuation">[</span><span class="token keyword">default</span> <span class="token keyword">charset</span> uf8mb4<span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>删除数据库</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">drop</span> <span class="token keyword">database</span> 数据库名<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>查看有哪些数据库</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">show</span> <span class="token keyword">databases</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>显示创建数据库的语句</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">show</span> <span class="token keyword">create</span> <span class="token keyword">database</span> 数据库名<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>切换数据库</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">use</span> 数据库名<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ol>
+<h3 id="数据表的操作"><a href="#数据表的操作" class="headerlink" title="数据表的操作"></a>数据表的操作</h3><ol>
+<li><p>创建数据表</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token keyword">table</span> 表名<span class="token punctuation">(</span>
+	字段名 字段类型 约束<span class="token punctuation">,</span>
+    字段名 字段类型 约束<span class="token punctuation">,</span>
+    字段名 字段类型 约束<span class="token punctuation">,</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">)</span><span class="token keyword">engine</span> <span class="token operator">=</span> 数据库引擎名 <span class="token keyword">default</span> <span class="token keyword">charset</span> 编码名<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>数据库引擎，也称为存储引擎，MySQL中数据用各种不同的技术储存在文件中，这些技术的每一种都使用不同的存储机制，索引技巧，锁定水平等。这些不同的技术以及配套的相关功能在MySQL中被称为存储引擎。</p>
+<p>innodb存储引擎:支持外键、事务</p>
+<p>查看数据库支持的引擎:</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">show</span> engines<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ol>
+<h3 id="字段类型"><a href="#字段类型" class="headerlink" title="字段类型"></a>字段类型</h3><ol>
+<li>整数类型<ul>
+<li><code>int(integer)</code>:普通大小的整数，大约是±20多亿</li>
+<li><code>smallint(short)</code>:-32768到+32767</li>
+</ul>
+</li>
+<li>小数类型<ul>
+<li><code>float</code>:单精度浮点数</li>
+<li><code>double</code>:双精度浮点数</li>
+<li><code>decimal(m,n)</code>：定点小数,<code>m</code>为总长,<code>n</code>为小数位</li>
+</ul>
+</li>
+<li>字符类型<ul>
+<li><code>char(n)</code>:定长字符类型，<code>n</code>为字符数，范围0~255</li>
+<li><code>varchar(n)</code>:变长字符类型,<code>n</code>为字符数，范围1~65535</li>
+</ul>
+</li>
+</ol>
+<p>​		</p>
+<p>​		</p>
 
             
         </div>
@@ -490,10 +540,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    6.2k
+                    6.5k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    00:25
+                    00:27
                 </div>
             
             
