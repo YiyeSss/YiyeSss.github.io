@@ -32,7 +32,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yiyecreb.top/images/fbg3.jpg">
 <meta property="article:published_time" content="2023-07-17T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-07-19T08:17:45.616Z">
+<meta property="article:modified_time" content="2023-07-20T01:00:24.314Z">
 <meta property="article:author" content="依夜">
 <meta property="article:tag" content="学习笔记">
 <meta name="twitter:card" content="summary">
@@ -354,20 +354,63 @@
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">show</span> engines<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ol>
 <h3 id="字段类型"><a href="#字段类型" class="headerlink" title="字段类型"></a>字段类型</h3><ol>
-<li>整数类型<ul>
+<li><p>整数类型</p>
+<ul>
 <li><code>int(integer)</code>:普通大小的整数，大约是±20多亿</li>
 <li><code>smallint(short)</code>:-32768到+32767</li>
 </ul>
 </li>
-<li>小数类型<ul>
+<li><p>小数类型</p>
+<ul>
 <li><code>float</code>:单精度浮点数</li>
 <li><code>double</code>:双精度浮点数</li>
 <li><code>decimal(m,n)</code>：定点小数,<code>m</code>为总长,<code>n</code>为小数位</li>
 </ul>
 </li>
-<li>字符类型<ul>
+<li><p>字符类型</p>
+<ul>
 <li><code>char(n)</code>:定长字符类型，<code>n</code>为字符数，范围0~255</li>
 <li><code>varchar(n)</code>:变长字符类型,<code>n</code>为字符数，范围1~65535</li>
+<li><code>text</code>:变长字符类型，64K</li>
+</ul>
+</li>
+<li><p>日期类型</p>
+<ul>
+<li><code>date</code>:日期</li>
+<li><code>time</code>:时间</li>
+<li><code>datetime</code>:日期和时间</li>
+</ul>
+</li>
+<li><p>二进制数据类型</p>
+<ul>
+<li><code>blob</code>:64KB</li>
+</ul>
+</li>
+<li><p>枚举类型</p>
+<ul>
+<li><p><code>enum</code></p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token keyword">table</span> stu<span class="token punctuation">(</span>
+	id <span class="token keyword">int</span><span class="token punctuation">,</span>
+	sex <span class="token keyword">enum</span><span class="token punctuation">(</span><span class="token string">'男'</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">insert</span> <span class="token keyword">into</span> stu <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">'男'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">insert</span> <span class="token keyword">into</span> stu <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">'女'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+</li>
+<li><p>集合类型</p>
+<ul>
+<li><p><code>set</code></p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">create</span>  <span class="token keyword">table</span> stu2<span class="token punctuation">(</span>
+	id <span class="token keyword">int</span><span class="token punctuation">,</span>
+	hobby <span class="token keyword">set</span><span class="token punctuation">(</span><span class="token string">'java'</span><span class="token punctuation">,</span><span class="token string">'玩游戏'</span><span class="token punctuation">,</span><span class="token string">'看书'</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">insert</span> <span class="token keyword">into</span> stu2 <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">'java'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">insert</span> <span class="token keyword">into</span> stu2 <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">'玩游戏'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">insert</span> <span class="token keyword">into</span> stu2 <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token string">'java,看书'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> stu2<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 </li>
 </ol>
@@ -377,7 +420,7 @@
             
         </div>
         <footer class="article-footer">
-            <a data-url="http://yiyecreb.top/2023/07/18/MySql/" data-id="clk9brza0000jp8uf8mn3g2bo" data-title="MySQL"
+            <a data-url="http://yiyecreb.top/2023/07/18/MySql/" data-id="clkagtfpg000jx0ufhosu0ncd" data-title="MySQL"
                class="article-share-link">分享</a>
             
             
@@ -540,7 +583,7 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    6.5k
+                    6.6k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
                     00:27
