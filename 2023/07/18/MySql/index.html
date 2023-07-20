@@ -481,6 +481,12 @@ row_number<span class="token punctuation">(</span><span class="token punctuation
             <a data-url="http://yiyecreb.top/2023/07/18/MySql/" data-id="clkagtfpg000jx0ufhosu0ncd" data-title="MySQL"
                class="article-share-link">分享</a>
             
+                <a href="/2023/07/18/MySql/#comments" class="article-comment-link">
+                    <span class="post-comments-count valine-comment-count" data-xid="/2023/07/18/MySql/"
+                          itemprop="commentCount"></span>
+                    留言
+                </a>
+            
             
             
             
@@ -514,6 +520,10 @@ row_number<span class="token punctuation">(</span><span class="token punctuation
     
 </article>
 
+
+    <section id="comments" class="vcomment">
+
+    </section>
 
 
 
@@ -752,6 +762,30 @@ row_number<span class="token punctuation">(</span><span class="token punctuation
 
 
 
+
+    
+<script src="https://unpkg.com/valine@1.5.1/dist/Valine.min.js"></script>
+
+    <script>
+        var GUEST_INFO = ['nick', 'mail', 'link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function (item) {
+            return GUEST_INFO.indexOf(item) > -1
+        });
+        var recordIP = JSON.parse('true');
+        var highlight = JSON.parse('true');
+
+        new Valine({
+            el: '.vcomment',
+            appId: "8kHwKC3HgWGqmpxQLrzQajhD-gzGzoHsz",
+            appKey: "G83oiYZHVcI6OLM8FpJZCNW4",
+            placeholder: "Just go go",
+            pageSize: '10',
+            avatar: 'mp',
+            lang: 'zh-cn',
+            recordIP: recordIP,
+            highlight: highlight
+        });
+    </script>
 
 
 

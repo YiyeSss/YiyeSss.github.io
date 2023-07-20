@@ -197,6 +197,12 @@
             <a data-url="http://yiyecreb.top/2023/05/24/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%AC%94%E8%AE%B0/" data-id="clkagtfph000kx0uf1i5m7tve" data-title="欢迎来到依夜的个人博客"
                class="article-share-link">分享</a>
             
+                <a href="/2023/05/24/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%AC%94%E8%AE%B0/#comments" class="article-comment-link">
+                    <span class="post-comments-count valine-comment-count" data-xid="/2023/05/24/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%AC%94%E8%AE%B0/"
+                          itemprop="commentCount"></span>
+                    留言
+                </a>
+            
             
             
             
@@ -213,7 +219,7 @@
                 
                     
                     
-                        <img data-src="/covers/fbg2.jpg" data-sizes="auto" alt="五月二十八号的散步心得" class="lazyload">
+                        <img data-src="/covers/fbg4.jpg" data-sizes="auto" alt="五月二十八号的散步心得" class="lazyload">
                     
                 
                 <a href="/2023/05/28/0528/"></a>
@@ -232,6 +238,10 @@
     
 </article>
 
+
+    <section id="comments" class="vcomment">
+
+    </section>
 
 
 
@@ -470,6 +480,30 @@
 
 
 
+
+    
+<script src="https://unpkg.com/valine@1.5.1/dist/Valine.min.js"></script>
+
+    <script>
+        var GUEST_INFO = ['nick', 'mail', 'link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function (item) {
+            return GUEST_INFO.indexOf(item) > -1
+        });
+        var recordIP = JSON.parse('true');
+        var highlight = JSON.parse('true');
+
+        new Valine({
+            el: '.vcomment',
+            appId: "8kHwKC3HgWGqmpxQLrzQajhD-gzGzoHsz",
+            appKey: "G83oiYZHVcI6OLM8FpJZCNW4",
+            placeholder: "Just go go",
+            pageSize: '10',
+            avatar: 'mp',
+            lang: 'zh-cn',
+            recordIP: recordIP,
+            highlight: highlight
+        });
+    </script>
 
 
 
