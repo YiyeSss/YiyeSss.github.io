@@ -184,6 +184,12 @@
             <a data-url="http://yiyecreb.top/categories/index.html" data-id="clkagtfp40002x0uf82we91kp" data-title="分类"
                class="article-share-link">分享</a>
             
+                <a href="/categories/index.html#comments" class="article-comment-link">
+                    <span class="post-comments-count valine-comment-count" data-xid="/categories/index.html"
+                          itemprop="commentCount"></span>
+                    留言
+                </a>
+            
             
             
             
@@ -196,6 +202,10 @@
     
 </article>
 
+
+    <section id="comments" class="vcomment">
+
+    </section>
 
 
 
@@ -323,10 +333,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    6.6k
+                    7k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    00:27
+                    00:29
                 </div>
             
             
@@ -434,6 +444,30 @@
 
 
 
+
+    
+<script src="https://unpkg.com/valine@1.5.1/dist/Valine.min.js"></script>
+
+    <script>
+        var GUEST_INFO = ['nick', 'mail', 'link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function (item) {
+            return GUEST_INFO.indexOf(item) > -1
+        });
+        var recordIP = JSON.parse('true');
+        var highlight = JSON.parse('true');
+
+        new Valine({
+            el: '.vcomment',
+            appId: "8kHwKC3HgWGqmpxQLrzQajhD-gzGzoHsz",
+            appKey: "G83oiYZHVcI6OLM8FpJZCNW4",
+            placeholder: "Just go go",
+            pageSize: '10',
+            avatar: 'mp',
+            lang: 'zh-cn',
+            recordIP: recordIP,
+            highlight: highlight
+        });
+    </script>
 
 
 

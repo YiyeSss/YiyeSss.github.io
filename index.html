@@ -212,10 +212,10 @@
             <div class="post-meta">
                 <a><span class="icon-calendar"></span>2023-07-18</a>
                 
-                    <a><span class="icon-pencil"></span>1.4k 字</a>
+                    <a><span class="icon-pencil"></span>1.8k 字</a>
                 
                 
-                    <a><span class="icon-clock"></span>5 分钟</a>
+                    <a><span class="icon-clock"></span>7 分钟</a>
                 
             </div>
             <h2 class="post-title">MySQL</h2>
@@ -320,7 +320,7 @@ Oracle数据库简介:
             
                 
                 
-                    <img data-src="/covers/fbg7.png" data-sizes="auto" alt="2023年两天一夜的大连旅游记录" class="lazyload">
+                    <img data-src="/covers/fbg3.jpg" data-sizes="auto" alt="2023年两天一夜的大连旅游记录" class="lazyload">
                 
             
         </div>
@@ -357,7 +357,7 @@ Oracle数据库简介:
             
                 
                 
-                    <img data-src="/covers/fbg3.jpg" data-sizes="auto" alt="若依管理系统学习使用经验(佛系更新中)" class="lazyload">
+                    <img data-src="/covers/fbg4.jpg" data-sizes="auto" alt="若依管理系统学习使用经验(佛系更新中)" class="lazyload">
                 
             
 
@@ -406,7 +406,7 @@ NodeJS
             
                 
                 
-                    <img data-src="/covers/fbg3.jpg" data-sizes="auto" alt="五月二十八号的散步心得" class="lazyload">
+                    <img data-src="/covers/fbg6.png" data-sizes="auto" alt="五月二十八号的散步心得" class="lazyload">
                 
             
         </div>
@@ -553,10 +553,10 @@ NodeJS
             
                 <div>
                     <span class="icon-brush"></span>
-                    6.6k
+                    7k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    00:27
+                    00:29
                 </div>
             
             
@@ -664,6 +664,30 @@ NodeJS
 
 
 
+
+    
+<script src="https://unpkg.com/valine@1.5.1/dist/Valine.min.js"></script>
+
+    <script>
+        var GUEST_INFO = ['nick', 'mail', 'link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function (item) {
+            return GUEST_INFO.indexOf(item) > -1
+        });
+        var recordIP = JSON.parse('true');
+        var highlight = JSON.parse('true');
+
+        new Valine({
+            el: '.vcomment',
+            appId: "8kHwKC3HgWGqmpxQLrzQajhD-gzGzoHsz",
+            appKey: "G83oiYZHVcI6OLM8FpJZCNW4",
+            placeholder: "Just go go",
+            pageSize: '10',
+            avatar: 'mp',
+            lang: 'zh-cn',
+            recordIP: recordIP,
+            highlight: highlight
+        });
+    </script>
 
 
 
