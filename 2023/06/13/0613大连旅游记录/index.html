@@ -154,6 +154,9 @@
             <nav id="sub-nav">
                 
                 
+                    <a id="nav-search-btn" class="nav-icon popup-trigger" title="搜索">
+                    </a>
+                
             </nav>
             <div id="search-form-wrap">
                 <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yiyecreb.top"></form>
@@ -192,7 +195,7 @@
             
         </div>
         <footer class="article-footer">
-            <a data-url="http://yiyecreb.top/2023/06/13/0613%E5%A4%A7%E8%BF%9E%E6%97%85%E6%B8%B8%E8%AE%B0%E5%BD%95/" data-id="clkagtfp50003x0ufdo67f1ii" data-title="2023年两天一夜的大连旅游记录"
+            <a data-url="http://yiyecreb.top/2023/06/13/0613%E5%A4%A7%E8%BF%9E%E6%97%85%E6%B8%B8%E8%AE%B0%E5%BD%95/" data-id="clkasehxd0003acuf5jvl830y" data-title="2023年两天一夜的大连旅游记录"
                class="article-share-link">分享</a>
             
                 <a href="/2023/06/13/0613%E5%A4%A7%E8%BF%9E%E6%97%85%E6%B8%B8%E8%AE%B0%E5%BD%95/#comments" class="article-comment-link">
@@ -232,7 +235,7 @@
                 
                     
                     
-                        <img data-src="/covers/fbg6.png" data-sizes="auto" alt="若依管理系统学习使用经验(佛系更新中)" class="lazyload">
+                        <img data-src="/covers/fbg2.jpg" data-sizes="auto" alt="若依管理系统学习使用经验(佛系更新中)" class="lazyload">
                     
                 
                 <a href="/2023/06/03/%E8%8B%A5%E4%BE%9D%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E7%BB%8F%E9%AA%8C/"></a>
@@ -381,10 +384,10 @@
             
                 <div>
                     <span class="icon-brush"></span>
-                    7k
+                    7.5k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    00:29
+                    00:31
                 </div>
             
             
@@ -526,6 +529,34 @@
 
 
 
+
+    
+<script src="https://unpkg.com/algoliasearch@4.17.1/dist/algoliasearch-lite.umd.js"></script>
+
+    
+<script src="https://unpkg.com/instantsearch.js@4.56.1/dist/instantsearch.production.min.js"></script>
+
+    
+<script src="/js/search.js"></script>
+
+    <script>
+        var CONFIG = {
+            root: '/',
+            algolia: {
+                applicationID: "YL5B4PAI4A",
+                apiKey: "32eebb61e50402b530d5dca993733574",
+                indexName: "yiyeblogsearch",
+                hits: {
+                    "per_page": parseInt("10")
+                },
+                labels: {
+                    "input_placeholder": "搜索.....",
+                    "hits_empty": "未发现与 「${query}」相关内容",
+                    "hits_stats": "找到${hits}条结果（用时 ${time} ms）"
+                }
+            }
+        };
+    </script>
 
 
     </div>

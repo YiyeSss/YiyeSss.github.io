@@ -32,7 +32,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yiyecreb.top/images/fbg3.jpg">
 <meta property="article:published_time" content="2023-07-17T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-07-20T03:11:01.113Z">
+<meta property="article:modified_time" content="2023-07-20T06:38:45.028Z">
 <meta property="article:author" content="依夜">
 <meta property="article:tag" content="学习笔记">
 <meta name="twitter:card" content="summary">
@@ -153,6 +153,9 @@
             </nav>
             <nav id="sub-nav">
                 
+                
+                    <a id="nav-search-btn" class="nav-icon popup-trigger" title="搜索">
+                    </a>
                 
             </nav>
             <div id="search-form-wrap">
@@ -453,8 +456,106 @@
 </ul>
 </li>
 <li><p>唯一约束：unique ，保证列的唯一性</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token keyword">table</span> <span class="token keyword">user</span><span class="token punctuation">(</span>
+	id <span class="token keyword">int</span> <span class="token keyword">primary</span> <span class="token keyword">key</span><span class="token punctuation">,</span>
+	username <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span> <span class="token keyword">unique</span> <span class="token operator">not</span> <span class="token boolean">null</span><span class="token punctuation">,</span>
+	password <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span> <span class="token operator">not</span> <span class="token boolean">null</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>外键约束：foreign key,保证表数据引用的完整性</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">foreign</span> <span class="token keyword">key</span> <span class="token punctuation">(</span>列名<span class="token punctuation">)</span> <span class="token keyword">references</span> 引用表名<span class="token punctuation">(</span>列名<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token keyword">table</span> class<span class="token punctuation">(</span>
+	id <span class="token keyword">int</span> <span class="token keyword">primary</span> <span class="token keyword">key</span><span class="token punctuation">,</span>
+	name <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span> <span class="token keyword">unique</span> <span class="token operator">not</span> <span class="token boolean">null</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">insert</span> <span class="token keyword">into</span> class <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">'java7'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">create</span> <span class="token keyword">table</span> stu<span class="token punctuation">(</span>
+
+	id <span class="token keyword">int</span><span class="token punctuation">,</span>
+	name <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+	classId <span class="token keyword">int</span><span class="token punctuation">,</span>
+	<span class="token keyword">primary</span> <span class="token keyword">key</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">,</span>
+	<span class="token keyword">foreign</span> <span class="token keyword">key</span><span class="token punctuation">(</span>classId<span class="token punctuation">)</span> <span class="token keyword">references</span> class<span class="token punctuation">(</span>id<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">insert</span> <span class="token keyword">into</span> stu <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">'Tom'</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">insert</span> <span class="token keyword">into</span> class <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">'java8'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">insert</span> <span class="token keyword">into</span> stu <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">'Marry'</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> stu<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>注意:只有主键或唯一键列可以被其他表引用</li>
+</ul>
+</li>
+<li><p>check约束:对列的值进行限制</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token keyword">table</span> stu<span class="token punctuation">(</span>
+    id <span class="token keyword">int</span> <span class="token keyword">primary</span> <span class="token keyword">key</span> <span class="token punctuation">,</span>
+    name <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span> <span class="token operator">not</span> <span class="token boolean">null</span><span class="token punctuation">,</span>
+    age <span class="token keyword">int</span> <span class="token punctuation">,</span>
+    <span class="token keyword">check</span><span class="token punctuation">(</span>age <span class="token operator">>=</span> <span class="token number">18</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">create</span> <span class="token keyword">table</span> test1<span class="token punctuation">(</span>
+            id <span class="token keyword">int</span> <span class="token keyword">primary</span> <span class="token keyword">key</span><span class="token punctuation">,</span>
+            startDate <span class="token keyword">date</span><span class="token punctuation">,</span>
+            endDate <span class="token keyword">date</span><span class="token punctuation">,</span>
+            <span class="token keyword">check</span><span class="token punctuation">(</span>startDate <span class="token operator">&lt;=</span> endDate<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>约束的位置:</p>
+<ul>
+<li>列级约束：把约束写道列的定义处，例如: id int primary key</li>
+<li>表级约束：把约束写道列的定义外，例如：id int,primary key(id)</li>
+</ul>
+</li>
+<li><p>默认值：</p>
+<ul>
+<li><p>当不设置某列值的时候，使用的值</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token keyword">table</span> stu<span class="token punctuation">(</span>
+    id <span class="token keyword">int</span> <span class="token keyword">primary</span> <span class="token keyword">key</span> <span class="token punctuation">,</span>
+    name <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span> <span class="token operator">not</span> <span class="token boolean">null</span><span class="token punctuation">,</span>
+    age <span class="token keyword">int</span> <span class="token keyword">default</span> <span class="token string">'18'</span><span class="token punctuation">,</span>
+    <span class="token keyword">check</span><span class="token punctuation">(</span>age <span class="token operator">>=</span> <span class="token number">18</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+</li>
+<li><p>自动增长</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token keyword">table</span> stu<span class="token punctuation">(</span>
+    id <span class="token keyword">int</span>  <span class="token keyword">auto_increment</span><span class="token punctuation">,</span>
+    name <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span> <span class="token operator">not</span> <span class="token boolean">null</span><span class="token punctuation">,</span>
+    age <span class="token keyword">int</span> <span class="token keyword">default</span> <span class="token string">'18'</span><span class="token punctuation">,</span>
+    <span class="token keyword">check</span><span class="token punctuation">(</span>age <span class="token operator">>=</span> <span class="token number">18</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token keyword">primary</span> <span class="token keyword">key</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">insert</span> <span class="token keyword">into</span> stu<span class="token punctuation">(</span>id<span class="token punctuation">,</span>name<span class="token punctuation">)</span> <span class="token keyword">values</span> <span class="token punctuation">(</span><span class="token boolean">null</span><span class="token punctuation">,</span><span class="token string">'tom'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li><p>只能在非空，主键或唯一键上添加自动增长</p>
+</li>
+<li><p>一个表中只能有一个自动增长列</p>
+</li>
+<li><p>查询最后自增长的值：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> last_insert_id<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ul>
 </li>
 </ol>
+<p>练习：</p>
+<ol>
+<li>角色表(role)：id 主键 自增长 ，name 非空 唯一</li>
+<li>用户表(user)：id 主键 自增长，username 非空 唯一，密码 默认值：888888 非空，角色编号 外键，年龄 age 不能小于18岁</li>
+</ol>
+<ul>
+<li>思考：<ul>
+<li>商品表(编号、名称、价格、类别)</li>
+<li>订单表(编号、用户、总金额)</li>
+<li>订单项 (编号、商品ld、商品数量，订单编号)</li>
+<li>用户表(编号、用户名、地址、电话)</li>
+</ul>
+</li>
+</ul>
 <h2 id="窗口函数"><a href="#窗口函数" class="headerlink" title="窗口函数"></a>窗口函数</h2><p>窗口函数:<strong>在每一行上执行一个计算</strong>，这个计算涉及到从同一结果集中的其他行获取数据。这个“窗口”是通过定义在一个或多个列上的某种关系来确定的</p>
 <h4 id="常用的函数"><a href="#常用的函数" class="headerlink" title="常用的函数"></a>常用的函数</h4><ol>
 <li>rank():计算每个窗口内的行的排名</li>
@@ -478,7 +579,7 @@ row_number<span class="token punctuation">(</span><span class="token punctuation
             
         </div>
         <footer class="article-footer">
-            <a data-url="http://yiyecreb.top/2023/07/18/MySql/" data-id="clkagtfpg000jx0ufhosu0ncd" data-title="MySQL"
+            <a data-url="http://yiyecreb.top/2023/07/18/MySql/" data-id="clkasehxi0007acuf6iij0rav" data-title="MySQL"
                class="article-share-link">分享</a>
             
                 <a href="/2023/07/18/MySql/#comments" class="article-comment-link">
@@ -651,10 +752,10 @@ row_number<span class="token punctuation">(</span><span class="token punctuation
             
                 <div>
                     <span class="icon-brush"></span>
-                    7k
+                    7.5k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    00:29
+                    00:31
                 </div>
             
             
@@ -796,6 +897,34 @@ row_number<span class="token punctuation">(</span><span class="token punctuation
 
 
 
+
+    
+<script src="https://unpkg.com/algoliasearch@4.17.1/dist/algoliasearch-lite.umd.js"></script>
+
+    
+<script src="https://unpkg.com/instantsearch.js@4.56.1/dist/instantsearch.production.min.js"></script>
+
+    
+<script src="/js/search.js"></script>
+
+    <script>
+        var CONFIG = {
+            root: '/',
+            algolia: {
+                applicationID: "YL5B4PAI4A",
+                apiKey: "32eebb61e50402b530d5dca993733574",
+                indexName: "yiyeblogsearch",
+                hits: {
+                    "per_page": parseInt("10")
+                },
+                labels: {
+                    "input_placeholder": "搜索.....",
+                    "hits_empty": "未发现与 「${query}」相关内容",
+                    "hits_stats": "找到${hits}条结果（用时 ${time} ms）"
+                }
+            }
+        };
+    </script>
 
 
     </div>
