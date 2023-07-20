@@ -32,7 +32,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yiyecreb.top/images/fbg3.jpg">
 <meta property="article:published_time" content="2023-07-17T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-07-20T02:44:54.586Z">
+<meta property="article:modified_time" content="2023-07-20T03:11:01.113Z">
 <meta property="article:author" content="依夜">
 <meta property="article:tag" content="学习笔记">
 <meta name="twitter:card" content="summary">
@@ -444,7 +444,15 @@
 <li>注意:表中可以没有主键，但建议在非特殊情况下，都要设置表的主键</li>
 <li>一个表中只能有一个主键</li>
 <li>一个表中可以使用多个列联合作为主键，称为联合主键，但并不推荐使用</li>
+<li>选择没有意义的列比较合适</li>
 </ul>
+</li>
+<li><p>非空约束：not null，该列不能为空</p>
+<ul>
+<li>只能是列级约束，不能是表级约束</li>
+</ul>
+</li>
+<li><p>唯一约束：unique ，保证列的唯一性</p>
 </li>
 </ol>
 <h2 id="窗口函数"><a href="#窗口函数" class="headerlink" title="窗口函数"></a>窗口函数</h2><p>窗口函数:<strong>在每一行上执行一个计算</strong>，这个计算涉及到从同一结果集中的其他行获取数据。这个“窗口”是通过定义在一个或多个列上的某种关系来确定的</p>
@@ -472,12 +480,6 @@ row_number<span class="token punctuation">(</span><span class="token punctuation
         <footer class="article-footer">
             <a data-url="http://yiyecreb.top/2023/07/18/MySql/" data-id="clkagtfpg000jx0ufhosu0ncd" data-title="MySQL"
                class="article-share-link">分享</a>
-            
-                <a href="/2023/07/18/MySql/#comments" class="article-comment-link">
-                    <span class="post-comments-count valine-comment-count" data-xid="/2023/07/18/MySql/"
-                          itemprop="commentCount"></span>
-                    留言
-                </a>
             
             
             
@@ -512,10 +514,6 @@ row_number<span class="token punctuation">(</span><span class="token punctuation
     
 </article>
 
-
-    <section id="comments" class="vcomment">
-
-    </section>
 
 
 
@@ -754,30 +752,6 @@ row_number<span class="token punctuation">(</span><span class="token punctuation
 
 
 
-
-    
-<script src="https://unpkg.com/valine@1.5.1/dist/Valine.min.js"></script>
-
-    <script>
-        var GUEST_INFO = ['nick', 'mail', 'link'];
-        var guest_info = 'nick,mail,link'.split(',').filter(function (item) {
-            return GUEST_INFO.indexOf(item) > -1
-        });
-        var recordIP = JSON.parse('true');
-        var highlight = JSON.parse('true');
-
-        new Valine({
-            el: '.vcomment',
-            appId: "8kHwKC3HgWGqmpxQLrzQajhD-gzGzoHsz",
-            appKey: "G83oiYZHVcI6OLM8FpJZCNW4",
-            placeholder: "Just go go",
-            pageSize: '10',
-            avatar: 'mp',
-            lang: 'zh-cn',
-            recordIP: recordIP,
-            highlight: highlight
-        });
-    </script>
 
 
 
