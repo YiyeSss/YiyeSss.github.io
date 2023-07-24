@@ -34,7 +34,7 @@
 <meta property="og:image" content="http://yiyecreb.top/images/image-20230721152512095.png">
 <meta property="og:image" content="http://yiyecreb.top/images/image-20230723-1149.png">
 <meta property="article:published_time" content="2023-07-23T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-07-24T04:55:40.195Z">
+<meta property="article:modified_time" content="2023-07-24T07:57:02.479Z">
 <meta property="article:author" content="依夜">
 <meta property="article:tag" content="学习笔记">
 <meta name="twitter:card" content="summary">
@@ -305,6 +305,111 @@ n <span class="token operator">=</span> <span class="token number">5000</span><s
 </li>
 </ul>
 </li>
+<li><p>标识符：</p>
+<ul>
+<li>定义：Java中的类、包、方法、变量等的名称称为标识符。</li>
+<li>命名规则：<ul>
+<li>必须以字母、下划线(<code>_</code>)或美元符号(<code>$</code>)开头</li>
+<li>其余的字符可以是字母、下划线、美元符号或数字(长度不限)</li>
+<li>标识符中不能有空格</li>
+<li>不能使用Java的关键字和保留字<ul>
+<li>关键字：事先定义好的对编译有特殊意义的单词<ul>
+<li>class,int</li>
+</ul>
+</li>
+<li>保留字：Java语法中暂时没有使用到该单词，但是保留起来，以后可能会使用<ul>
+<li>goto</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>数据类型</p>
+<ul>
+<li><p>Java中数据类型分为两大类</p>
+<ul>
+<li>基本数据类型：int等</li>
+<li>引用类型：class</li>
+</ul>
+</li>
+<li><p>基本数据类型：</p>
+<ul>
+<li><p>整数类型：</p>
+<ul>
+<li><p><code>byte</code>：字节，1byte &#x3D; 8bit、从-128到127</p>
+</li>
+<li><p><code>short</code>：短整数，2个字节，16bit，-32768到32767</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">short</span> s1 <span class="token operator">=</span> <span class="token class-name">Short</span><span class="token punctuation">.</span><span class="token constant">MAX_VALUE</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">short</span> s1 <span class="token operator">=</span> <span class="token class-name">Short</span><span class="token punctuation">.</span><span class="token constant">MIN_VALUE</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s2<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p><code>int</code>：整数型，4个字节，32bit,正负21亿多</p>
+</li>
+<li><p><code>long</code>：长整数，8个字节，64bit，共19十进制位</p>
+</li>
+</ul>
+</li>
+<li><p>进制：一种表示数字的方法，也称为基数或基数系统。常用：二进制、八进制、十进制、十六进制</p>
+<ul>
+<li>二进制以二为基数，使用0和1来表示数值，10表示2，以<code>0b</code>为前缀</li>
+<li>八进制以八为基数，使用0到7来表示数值，10表示8，以<code>0</code>为前缀</li>
+<li>十六进制以十六为基数，使用0到9,A到F来表示数值，10表示16，以<code>0x</code>或<code>0X</code>为前缀</li>
+</ul>
+</li>
+<li><p>进制转换</p>
+<ul>
+<li><p>其他进制字符串转换10进制整数</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span>进制数<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">例如<span class="token operator">:</span>
+<span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment">//把二进制10转换为十进制整数</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li><p>把十进制的整数转换为其他进制的字符串</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> binaryString <span class="token operator">=</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">toBinaryString</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//转2</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>binaryString<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">String</span> octalString <span class="token operator">=</span><span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">toOctalString</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//转8</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>octalString<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">String</span> hexString <span class="token operator">=</span><span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">toHexString</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//转16</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>hexString<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+</li>
+<li><p>浮点数：近似小数，可以表示很大范围的数值，但精度(有效位数)有限</p>
+<ul>
+<li><p><code>float</code>:单精度浮点数，4字节存储，32bit，有效位数:6~7位</p>
+</li>
+<li><p><code>double</code>:双精度浮点数，8字节，64bit，有效位数约为15位</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">float</span> f1 <span class="token operator">=</span> <span class="token number">3.14f</span>或<span class="token number">3.14f</span>
+<span class="token keyword">double</span> f1 <span class="token operator">=</span> <span class="token number">3.14</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+</ul>
+</li>
+<li><p>字符类</p>
+<ul>
+<li><p><code>char</code>：2个字节，16bit无符号整数，单引号括<code>&#39;&#39;</code>起来的一个字符</p>
+</li>
+<li><p>使用Unicode编码，能够保存世界上主要语言的主要字符</p>
+</li>
+<li><p>Unicode常用分类：utf-8，utf-16，utf-32，Java中用的是utf-16</p>
+</li>
+<li><p>在java中，可以使用\u后面跟着4个十六进制的数字的unicode来表示一个字符</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">char</span> c2 <span class="token operator">=</span> <span class="token char">'\u4e2d'</span><span class="token punctuation">;</span><span class="token comment">//中</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>特殊字符</p>
+<ul>
+<li><code>\t</code>：制表符</li>
+<li><code>\n</code>：换行符</li>
+<li><code>\r</code>：回车</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 </ol>
 
             
@@ -334,14 +439,14 @@ n <span class="token operator">=</span> <span class="token number">5000</span><s
         
             <div class="article-nav-link-wrap article-nav-link-right">
                 
-                    <img data-src="/images/fbg9.png" data-sizes="auto" alt="常见的DOS命令"
+                    <img data-src="/images/fbg10.png" data-sizes="auto" alt="高精度算法"
                          class="lazyload">
                 
-                <a href="/2023/07/23/DOS/"></a>
+                <a href="/2023/07/24/%E9%AB%98%E7%B2%BE%E5%BA%A6%E7%AE%97%E6%B3%95/"></a>
                 <div class="article-nav-caption">后一篇</div>
                 <h3 class="article-nav-title">
                     
-                        常见的DOS命令
+                        高精度算法
                     
                 </h3>
             </div>
@@ -378,11 +483,11 @@ n <span class="token operator">=</span> <span class="token number">5000</span><s
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">8</div>
+                <div class="sidebar-state-number">9</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
-                <div class="sidebar-state-number">5</div>
+                <div class="sidebar-state-number">6</div>
             </div>
             <div class="sidebar-state-tag">
                 <div>标签</div>
@@ -433,7 +538,7 @@ n <span class="token operator">=</span> <span class="token number">5000</span><s
     <div class="widget-wrap wow fadeInRight">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/DOS/">DOS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%BB%8F%E9%AA%8C/">学习经验</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E5%B8%B8/">日常</a></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/DOS/">DOS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%BB%8F%E9%AA%8C/">学习经验</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E5%B8%B8/">日常</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></li></ul>
         </div>
     </div>
 
@@ -483,10 +588,10 @@ n <span class="token operator">=</span> <span class="token number">5000</span><s
             
                 <div>
                     <span class="icon-brush"></span>
-                    9.7k
+                    10.7k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    00:39
+                    00:42
                 </div>
             
             
@@ -513,11 +618,11 @@ n <span class="token operator">=</span> <span class="token number">5000</span><s
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">8</div>
+                <div class="sidebar-state-number">9</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
-                <div class="sidebar-state-number">5</div>
+                <div class="sidebar-state-number">6</div>
             </div>
             <div class="sidebar-state-tag">
                 <div>标签</div>
