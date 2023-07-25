@@ -26,15 +26,15 @@
     <meta name="description" content="JavaSE学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java">
-<meta property="og:url" content="http://yiyecreb.top/2023/07/24/JavaSE/index.html">
+<meta property="og:url" content="http://yiyecreb.top/2023/07/25/JavaSE/index.html">
 <meta property="og:site_name" content="依夜の妙妙屋">
 <meta property="og:description" content="JavaSE学习笔记">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yiyecreb.top/images/fbg8.png">
 <meta property="og:image" content="http://yiyecreb.top/images/image-20230721152512095.png">
 <meta property="og:image" content="http://yiyecreb.top/images/image-20230723-1149.png">
-<meta property="article:published_time" content="2023-07-23T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-07-24T07:57:02.479Z">
+<meta property="article:published_time" content="2023-07-24T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-07-25T03:48:19.076Z">
 <meta property="article:author" content="依夜">
 <meta property="article:tag" content="学习笔记">
 <meta name="twitter:card" content="summary">
@@ -173,9 +173,9 @@
     <div class="article-inner">
         <div class="article-meta">
             <div class="article-date wow slideInLeft">
-    <a href="/2023/07/24/JavaSE/" class="article-date-link">
-        <time datetime="2023-07-23T16:00:00.000Z"
-              itemprop="datePublished">2023-07-24</time>
+    <a href="/2023/07/25/JavaSE/" class="article-date-link">
+        <time datetime="2023-07-24T16:00:00.000Z"
+              itemprop="datePublished">2023-07-25</time>
     </a>
 </div>
 
@@ -274,7 +274,7 @@
 </ul>
 </li>
 </ol>
-<h2 id="变量和运算符"><a href="#变量和运算符" class="headerlink" title="变量和运算符"></a>变量和运算符</h2><ol>
+<h2 id="变量和运算符"><a href="#变量和运算符" class="headerlink" title="变量和运算符"></a>变量和运算符</h2><h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><ol>
 <li><p>变量:代表着内存中的一段空间，用来存储可能变化的数据</p>
 </li>
 <li><p>变量的声明</p>
@@ -349,7 +349,7 @@ n <span class="token operator">=</span> <span class="token number">5000</span><s
 </li>
 <li><p><code>int</code>：整数型，4个字节，32bit,正负21亿多</p>
 </li>
-<li><p><code>long</code>：长整数，8个字节，64bit，共19十进制位</p>
+<li><p><code>long</code>：长整数，8个字节，64bit，共19十进制位，后缀：<code>L</code></p>
 </li>
 </ul>
 </li>
@@ -379,9 +379,9 @@ n <span class="token operator">=</span> <span class="token number">5000</span><s
 </li>
 <li><p>浮点数：近似小数，可以表示很大范围的数值，但精度(有效位数)有限</p>
 <ul>
-<li><p><code>float</code>:单精度浮点数，4字节存储，32bit，有效位数:6~7位</p>
+<li><p><code>float</code>:单精度浮点数，4字节存储，32bit，有效位数:6~7位，后缀<code>L</code></p>
 </li>
-<li><p><code>double</code>:双精度浮点数，8字节，64bit，有效位数约为15位</p>
+<li><p><code>double</code>:双精度浮点数，8字节，64bit，有效位数约为15位，后缀<code>D</code></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">float</span> f1 <span class="token operator">=</span> <span class="token number">3.14f</span>或<span class="token number">3.14f</span>
 <span class="token keyword">double</span> f1 <span class="token operator">=</span> <span class="token number">3.14</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
 </ul>
@@ -406,8 +406,143 @@ n <span class="token operator">=</span> <span class="token number">5000</span><s
 </li>
 </ul>
 </li>
+<li><p>布尔类型：</p>
+<ul>
+<li><code>boolean</code>：适合表示比较和逻辑运算的结果，值：<code>true/false</code><ul>
+<li>10 &gt; 20</li>
 </ul>
 </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>数据类型的转换:</p>
+<ul>
+<li><p>不同数据类型不能直接进行运算，需要先转换为相同类型再运算</p>
+</li>
+<li><p>有两种转换的方法</p>
+<ul>
+<li><p>自动转换：也称为隐式转换，由取值范围小的向取值范围大的转换</p>
+</li>
+<li><p>强制类型转换: 由取值方位大的向取值范围小的转换，系统不能自动进行</p>
+<ul>
+<li>(int)3.14</li>
+<li>(数据类型)值</li>
+</ul>
+</li>
+<li><p>当byte、short、char参与运算的时候，会先把它们的数据类型转换为int，再运算</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">byte</span> b1 <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+<span class="token keyword">byte</span> b2 <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> result <span class="token operator">=</span> b1 <span class="token operator">+</span> b2<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>字面量;</p>
+<ul>
+<li>直接写入程序的量<ul>
+<li>float:3.14F</li>
+<li>double:3.14D</li>
+<li>long:1000L</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><ol>
+<li><p>定义：也称为操作符，是一种特殊的符号，用来表示数值的运算、赋值和比较</p>
+</li>
+<li><p>赋值运算符</p>
+<ul>
+<li><code>=</code>：把<code>=右边的值</code>赋值给<code>=左边的变量或常量</code></li>
+<li>复合运算符<ul>
+<li><code>+=</code>：把变量的值取出来，进行加法运算，然后再把运行的结果放回变量中</li>
+<li><code>-=</code>：把变量的值取出来，进行减法运算，然后再把运行的结果放回变量中</li>
+<li><code>/=</code>：把变量的值取出来，进行除法运算，然后再把运行的结果放回变量中</li>
+<li><code>*=</code>：把变量的值取出来，进行乘法运算，然后再把运行的结果放回变量中</li>
+<li><code>%=</code>：把变量的值取出来，进行取余运算，然后再把运行的结果放回变量中</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>算术运算符</p>
+<ul>
+<li><p>二元运算符：<code>+ - * / %</code></p>
+</li>
+<li><p>一元运算符：<code>++、--</code></p>
+<ul>
+<li><p><code>++</code>：自增</p>
+<ul>
+<li><p>++变量：前自增</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">可以理解执行顺序为
+<span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> n <span class="token operator">=</span> n <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> k <span class="token operator">=</span> n<span class="token comment">//k可以拟为++n的表达式</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>变量++：后自增</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">可以理解执行顺序为
+<span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> k <span class="token operator">=</span> n<span class="token comment">//k可以拟为n++的表达式</span>
+<span class="token keyword">int</span> n <span class="token operator">=</span> n <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+</li>
+<li><p><code>--</code>：自减</p>
+<ul>
+<li><p>–变量：前自减</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">可以理解执行顺序为
+<span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> n <span class="token operator">=</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> k <span class="token operator">=</span> n<span class="token comment">//k可以拟为--n的表达式</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>变量–：后自减</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">可以理解执行顺序为
+<span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> k <span class="token operator">=</span> n<span class="token comment">//k可以拟为n--的表达式</span>
+<span class="token keyword">int</span> n <span class="token operator">=</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>表达式：</p>
+<ul>
+<li>定义：是符合一定语法规则的运算符和运算数的序列</li>
+<li>表达式的值：表达式中操作数进行运算得到的结果称为表达式的值，任何表达式都有一个值</li>
+<li>表达式的数据类型：表达式的值的类型就是表达式的数据类型</li>
+</ul>
+</li>
+<li><p>比较运算符(关系运算符)，用来对数值进行比较，表达式的结果为布尔值</p>
+<ul>
+<li><code>==</code>：比较两个数是否相等</li>
+<li><code>!=</code>：不等于</li>
+<li><code>&gt;</code>：大于</li>
+<li><code>&lt;</code>：小于</li>
+<li><code>&gt;=</code>：大于等于</li>
+<li><code>&lt;=</code>：小于等于</li>
+</ul>
+</li>
+<li><p>逻辑运算符：对布尔类型进行运算</p>
+<ul>
+<li><code>&amp;&amp;</code>：与运算符(短路与),两边的布尔类型值同时为true，则整个表达式的值为true，否则为false<ul>
+<li>当左边的表达式的结果为false的时候，就不进行右边表达式的计算了，这种效果称为短路</li>
+<li>如果希望运行后面的表达式，只写一个<code>&amp;(与)</code></li>
+</ul>
+</li>
+<li><code>||</code>：或运算符(短路或),两边的布尔类型值同时为false，则整个表达式的值为false，否则为true<ul>
+<li>当左边的表达式的结果为true的时候，就不进行右边表达式的计算了，这种效果称为短路</li>
+<li>如果希望运行后面的表达式，只写一个<code>|(或)</code></li>
+</ul>
+</li>
+<li><code>!</code>：非，一元运算符，对布尔值取相反的结果</li>
+</ul>
+</li>
+<li><p>三元表达式</p>
+<ul>
+<li>语法：表达式1?表达式2:表达式3;</li>
+<li>表达式1的值为布尔类型，如果为true，整个表达式的值为表达式2的值，如果为false，整个表达式的值为表达式3的值</li>
 </ul>
 </li>
 </ol>
@@ -415,11 +550,11 @@ n <span class="token operator">=</span> <span class="token number">5000</span><s
             
         </div>
         <footer class="article-footer">
-            <a data-url="http://yiyecreb.top/2023/07/24/JavaSE/" data-id="clkc9mlar0000aguf0ddf0f5k" data-title="Java"
+            <a data-url="http://yiyecreb.top/2023/07/25/JavaSE/" data-id="clkc9mlar0000aguf0ddf0f5k" data-title="Java"
                class="article-share-link">分享</a>
             
-                <a href="/2023/07/24/JavaSE/#comments" class="article-comment-link">
-                    <span class="post-comments-count valine-comment-count" data-xid="/2023/07/24/JavaSE/"
+                <a href="/2023/07/25/JavaSE/#comments" class="article-comment-link">
+                    <span class="post-comments-count valine-comment-count" data-xid="/2023/07/25/JavaSE/"
                           itemprop="commentCount"></span>
                     留言
                 </a>
@@ -588,10 +723,10 @@ n <span class="token operator">=</span> <span class="token number">5000</span><s
             
                 <div>
                     <span class="icon-brush"></span>
-                    10.7k
+                    11.7k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    00:42
+                    00:46
                 </div>
             
             
