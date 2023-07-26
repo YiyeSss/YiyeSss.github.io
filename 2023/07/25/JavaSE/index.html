@@ -34,7 +34,7 @@
 <meta property="og:image" content="http://yiyecreb.top/images/image-20230721152512095.png">
 <meta property="og:image" content="http://yiyecreb.top/images/image-20230723-1149.png">
 <meta property="article:published_time" content="2023-07-24T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-07-25T03:48:19.076Z">
+<meta property="article:modified_time" content="2023-07-26T01:01:20.738Z">
 <meta property="article:author" content="依夜">
 <meta property="article:tag" content="学习笔记">
 <meta name="twitter:card" content="summary">
@@ -545,6 +545,138 @@ n <span class="token operator">=</span> <span class="token number">5000</span><s
 <li>表达式1的值为布尔类型，如果为true，整个表达式的值为表达式2的值，如果为false，整个表达式的值为表达式3的值</li>
 </ul>
 </li>
+<li><p>运算符的优先级</p>
+<ul>
+<li><p>按照操作数来划分：一元操作符 &gt; 二元操作符 &gt; 三元操作符</p>
+</li>
+<li><p>按运算符的类型来划分：算数运算符 &gt; 比较(关系)运算符 &gt; 逻辑运算符 &gt; 赋值运算符</p>
+<table>
+<thead>
+<tr>
+<th align="center">运算符</th>
+<th align="center">优先级</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">类型转换</td>
+<td align="center">11&#x2F;&#x2F;数越大优先级越高</td>
+</tr>
+<tr>
+<td align="center">++、–</td>
+<td align="center">10</td>
+</tr>
+<tr>
+<td align="center">!</td>
+<td align="center">9</td>
+</tr>
+<tr>
+<td align="center">*、&#x2F;、%</td>
+<td align="center">8</td>
+</tr>
+<tr>
+<td align="center">+、-</td>
+<td align="center">7</td>
+</tr>
+<tr>
+<td align="center">&gt;、&gt;&#x3D;、&lt;、&lt;&#x3D;</td>
+<td align="center">6</td>
+</tr>
+<tr>
+<td align="center">&#x3D;&#x3D;、!&#x3D;</td>
+<td align="center">5</td>
+</tr>
+<tr>
+<td align="center">&amp;</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">|</td>
+<td align="center">3</td>
+</tr>
+<tr>
+<td align="center">&amp;&amp;</td>
+<td align="center">2</td>
+</tr>
+<tr>
+<td align="center">||</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">&#x3D;、+&#x3D;、-&#x3D;、*&#x3D;、&#x2F;&#x3D;、%&#x3D;</td>
+<td align="center">0</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="控制台读取数据"><a href="#控制台读取数据" class="headerlink" title="控制台读取数据"></a>控制台读取数据</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Scanner</span> scanner <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Scanner</span><span class="token punctuation">(</span><span class="token class-name">System</span><span class="token punctuation">.</span>in<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> n <span class="token operator">=</span> scanner<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">String</span> z <span class="token operator">=</span> scanner<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//读到字符串到空格结束</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>z<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">String</span> y <span class="token operator">=</span> scanner<span class="token punctuation">.</span><span class="token function">nextLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//读到字符串到换行结束</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span>
+<span class="token keyword">double</span> x <span class="token operator">=</span> scanner<span class="token punctuation">.</span><span class="token function">nextDouble</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="流程控制语句"><a href="#流程控制语句" class="headerlink" title="流程控制语句"></a>流程控制语句</h2><h3 id="条件控制语句"><a href="#条件控制语句" class="headerlink" title="条件控制语句"></a>条件控制语句</h3><h4 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a>if语句</h4><p>语法1：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">if</span><span class="token punctuation">(</span>条件<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    语句块
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>如果条件为true，就执行大括号中的语句块，如果为false，该<code>if语句</code>直接结束</p>
+<p>语法2：二选一</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">if</span><span class="token punctuation">(</span>条件<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    语句块<span class="token number">1</span>
+<span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+    语句块<span class="token number">2</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>如果条件为true，就执行语句块1，如果为false，就执行语句块2</p>
+<p>语法3：多选一</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">if</span><span class="token punctuation">(</span>条件<span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    代码块<span class="token number">1</span>
+<span class="token punctuation">&#125;</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>条件<span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    代码块<span class="token number">2</span>
+<span class="token punctuation">&#125;</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>条件<span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    代码块<span class="token number">3</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+    代码块n
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>语法4：嵌套</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">if</span><span class="token punctuation">(</span>条件<span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    代码块<span class="token number">1</span>
+<span class="token punctuation">&#125;</span><span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>条件<span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        代码块<span class="token number">2</span>
+    <span class="token punctuation">&#125;</span><span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+        代码块
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h2 id="程序调试"><a href="#程序调试" class="headerlink" title="程序调试"></a>程序调试</h2><ol>
+<li>作用：<ul>
+<li>查看程序执行过程</li>
+<li>查看内存数据的变化情况</li>
+<li>查找程序逻辑错误</li>
+</ul>
+</li>
+<li>步骤<ul>
+<li>设置断点</li>
+<li>进入Debug模式</li>
+<li>运行停止在断点处(当前代码没有执行)</li>
+<li>步过(执行当前行代码) Idea快捷键：F8</li>
+<li>恢复程序(执行到下一个断点处，如果没有下一个断点，程序执行到结束) Idea快捷键：F9</li>
+<li>停止(直接停止程序调试) Idea快捷键：Ctrl+F2</li>
+<li>使用评估窗口：计算表达式的值</li>
+</ul>
+</li>
 </ol>
 
             
@@ -723,10 +855,10 @@ n <span class="token operator">=</span> <span class="token number">5000</span><s
             
                 <div>
                     <span class="icon-brush"></span>
-                    11.7k
+                    12.2k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    00:46
+                    00:48
                 </div>
             
             
