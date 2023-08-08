@@ -34,7 +34,7 @@
 <meta property="og:image" content="http://yiyecreb.top/images/image-20230721152512095.png">
 <meta property="og:image" content="http://yiyecreb.top/images/image-20230723-1149.png">
 <meta property="article:published_time" content="2023-07-25T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-08-04T08:16:34.339Z">
+<meta property="article:modified_time" content="2023-08-08T08:58:34.229Z">
 <meta property="article:author" content="依夜">
 <meta property="article:tag" content="学习笔记">
 <meta name="twitter:card" content="summary">
@@ -1147,6 +1147,7 @@ com
 <li>参数列表相同</li>
 <li>返回值类型相同</li>
 <li>子类覆盖方法的访问权限不小于父类被覆盖方法的访问权限</li>
+<li>不能抛出父类里没有抛出的异常</li>
 </ul>
 </li>
 </ol>
@@ -1579,6 +1580,209 @@ system<span class="token punctuation">.</span>out<span class="token punctuation"
 <li>String toUpperCase()：把字符串中小写字母转换为大写</li>
 <li>String toLowerCase()：把字符串中大写字母转换为小写 </li>
 <li>char charAt(int index)：返回字符串中指定索引处的字符，如果index超出指定的范围，抛出字符串索引越界异常，index从0开始</li>
+<li>int length()：返回字符串中字符的个数</li>
+<li>String substring(int beginindex)：从指定的索引处开始截取字符串，到字符串结束位置</li>
+<li>String substring(int beginindex,int endindex)：从指定的索引处开始截取字符串，到结束索引号为止(不包括结束索引对应的字符)</li>
+<li>int indexOf | lastindexOf(String|char)：在字符串中查找一个指定的字符串或字符第一次或最后一次出现的位置，如果没有找到，返回-1</li>
+<li>String trim()：返回字符串去掉首尾空格后的字符串</li>
+<li>String split(String str):使用指定的分隔符分割当前字符串，返回分隔后的元素组成的数组</li>
+<li>String replace(char|String,char|String)：使用新的字符串或字符替换原来的字符串或字符</li>
+<li>int compareTo(String):比较两个字符串的大小，相等返回量，当前字符串大返回大于零的数，否则返回小于零的数</li>
+</ul>
+</li>
+</ol>
+<h3 id="StringBuffer"><a href="#StringBuffer" class="headerlink" title="StringBuffer"></a>StringBuffer</h3><ol>
+<li>定义：可以改变的字符序列，可以动态改变，而不产生额外的对象</li>
+<li>构造方法：<ul>
+<li>StringBuffer()：创建了一个其中不带有字符串的字符串缓冲区，初始容量为16个字符</li>
+<li>StringBuffer(int capacity)：创建一个具有指定容量的字符串缓冲区</li>
+</ul>
+</li>
+<li>常用方法<ul>
+<li>append(String value)：在原来字符串后面追加字符串</li>
+<li>toString()：得到StringBuffer中的字符序列</li>
+<li>int length()：返回字符的个数</li>
+<li>int capacity()：得到缓存区容量的大小</li>
+<li>setChar(int index,char c)：修改index处的字符</li>
+<li>insert(int index,String str)：在index处插入指定的字符串</li>
+<li>deleteCharAt(int index)：删除指定index处的字符</li>
+<li>delete(int start,int end)：删除指定索引号之间的字符</li>
+</ul>
+</li>
+</ol>
+<h3 id="StringBuilder"><a href="#StringBuilder" class="headerlink" title="StringBuilder"></a>StringBuilder</h3><ol>
+<li>StringBuilder设计用来作为StringBuffer的简单替代，用在字符串缓冲区被单线程方法使用的情况</li>
+<li>其他使用方法与StringBuffer完全一样。</li>
+</ol>
+<h3 id="Math"><a href="#Math" class="headerlink" title="Math"></a>Math</h3><ol>
+<li><p>Math类提供了大量数学运算的方法</p>
+</li>
+<li><p>Math类是final类，不能被继承</p>
+</li>
+<li><p>Math类中的方法都是静态的，不用实例化直接通过类名访问</p>
+</li>
+<li><p>常量</p>
+<ul>
+<li>Math.PI：圆周率</li>
+<li>Math.E：自然对数的指数</li>
+</ul>
+</li>
+<li><p>常用方法</p>
+<ul>
+<li><p>abs()：求绝对值</p>
+</li>
+<li><p>ceil(double)：向上取整</p>
+</li>
+<li><p>floor(double)：向下取整</p>
+</li>
+<li><p>random()：返回0到1之间的随机数</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">35</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>round(double)：四舍五入</p>
+</li>
+<li><p>sqrt(double)：开方</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h3><ol>
+<li>包：java.util.Date</li>
+<li>表示特定的瞬间，精确到毫秒，在内部，保存自1970年1月1日00:00:00到某一时刻间隔毫秒数</li>
+<li>getTime()：得到内部时间毫秒数，long类型</li>
+<li>new Date()：得到一个当前时间的日期对象</li>
+<li>new Date(long time)：根据参数指定的毫秒数，创建一个对应的日期对象</li>
+<li>该类的许多方法都过时了，过时的方法在未来高版本的JDK中可能就不在支持了，建议别用</li>
+<li>toString()：返回日期的字符串表示形式</li>
+<li>befor(Date)：判断当前日期是否在参数给定的日期前，在之前，返回true，否则返回false</li>
+<li>after(Date)：判断当前日期是否在参数给定的日期后，在之后，返回true，否则返回false</li>
+</ol>
+<h3 id="Calendar"><a href="#Calendar" class="headerlink" title="Calendar"></a>Calendar</h3><ol>
+<li><p>包：java.util.Calendar</p>
+</li>
+<li><p>是一个抽象类</p>
+</li>
+<li><p>获取Calendar类的实例</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Calendar</span><span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>静态方法，得到当前时间对象<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>设置时间</p>
+<ul>
+<li>set(int field,int value)：根据指定字段设置日期值</li>
+<li>set(int year,int month,int date,int hours,int minutes,int seconds)：设置日期,月份从0开始</li>
+</ul>
+</li>
+<li><p>得到指定的时间部分</p>
+<ul>
+<li>get(int field)：field可以使用Calendar类中定义的常量来设置</li>
+</ul>
+</li>
+<li><p>把Date转换为Calendar</p>
+<ul>
+<li>setTime(Date)</li>
+</ul>
+</li>
+<li><p>把Calendar转换为Date</p>
+<ul>
+<li>Date.getTime</li>
+</ul>
+</li>
+<li><p>为给定的日历字段添加或减去指定的时间值</p>
+<ul>
+<li>add(int field,int num)</li>
+</ul>
+</li>
+</ol>
+<h3 id="SimpleDateFormat-重要"><a href="#SimpleDateFormat-重要" class="headerlink" title="SimpleDateFormat(重要)"></a>SimpleDateFormat(重要)</h3><ol>
+<li><p>包：java.text</p>
+</li>
+<li><p>构造方法：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">new</span> <span class="token class-name">SimpleDateFormat</span><span class="token punctuation">(</span><span class="token string">"yyyy-MM-dd HH:mm:ss"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>模式字母</p>
+<ul>
+<li>yyyy：4位年</li>
+<li>MM：月</li>
+<li>dd：日期</li>
+<li>HH：0-23(小时)</li>
+<li>hh：0-11(小时)</li>
+<li>mm：分钟</li>
+<li>ss：秒</li>
+</ul>
+</li>
+<li><p>String format(Date)：把日期格式化为指定格式的字符串</p>
+</li>
+<li><p>Date parse(String)：把字符串转换为日期对象</p>
+</li>
+</ol>
+<h2 id="集合框架"><a href="#集合框架" class="headerlink" title="集合框架"></a>集合框架</h2><h3 id="概述-2"><a href="#概述-2" class="headerlink" title="概述"></a>概述</h3><ol>
+<li>集合也称为容器类，用来储存对象</li>
+<li>数组的问题<ul>
+<li>长度一旦定义就不能再改变</li>
+<li>数组要求每一个元素在内存中是挨着存放的</li>
+</ul>
+</li>
+<li>常用操作：增删改查</li>
+<li>与数组比较<ul>
+<li>数组定长，集合大小可以动态调整</li>
+<li>数组中元素可以是基本数据类型和引用类型，集合中只能储存引用数据类型</li>
+</ul>
+</li>
+</ol>
+<h3 id="集合框架-1"><a href="#集合框架-1" class="headerlink" title="集合框架"></a>集合框架</h3><ol>
+<li>Collection：接口</li>
+<li>List：接口，是Collection接口的子接口，元素特点：有顺序，可重复</li>
+<li>Set：接口，是Collection接口的子接口，元素特点：无顺序，不可重复</li>
+<li>Map接口：键值对储存</li>
+<li>Iterator：接口，迭代器，对Collection中的元素进行遍历访问</li>
+</ol>
+<h3 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h3><ol>
+<li><p>是List接口的一个实现类</p>
+</li>
+<li><p>数据线性存储(元素在物理存储的时候，是挨着存放的) 特性跟数组相近，简称为动态数组</p>
+</li>
+<li><p>构造方法</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">ArrayList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span>创建一个初始容量为<span class="token number">10</span>的空集合
+<span class="token class-name">ArrayList</span><span class="token punctuation">(</span><span class="token keyword">int</span> capacity<span class="token punctuation">)</span><span class="token operator">:</span>创建一个具有初始容器为capacity的空集合
+   <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>常用方法：</p>
+<ul>
+<li>add(Object)：把元素添加到集合最后</li>
+<li>get(int index)：根据索引号得到对应的元素，如果索引号超出一定的范围，抛出异常</li>
+<li>add(int index,Object obj)：把元素插入到index位置，index不能超出集合中元素的个数</li>
+<li>size()：返回集合中元素的个数</li>
+<li>contains(Object obj)：判断集合中是否包含参数指定的对象，包含返回true，否则返回false<ul>
+<li>注意：比较的时候，使用对象的equals()方法进行比较</li>
+</ul>
+</li>
+<li>Object remove(int index)：移除参数指定位置的元素，返回移除后的元素</li>
+<li>boolean remove(Object obj)：调用equals()方法移除参数指定的单个元素(移除一个元素后，比较终止)，返回true表示移除成功</li>
+<li>set(int index,Object obj)：在指定索引处，用obj替代原来的元素</li>
+<li>indexOf(Object obj)：查找对象第一次出现的位置，返回索引号，没有找到，返回-1</li>
+<li>lastindexOf(Object obj)：查找对象最后一次出现的位置，返回索引号，没有找到，返回-1</li>
+<li>toArray()：把集合中的元素导入数组，返回数组</li>
+</ul>
+</li>
+</ol>
+<h3 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h3><ol>
+<li>是List接口的实现类</li>
+<li>数据结构采用的双向链表，元素物理存储位置不要求连续</li>
+<li>优缺点<ul>
+<li>优点：插入和删除节点效率高</li>
+<li>缺点：随机访问效率不高</li>
+</ul>
+</li>
+<li>常用方法：<ul>
+<li>addFirst(Object)：把元素插入到集合第一个位置处</li>
+<li>addLast(Object)：把元素插入到集合的最后一个位置处</li>
+<li>getFirst()：得到第一个元素</li>
+<li>getLast()：得到最后一个元素</li>
+<li>removeFirst()：移除第一个元素</li>
+<li>removeLast()：移除最后一个元素</li>
+</ul>
+</li>
+<li>使用ArrayList还是LinkedList，取决于对选择的数据结构做何种操作比较多<ul>
+<li>插入和删除操作比较多，选择LinkedList</li>
+<li>随机访问(根据索引得到元素)比较多，选择ArrayList</li>
 </ul>
 </li>
 </ol>
@@ -1777,10 +1981,10 @@ system<span class="token punctuation">.</span>out<span class="token punctuation"
             
                 <div>
                     <span class="icon-brush"></span>
-                    19.9k
+                    21.7k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    01:17
+                    01:23
                 </div>
             
             
