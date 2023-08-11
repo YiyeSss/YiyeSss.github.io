@@ -12,7 +12,7 @@
 
     
     <title>
-        五月二十八号的散步心得 |
+        JDBC |
         
         依夜の妙妙屋</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,20 +23,18 @@
     
 <link rel="stylesheet" href="/css/loader.css">
 
-    <meta name="description" content="五月二十八号的散步心得，别称有女朋友的心情缓解提速">
+    <meta name="description" content="JavaSE学习笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="五月二十八号的散步心得">
-<meta property="og:url" content="http://yiyecreb.top/2023/05/28/0528/index.html">
+<meta property="og:title" content="JDBC">
+<meta property="og:url" content="http://yiyecreb.top/2023/08/11/JDBC/index.html">
 <meta property="og:site_name" content="依夜の妙妙屋">
-<meta property="og:description" content="五月二十八号的散步心得，别称有女朋友的心情缓解提速">
+<meta property="og:description" content="JavaSE学习笔记">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://yiyecreb.top/images/fbg4.jpg">
-<meta property="article:published_time" content="2023-05-28T13:57:26.898Z">
-<meta property="article:modified_time" content="2023-07-20T08:53:43.333Z">
+<meta property="article:published_time" content="2023-08-10T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-08-11T05:59:48.941Z">
 <meta property="article:author" content="依夜">
-<meta property="article:tag" content="日常分享">
+<meta property="article:tag" content="学习笔记">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yiyecreb.top/images/fbg4.jpg">
     
     
         <link rel="shortcut icon" href="/images/favicon2.jpg">
@@ -109,7 +107,7 @@
         <div id="wrap">
             <header id="header">
     
-        <img data-src="/images/fbg4.jpg" data-sizes="auto" alt="五月二十八号的散步心得" class="lazyload">
+        <img data-src="/images/fbg11.png" data-sizes="auto" alt="JDBC" class="lazyload">
     
     <div id="header-outer" class="outer">
         <div id="header-title" class="inner">
@@ -117,7 +115,7 @@
                 
                     
                     
-                        <a href="/" id="logo"><h1>五月二十八号的散步心得</h1></a>
+                        <a href="/" id="logo"><h1>JDBC</h1></a>
                     
                 
             </div>
@@ -166,20 +164,20 @@
 </header>
 
             <div id="content" class="outer">
-                <section id="main"><article id="post-0528" class="h-entry article article-type-post"
+                <section id="main"><article id="post-JDBC" class="h-entry article article-type-post"
          itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
     <div class="article-inner">
         <div class="article-meta">
             <div class="article-date wow slideInLeft">
-    <a href="/2023/05/28/0528/" class="article-date-link">
-        <time datetime="2023-05-28T13:57:26.898Z"
-              itemprop="datePublished">2023-05-28</time>
+    <a href="/2023/08/11/JDBC/" class="article-date-link">
+        <time datetime="2023-08-10T16:00:00.000Z"
+              itemprop="datePublished">2023-08-11</time>
     </a>
 </div>
 
             
     <div class="article-category wow slideInLeft">
-        <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8/">日常</a>
+        <a class="article-category-link" href="/categories/Java/">Java</a>
     </div>
 
 
@@ -189,17 +187,40 @@
 
         <div class="e-content article-entry" itemprop="articleBody">
             
-                <p><img src="/../images/fbg4.jpg"></p>
-<p><span style="font-size:20px;color:orange">近些天因为大大小小的各种事情加生活琐碎还有夏天的闷热真的导致心情很难蚌，多少有点控制不了自己的情绪，和女朋友一起在学校里散步真的解决了很多问题，至少有了缓解的依靠，真的蛮幸运的<del>(话说以后这博客不会大部分都是我的碎碎念和日常吧[划去])</del></span></p>
+                <h1 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><ol>
+<li>JDBC：java数据库连接技术</li>
+<li>特点：<ul>
+<li>是一种用于执行Sql语句的JavaAPI</li>
+<li>可以为多种关系型数据库提供统一接口</li>
+<li>它是由一组Java语言编写的类和接口组成</li>
+<li>是java中访问数据库的标准规范</li>
+</ul>
+</li>
+<li>驱动<ul>
+<li>Java提供访问数据库的一个规范，生产厂商提供规范的实现类称为驱动</li>
+<li>每个数据库厂商都需要提供自己的驱动，用来连接自己公司的数据库</li>
+</ul>
+</li>
+</ol>
+<h2 id="JDBC操作过程"><a href="#JDBC操作过程" class="headerlink" title="JDBC操作过程"></a>JDBC操作过程</h2><h3 id="注册驱动"><a href="#注册驱动" class="headerlink" title="注册驱动"></a>注册驱动</h3><ol>
+<li><p>在项目的依赖中添加驱动jar包</p>
+</li>
+<li><p>在程序中注册驱动</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Class</span><span class="token punctuation">.</span><span class="token function">forName</span><span class="token punctuation">(</span><span class="token string">"驱动类完全限定名"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
+        <span class="token class-name">Class</span><span class="token punctuation">.</span><span class="token function">forName</span><span class="token punctuation">(</span><span class="token string">"com.mysql.cj.jdbc.Driver"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//mysql8的驱动</span>
+        <span class="token class-name">Class</span><span class="token punctuation">.</span><span class="token function">forName</span><span class="token punctuation">(</span><span class="token string">"com.mysql.jdbc.Driver"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//mysql8以下的驱动</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="连接到数据库的"><a href="#连接到数据库的" class="headerlink" title="连接到数据库的"></a>连接到数据库的</h3>
             
         </div>
         <footer class="article-footer">
-            <a data-url="http://yiyecreb.top/2023/05/28/0528/" data-id="clkasehx90001acufgk5bbs9p" data-title="五月二十八号的散步心得"
+            <a data-url="http://yiyecreb.top/2023/08/11/JDBC/" data-id="cll66sf230000q4uf5fdl9dml" data-title="JDBC"
                class="article-share-link">分享</a>
             
-                <a href="/2023/05/28/0528/#comments" class="article-comment-link">
-                    <span class="post-comments-count valine-comment-count" data-xid="/2023/05/28/0528/"
+                <a href="/2023/08/11/JDBC/#comments" class="article-comment-link">
+                    <span class="post-comments-count valine-comment-count" data-xid="/2023/08/11/JDBC/"
                           itemprop="commentCount"></span>
                     留言
                 </a>
@@ -207,7 +228,7 @@
             
             
             
-    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%97%A5%E5%B8%B8%E5%88%86%E4%BA%AB/" rel="tag">日常分享</a></li></ul>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">学习笔记</a></li></ul>
 
 
         </footer>
@@ -218,14 +239,14 @@
         
             <div class="article-nav-link-wrap article-nav-link-left">
                 
-                    <img data-src="/images/fbg5.jpg" data-sizes="auto" alt="若依管理系统学习使用经验(佛系更新中)"
+                    <img data-src="/images/fbg8.png" data-sizes="auto" alt="Java"
                          class="lazyload">
                 
-                <a href="/2023/06/03/%E8%8B%A5%E4%BE%9D%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E7%BB%8F%E9%AA%8C/"></a>
+                <a href="/2023/08/11/JavaSE/"></a>
                 <div class="article-nav-caption">前一篇</div>
                 <h3 class="article-nav-title">
                     
-                        若依管理系统学习使用经验(佛系更新中)
+                        Java
                     
                 </h3>
             </div>
@@ -233,14 +254,14 @@
         
             <div class="article-nav-link-wrap article-nav-link-right">
                 
-                    <img data-src="/images/fbg2.jpg" data-sizes="auto" alt="欢迎来到依夜的个人博客"
+                    <img data-src="/images/fbg10.png" data-sizes="auto" alt="高精度算法"
                          class="lazyload">
                 
-                <a href="/2023/05/24/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%AC%94%E8%AE%B0/"></a>
+                <a href="/2023/07/24/%E9%AB%98%E7%B2%BE%E5%BA%A6%E7%AE%97%E6%B3%95/"></a>
                 <div class="article-nav-caption">后一篇</div>
                 <h3 class="article-nav-title">
                     
-                        欢迎来到依夜的个人博客
+                        高精度算法
                     
                 </h3>
             </div>
