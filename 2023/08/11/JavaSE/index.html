@@ -34,7 +34,7 @@
 <meta property="og:image" content="http://yiyecreb.top/images/image-20230721152512095.png">
 <meta property="og:image" content="http://yiyecreb.top/images/image-20230723-1149.png">
 <meta property="article:published_time" content="2023-08-10T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-08-14T02:11:00.355Z">
+<meta property="article:modified_time" content="2023-08-17T01:34:33.920Z">
 <meta property="article:author" content="依夜">
 <meta property="article:tag" content="学习笔记">
 <meta name="twitter:card" content="summary">
@@ -688,7 +688,7 @@ n <span class="token operator">=</span> <span class="token number">5000</span><s
 <li>计算条件表达式的值，如果该表达式的值为true，执行该循环体中的语句块</li>
 <li>然后再判断表达式的值是否为true，如果为true，再执行循环体语句，直到值为false为止</li>
 </ul>
-<h4 id="break：退出当前循环"><a href="#break：退出当前循环" class="headerlink" title="break：退出当前循环"></a>break：退出当前循环</h4><h4 id="do…while"><a href="#do…while" class="headerlink" title="do…while"></a>do…while</h4><p>语句：</p>
+<h4 id="break：退出当前循环-用于循环和switch"><a href="#break：退出当前循环-用于循环和switch" class="headerlink" title="break：退出当前循环(用于循环和switch)"></a>break：退出当前循环(用于循环和switch)</h4><h4 id="do…while"><a href="#do…while" class="headerlink" title="do…while"></a>do…while</h4><p>语句：</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">do</span><span class="token punctuation">&#123;</span>
     循环体语句
 <span class="token punctuation">&#125;</span><span class="token keyword">while</span><span class="token punctuation">(</span>条件<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
@@ -713,7 +713,7 @@ n <span class="token operator">=</span> <span class="token number">5000</span><s
 <ul>
 <li>在初始化表达式中，可以定义多个类型相同的变量，直接用<code>,</code>分隔开</li>
 </ul>
-<h4 id="continue"><a href="#continue" class="headerlink" title="continue"></a>continue</h4><p>作用：跳过本次循环的剩余语句，执行下一次循环</p>
+<h4 id="continue"><a href="#continue" class="headerlink" title="continue"></a>continue</h4><p>作用：跳过本次循环的剩余语句，执行下一次循环(只能用于循环)</p>
 <h4 id="嵌套循环"><a href="#嵌套循环" class="headerlink" title="嵌套循环"></a>嵌套循环</h4><ol>
 <li>定义：在循环体中包含另一个循环，称为嵌套循环<ul>
 <li>循环体内称为内循环，外面的循环称为外循环</li>
@@ -764,12 +764,32 @@ scores <span class="token operator">=</span> <span class="token keyword">new</sp
 <p>注意：数组越界异常：java.lang.ArrayIndexOutOfBoundsException</p>
 <p>为数组元素赋值：数组[下标] &#x3D; 值</p>
 </li>
+<li><p>常用算法</p>
+<ul>
+<li><p>最值问题</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">int</span> max <span class="token operator">=</span> arr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span> <span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span>length <span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">></span> max<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        max <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>冒泡排序&#x2F;选择排序</p>
+</li>
+<li><p>Arrays.sort();</p>
+</li>
+<li><p>查找问题</p>
+</li>
+</ul>
+</li>
 <li><p>foreach语句(语法糖)：遍历数组的所有元素</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">for</span><span class="token punctuation">(</span>数组元素的数据类型 变量名 <span class="token operator">:</span> 数组名<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
     循环体语句块
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>Arrays：该类是数组工具类，包含了数组的一些常见操作，比如排序</p>
+</li>
+</ol>
 <ul>
 <li><p>Arrays.sort(数组名),对数组中的元素进行升序排序</p>
 </li>
@@ -788,8 +808,6 @@ scores <span class="token operator">=</span> <span class="token keyword">new</sp
    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span>arr2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span> <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
-</li>
-</ol>
 <h2 id="方法的定义与调用"><a href="#方法的定义与调用" class="headerlink" title="方法的定义与调用"></a>方法的定义与调用</h2><ol>
 <li><p>定义:也称为函数，方法是完成某个功能的一组语句，通常将常用的功能写成一个方法</p>
 </li>
@@ -2331,6 +2349,20 @@ system<span class="token punctuation">.</span>out<span class="token punctuation"
         
     <nav id="article-nav" class="wow fadeInUp">
         
+            <div class="article-nav-link-wrap article-nav-link-left">
+                
+                    <img data-src="/images/fbg1.png" data-sizes="auto" alt="Html&amp;CSS"
+                         class="lazyload">
+                
+                <a href="/2023/08/17/HTML&CSS/"></a>
+                <div class="article-nav-caption">前一篇</div>
+                <h3 class="article-nav-title">
+                    
+                        Html&amp;CSS
+                    
+                </h3>
+            </div>
+        
         
             <div class="article-nav-link-wrap article-nav-link-right">
                 
@@ -2378,11 +2410,11 @@ system<span class="token punctuation">.</span>out<span class="token punctuation"
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">10</div>
+                <div class="sidebar-state-number">14</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
-                <div class="sidebar-state-number">6</div>
+                <div class="sidebar-state-number">7</div>
             </div>
             <div class="sidebar-state-tag">
                 <div>标签</div>
@@ -2433,7 +2465,7 @@ system<span class="token punctuation">.</span>out<span class="token punctuation"
     <div class="widget-wrap wow fadeInRight">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/DOS/">DOS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%BB%8F%E9%AA%8C/">学习经验</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E5%B8%B8/">日常</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/DOS/">DOS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/H5-CSS3/">H5&CSS3</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%BB%8F%E9%AA%8C/">学习经验</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E5%B8%B8/">日常</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></li></ul>
         </div>
     </div>
 
@@ -2483,10 +2515,10 @@ system<span class="token punctuation">.</span>out<span class="token punctuation"
             
                 <div>
                     <span class="icon-brush"></span>
-                    25.6k
+                    35.7k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    01:38
+                    02:17
                 </div>
             
             
@@ -2513,11 +2545,11 @@ system<span class="token punctuation">.</span>out<span class="token punctuation"
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>文章</div>
-                <div class="sidebar-state-number">10</div>
+                <div class="sidebar-state-number">14</div>
             </div>
             <div class="sidebar-state-category">
                 <div>分类</div>
-                <div class="sidebar-state-number">6</div>
+                <div class="sidebar-state-number">7</div>
             </div>
             <div class="sidebar-state-tag">
                 <div>标签</div>
