@@ -167,12 +167,12 @@
         
     <div class="post-wrap-left wow fadeInUp">
         
-            <a class="post-link" href="/2023/08/11/Maven/"></a>
+            <a class="post-link" href="/2023/08/11/JDBC/"></a>
         
         
         <div class="post-cover-left">
             
-                <img data-src="/images/fbg10.png" data-sizes="auto" alt="Maven" class="lazyload">
+                <img data-src="/images/fbg11.png" data-sizes="auto" alt="JDBC" class="lazyload">
             
 
         </div>
@@ -180,45 +180,37 @@
             <div class="post-meta">
                 <a><span class="icon-calendar"></span>2023-08-11</a>
                 
-                    <a><span class="icon-pencil"></span>810 字</a>
+                    <a><span class="icon-pencil"></span>801 字</a>
                 
                 
-                    <a><span class="icon-clock"></span>4 分钟</a>
+                    <a><span class="icon-clock"></span>3 分钟</a>
                 
             </div>
-            <h2 class="post-title">Maven</h2>
+            <h2 class="post-title">JDBC</h2>
             <article class="post-article">
                 
-                    
-Maven概述
-Apache Maven是一个项目管理及自动构建工具。
-
-项目管理：编译、测试、运行、打包(jar,war)、部署
-
-依赖管理
-
-下载
-http:&amp;#x2F;&amp;#x2F;maven.apache.org
-
-安装、配置
-
-直接解压即可
-配置环境变量
-M2_HOME&amp;#x3D;&amp;gt;maven的解压目录
-修改 path&amp;#x3D;&amp;gt;添加%M2_HOME%\bin
+                    JDBC概述
+JDBC：java数据库连接技术
+特点：
+是一种用于执行Sql语句的JavaAPI
+可以为多种关系型数据库提供统一接口
+它是由一组Java语言编写的类和接口组成
+是java中访问数据库的标准规范
 
 
-测试：mvn-v
+驱动
+Java提供访问数据库的一个规范，生产厂商提供规范的实现类称为驱动
+每个数据库厂商都需要提供自己的驱动，用来连接自己公司的数据库
 
 
-maven仓库
 
-本地仓库：本地的一个文件夹
-中央仓库：世界唯一的，由Maven社区维护的(网站)
-https://mvnrepository.com/
+JDBC操作过程注册驱动
+在项目的依赖中添加驱动jar包
 
+在程序中注册驱动
+Class.forName(&#34;驱动类完全限定名&#34;);
 
-远程仓库：是位于web服务器
+        Class.forName(&#34;com.mysql.cj.jdbc.Driver&#34;);//mys
                 
             </article>
         </div>
