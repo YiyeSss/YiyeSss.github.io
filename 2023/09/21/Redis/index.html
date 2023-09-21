@@ -1,0 +1,954 @@
+
+    <!DOCTYPE html>
+    <html lang="zh-CN"
+            
+          
+    >
+    <head>
+    <meta charset="utf-8">
+    
+
+    
+
+    
+    <title>
+        Redis |
+        
+        依夜の妙妙屋</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CUbuntu%20Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+    
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free/css/v4-font-face.min.css">
+
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+    <meta name="description" content="Redis学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis">
+<meta property="og:url" content="http://yiyecreb.top/2023/09/21/Redis/index.html">
+<meta property="og:site_name" content="依夜の妙妙屋">
+<meta property="og:description" content="Redis学习笔记">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yiyecreb.top/images/fbg6.png">
+<meta property="og:image" content="http://yiyecreb.top/images/%E8%AE%A2%E9%98%85%E6%B6%88%E6%81%AF%E5%8F%91%E9%80%81.png">
+<meta property="article:published_time" content="2023-09-20T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-09-21T00:34:26.512Z">
+<meta property="article:author" content="依夜">
+<meta property="article:tag" content="学习笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yiyecreb.top/images/fbg6.png">
+    
+    
+        <link rel="shortcut icon" href="/images/favicon2.jpg">
+    
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/typeface-source-code-pro@1.1.13/index.css">
+
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+    
+    
+    
+    
+    
+<script src="https://unpkg.com/pace-js@1.2.4/pace.min.js"></script>
+
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/wowjs@1.1.3/css/libs/animate.css">
+
+        
+<script src="https://unpkg.com/wowjs@1.1.3/dist/wow.min.js"></script>
+
+        <script>
+          new WOW({
+            offset: 0,
+            mobile: true,
+            live: false
+          }).init();
+        </script>
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+    <body>
+    
+<div id='loader'>
+  <div class="loading-left-bg"></div>
+  <div class="loading-right-bg"></div>
+  <div class="spinner-box">
+    <div class="loading-taichi">
+      <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+      <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="#ff6e6b" />
+      <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z" fill="#fd0d00" />
+      <path d="M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95" fill="#fd0d00" />
+    </svg>
+    </div>
+    <div class="loading-word">正在连接海拉鲁...</div>
+  </div>
+</div>
+</div>
+
+<script>
+  const endLoading = function() {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loader').classList.add("loading");
+  }
+  window.addEventListener('load', endLoading);
+  document.getElementById('loader').addEventListener('click', endLoading);
+</script>
+
+
+    <div id="container">
+        <div id="wrap">
+            <header id="header">
+    
+        <img data-src="/images/fbg6.png" data-sizes="auto" alt="Redis" class="lazyload">
+    
+    <div id="header-outer" class="outer">
+        <div id="header-title" class="inner">
+            <div id="logo-wrap">
+                
+                    
+                    
+                        <a href="/" id="logo"><h1>Redis</h1></a>
+                    
+                
+            </div>
+            
+                
+                
+            
+        </div>
+        <div id="header-inner">
+            <nav id="main-nav">
+                <a id="main-nav-toggle" class="nav-icon"></a>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/">首页</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/archives">归档</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/about">关于</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/friend">友链</a>
+                    </span>
+                
+            </nav>
+            <nav id="sub-nav">
+                
+                
+                    <a id="nav-search-btn" class="nav-icon popup-trigger" title="搜索">
+                    </a>
+                
+            </nav>
+            <div id="search-form-wrap">
+                <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yiyecreb.top"></form>
+            </div>
+        </div>
+    </div>
+</header>
+
+            <div id="content" class="outer">
+                <section id="main"><article id="post-Redis" class="h-entry article article-type-post"
+         itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <div class="article-inner">
+        <div class="article-meta">
+            <div class="article-date wow slideInLeft">
+    <a href="/2023/09/21/Redis/" class="article-date-link">
+        <time datetime="2023-09-20T16:00:00.000Z"
+              itemprop="datePublished">2023-09-21</time>
+    </a>
+</div>
+
+            
+    <div class="article-category wow slideInLeft">
+        <a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+    </div>
+
+
+        </div>
+        <div class="hr-line"></div>
+        
+
+        <div class="e-content article-entry" itemprop="articleBody">
+            
+                <p><img src="/../images/fbg6.png"></p>
+<h1 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ol>
+<li>概念：Remote dictionary server，是一个开源的基于内存的数据存储系统</li>
+<li>功能：可以用作数据库缓存和消息队列等各种场景，是最热门的noSQL数据库之一</li>
+<li>优点：随着互联网的发展，应用系统的访问量越来越大，数据库的性能瓶颈越来越明显，主要是由于磁盘IO导致的，磁盘IO的读写速度与内存相比是非常慢的，将数据存储在内存中会大大的提高性能</li>
+<li>支持的数据类型：<ul>
+<li>五种基本数据类型：<ul>
+<li>String：字符串</li>
+<li>List：列表</li>
+<li>Set：集合</li>
+<li>SortedSet：有序集合</li>
+<li>Hash：哈希</li>
+</ul>
+</li>
+<li>五种高级数据类型<ul>
+<li>消息队列：Stream</li>
+<li>地理空间：Geospatial</li>
+<li>HyperLogLog</li>
+<li>位图：Bitmap</li>
+<li>位域：Bitfield</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>CLI（Command Line Interface）通过Redis-CLI工具使用Redis</li>
+<li>应用程序接口 API</li>
+<li>图形用户界面 GUI</li>
+<li>优势：<ul>
+<li>性能极高</li>
+<li>数据类型丰富，单键值对最大支持512M大小的数据</li>
+<li>简单易用，支持所有主流编程语言</li>
+<li>支持数据持久化、主从复制、哨兵模式等高可用特性</li>
+</ul>
+</li>
+</ol>
+<h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><ol>
+<li><p>在Redis中数据是以键值对的形式存储的，键和值之间使用空格来分隔，可以使用SET命令设置键值对</p>
+<pre class="line-numbers language-none"><code class="language-none">&gt; SET NAME YIYE
+&quot;OK&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>使用GET命令获取键值对的值</p>
+<pre class="line-numbers language-none"><code class="language-none">&gt; GET NAME
+&quot;YIYE&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>注意</p>
+<ul>
+<li>Redis中的键是区分大小写的</li>
+</ul>
+<p>使用DEL命令删除键值对的值</p>
+<pre class="line-numbers language-none"><code class="language-none">&gt; DEL NAME
+(integer) 1&#x2F;&#x2F;返回值为整数类型<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>使用EXISTS命令查找键值对是否存在</p>
+<pre class="line-numbers language-none"><code class="language-none">&gt; EXISTS NAME
+(integer) 0&#x2F;&#x2F;返回值为0表示不存在<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>使用KEYS命令查看有哪些键</p>
+<pre class="line-numbers language-none"><code class="language-none">KEYS *&#x2F;&#x2F;表示查找所有的键
+KEYS *me&#x2F;&#x2F;表示查找所有以me结尾的键<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>FLUSHALL(<del>删库跑路</del>、清除所有的键值对)</p>
+<p>使用TTL命令查看键值对的过期时间</p>
+<pre class="line-numbers language-none"><code class="language-none">TTL NAME
+&gt;-1 &#x2F;&#x2F;表示没有设置过期时间<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>使用EXPIRE 命令来设置过期时间</p>
+<pre class="line-numbers language-none"><code class="language-none">EXPIRE NAME 10&#x2F;&#x2F;十秒后过期
+
+&#x2F;&#x2F;再次执行TTL命令会发现时间持续减少，当最后返回值为-2时，说明已经过期了，执行GET、KEYS方法也找不到这个键<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>也可以使用SETEX命令来设置一个带有过期时间的键值对</p>
+<pre class="line-numbers language-none"><code class="language-none">SETEX NAME 5 依夜帅的一比<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>SETNX命令，当键不存在时设置键的值，如果键已经不存在将不会有任何动作</p>
+<pre class="line-numbers language-none"><code class="language-none">SETNX NAME Y<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+</li>
+<li><p>Redis默认是不支持中文的，通过<code>redis-cli --raw</code>启动，即可获取到中文字符</p>
+</li>
+</ol>
+<h2 id="List列表"><a href="#List列表" class="headerlink" title="List列表"></a>List列表</h2><ol>
+<li><p>一般用来操作和存储一些有顺序的数据，和数组的概念比较类似</p>
+</li>
+<li><p>命令</p>
+<ul>
+<li><p>使用LPUSH命令添加到列表的头部</p>
+<pre class="line-numbers language-none"><code class="language-none">LPUSH letter a
+
+&#x2F;&#x2F;LPUSH也可以添加多个元素，如：
+LPUSH letter b c d e<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>使用LRANGE来获取列表中的元素</p>
+<pre class="line-numbers language-none"><code class="language-none">LRANGE letter 0 -1
+&#x2F;&#x2F;表示获取起始位置为0,到最后一个位置的元素(-1为最后一个位置)
+
+1)&quot;a&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>使用RPUSH命令添加到列表的尾部</p>
+<pre class="line-numbers language-none"><code class="language-none">RPUSH letter f<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>同样的，可以使用LPOP和RPOP来从头部和尾部删除元素</p>
+<pre class="line-numbers language-none"><code class="language-none">LPOP&#x2F;RPOP letter [COUNT]
+&#x2F;&#x2F;会返回一个被删除的元素
+&#x2F;&#x2F;注：COUNT为被删除的数量，在老版本中是不被支持的<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>使用LLEN命令来查看列表的长度</p>
+<pre class="line-numbers language-none"><code class="language-none">LLEN letter
+&gt;3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li><p>使用LTRIM命令删除列表指定以外的元素</p>
+<pre class="line-numbers language-none"><code class="language-none">LTRIM letter startIndex <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ul>
+</li>
+</ol>
+<h2 id="Set集合"><a href="#Set集合" class="headerlink" title="Set集合"></a>Set集合</h2><ol>
+<li><p>Set中的元素是不能重复的，并没有顺序</p>
+</li>
+<li><p>命令</p>
+<ul>
+<li><p>SADD命令添加集合</p>
+<pre class="line-numbers language-none"><code class="language-none">&gt; SADD course Redis
+(integer) 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li><p>SMEMBERS命令查询集合内容</p>
+<pre class="line-numbers language-none"><code class="language-none">SMEMBERS course
+1)Redis<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li><p>SISMEMBER命令查询元素是否存在</p>
+<pre class="line-numbers language-none"><code class="language-none">&gt; SISMEMBER course Redis
+(integer) 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li><p>SREM命令删除集合中的元素</p>
+<pre class="line-numbers language-none"><code class="language-none">&gt; SREM course Redis
+(integer) 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li><p>集合的运算</p>
+<ul>
+<li><p>SINTER命令进行交集运算</p>
+<pre class="line-numbers language-none"><code class="language-none">&gt; SADD course Redis
+(integer) 1
+
+&gt; SADD course JAVAS
+(integer) 1
+
+&gt; SADD course1 Redis
+(integer) 1
+
+&gt; SINTER course course1
+1) &quot;Redis&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>SUNION命令进行并集运算</p>
+<pre class="line-numbers language-none"><code class="language-none">&gt; SUNION course course1
+1) &quot;Redis&quot;
+2) &quot;JAVAS&quot;
+3) &quot;C#&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>SDIFF命令进行差集运算</p>
+<pre class="line-numbers language-none"><code class="language-none">&gt; SDIFF course1 course
+1) &quot;C#&quot;
+
+&gt; SDIFF course course1
+1) &quot;JAVAS&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="SortedSet有序合集-ZSet"><a href="#SortedSet有序合集-ZSet" class="headerlink" title="SortedSet有序合集(ZSet)"></a>SortedSet有序合集(ZSet)</h2><ol>
+<li><p>有序集合与集合的区别是有序集合的每个元素都会关联一个浮点类型的分数，然后按照这个分数来对这个集合中的元素来进行从小到大的排序，有序集合的成员是唯一的，但是分数是可以重复的</p>
+</li>
+<li><p>命令</p>
+<ul>
+<li><p>ZADD命令向有序集合中添加一个元素</p>
+<pre class="line-numbers language-none"><code class="language-none">&gt; ZADD result 680 清华 660 北大 650 复旦 640 浙大
+(integer) 4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li><p>ZRANGE命令查看元素</p>
+<pre class="line-numbers language-none"><code class="language-none">&gt; ZRANGE result 0 -1 [WITHSCORES 添加后同时输出分数]
+1) &quot;浙大&quot;
+2) &quot;复旦&quot;
+3) &quot;北大&quot;
+4) &quot;清华&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>ZSCORE命令查询分数</p>
+<pre class="line-numbers language-none"><code class="language-none">&gt; ZSCORE result 清华
+&quot;680&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li><p>ZRANK命令查看某个成员的排名</p>
+<pre class="line-numbers language-none"><code class="language-none">&gt; ZRANK result 清华
+(integer) 3&#x2F;&#x2F;索引为3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li><p>ZREVRANK命令查看某个成员的反转排名</p>
+<pre class="line-numbers language-none"><code class="language-none">&gt; ZREVRANK result 清华
+(integer) 0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li><p>ZREM命令删除某个成员</p>
+<pre class="line-numbers language-none"><code class="language-none">&gt; ZREM result 复旦
+(integer) 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+</ul>
+</li>
+</ol>
+<h2 id="哈希Hash"><a href="#哈希Hash" class="headerlink" title="哈希Hash"></a>哈希Hash</h2><ol>
+<li><p>哈希是一个字符类型的字段和值的映射表，简单来说就是一个键值对的集合，特别适合用来储存对象</p>
+</li>
+<li><p>命令</p>
+<ul>
+<li><p>HSET命令向哈希中添加一个键值对</p>
+<pre class="line-numbers language-none"><code class="language-none">&gt; HSET person name yiye
+(integer) 1
+
+&gt; HSET person age 18
+(integer) 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>HGET命令获取哈希中键值对的值</p>
+<pre class="line-numbers language-none"><code class="language-none">&gt; HGET person name
+&quot;yiye&quot;
+
+&gt; HGET person age
+&quot;18&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>HGETALL获取整个哈希中的所有键值对</p>
+<pre class="line-numbers language-none"><code class="language-none">&gt; HGETALL person
+1) &quot;name&quot;
+2) &quot;yiye&quot;
+3) &quot;age&quot;
+4) &quot;18&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>HDEL删除键值对</p>
+<pre class="line-numbers language-none"><code class="language-none">&gt; HDEL person age
+(integer) 1
+
+&gt; HGETALL person
+1) &quot;name&quot;
+2) &quot;yiye&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>HEXISTS命令来判断某个键值对是否存在</p>
+<pre class="line-numbers language-none"><code class="language-none">&gt; HEXISTS person name
+(integer) 1
+
+&gt; HEXISTS person age
+(integer) 0
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>HKEYS命令获取哈希中的所有键</p>
+<pre class="line-numbers language-none"><code class="language-none">&gt; HKEYS person
+1) &quot;name&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li><p>HLENS命令获取哈希中所有键值对的数量</p>
+<pre class="line-numbers language-none"><code class="language-none">&gt; HLEN person
+(integer) 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+</ul>
+</li>
+</ol>
+<h2 id="发布订阅模式"><a href="#发布订阅模式" class="headerlink" title="发布订阅模式"></a>发布订阅模式</h2><ol>
+<li><p>Redis提供了发布订阅模式的功能，通过PUBLISH命令来将消息发送到指定的频道，然后通过SUBSCRIBE命令来订阅这个频道，这样就可以接收到这个频道的消息了</p>
+</li>
+<li><p>使用：</p>
+<ul>
+<li><p>打开一个终端，使用SUBSCRIBE命令订阅一个频道</p>
+</li>
+<li><p>在另外一个终端使用PUBLISH命令发送消息</p>
+<p><img src="/../images/%E8%AE%A2%E9%98%85%E6%B6%88%E6%81%AF%E5%8F%91%E9%80%81.png"></p>
+</li>
+<li><p>订阅频道的终端可以有多个，但有局限性，例如消息无法持久化，无法记录历史信息等等</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="消息队列Stream"><a href="#消息队列Stream" class="headerlink" title="消息队列Stream"></a>消息队列Stream</h2><ol>
+<li><p>Stream是Redis5.0版本引入的一个新的数据结构，它是一个轻量级的的消息队列，可以用来解决发布订阅功能的一些局限性</p>
+</li>
+<li><p>命令</p>
+<ul>
+<li><p>XADD，向Stream中添加消息</p>
+<pre class="line-numbers language-none"><code class="language-none">&gt; XADD yiye * course redis
+&quot;1694965560109-0&quot;
+
+&#x2F;&#x2F;*表示自动生成一个消息的ID<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>XLEB，查看Stream中消息的数量</p>
+<pre class="line-numbers language-none"><code class="language-none">&gt; XLEN yiye
+(integer) 3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li><p>XRANGE查看Stream中的详细内容</p>
+<pre class="line-numbers language-none"><code class="language-none">&gt; XRANGE yiye - +
+1) 1) &quot;1694965560109-0&quot;
+   2) 1) &quot;course&quot;
+      2) &quot;redis&quot;
+2) 1) &quot;1694965632269-0&quot;
+   2) 1) &quot;course&quot;
+      2) &quot;git&quot;
+3) 1) &quot;1694965641518-0&quot;
+   2) 1) &quot;course&quot;
+      2) &quot;Ngix&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>可以使用XDEL命令来删除消息、</p>
+<pre class="line-numbers language-none"><code class="language-none">&gt; XDEL yiye 1694965641518-0
+(integer) 1
+
+&gt; XRANGE yiye - +
+1) 1) &quot;1694965560109-0&quot;
+   2) 1) &quot;course&quot;
+      2) &quot;redis&quot;
+2) 1) &quot;1694965632269-0&quot;
+   2) 1) &quot;course&quot;
+      2) &quot;git&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>XTRIM命令来删除</p>
+<pre class="line-numbers language-none"><code class="language-none">&gt; XTRIM yiye MAXLEN 0&#x2F;&#x2F;MAXLEN指所有的消息
+(integer) 2
+
+&gt; XRANGE yiye - +
+(empty list or set)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>自己设置ID</p>
+<pre class="line-numbers language-none"><code class="language-none">&gt; XADD yiye 1-0 course git
+&quot;1-0&quot;
+
+&gt; XADD yiye 2-0 course docker
+&quot;2-0&quot;
+
+&gt; XADD yiye 3-0 course redis
+&quot;3-0&quot;
+
+&#x2F;&#x2F;ID的格式是一个整数加上短横线再加上一个整数，第一个整数表示一个时间戳，第二个整数表示一个序列号<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>XREAD命令来读取消息(消费者需要从消息队列中读取消息，以消费消息（处理消息）)</p>
+<pre class="line-numbers language-none"><code class="language-none">&gt; XREAD COUNT 2 BLOCK 1000 STREAMS yiye 0
+1) 1) &quot;yiye&quot;
+   2) 1) 1) &quot;1-0&quot;
+         2) 1) &quot;course&quot;
+            2) &quot;git&quot;
+      2) 1) &quot;2-0&quot;
+         2) 1) &quot;course&quot;
+            2) &quot;docker&quot;
+            
+&#x2F;&#x2F;COUNT 2表示读取两个消息
+&#x2F;&#x2F;BLOCK 1000 表示如果没有就阻塞1000毫秒&#x2F;1秒
+&#x2F;&#x2F;STREAMS yiye 0 从STREAM的第一条消息开始读取
+&#x2F;&#x2F;可以重复读取
+
+&#x2F;&#x2F;将0改为$则接收最新的消息<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>XGROUP CREATE 建立消费者组</p>
+<pre class="line-numbers language-none"><code class="language-none">&gt; XGROUP CREATE yiye group1 0
+&quot;OK&quot;
+&#x2F;&#x2F;yiye指Stream
+&#x2F;&#x2F;group1为消费者组的名称
+&#x2F;&#x2F;0为消费者组的ID<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>XINFO GROUPS来查看消费者组的信息</p>
+<pre class="line-numbers language-none"><code class="language-none">&gt; XINFO GROUPS yiye
+1) 1) &quot;name&quot;
+   2) &quot;group1&quot;
+   3) &quot;consumers&quot;
+   4) &quot;0&quot;
+   5) &quot;pending&quot;
+   6) &quot;0&quot;
+   7) &quot;last-delivered-id&quot;
+   8) &quot;0-0&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>XGROUP CREATECONSUMER 添加消费者</p>
+<pre class="line-numbers language-none"><code class="language-none">XGROUP CREATECONSUMER yiye group1 consumer1
+XGROUP CREATECONSUMER yiye group1 consumer2
+XGROUP CREATECONSUMER yiye group1 consumer3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>XREADGROUP GROUP读取消费者组的消息</p>
+<pre class="line-numbers language-none"><code class="language-none">XREADGROUP GROUP group1 consumer1 COUNT 2 BLOCK 1000 STREAMS yiye &gt;&#x2F;&#x2F;读取最新消息<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ul>
+</li>
+</ol>
+
+            
+        </div>
+        <footer class="article-footer">
+            <a data-url="http://yiyecreb.top/2023/09/21/Redis/" data-id="clmsg5wwj0010ewuf2vl1aity" data-title="Redis"
+               class="article-share-link">分享</a>
+            
+                <a href="/2023/09/21/Redis/#comments" class="article-comment-link">
+                    <span class="post-comments-count valine-comment-count" data-xid="/2023/09/21/Redis/"
+                          itemprop="commentCount"></span>
+                    留言
+                </a>
+            
+            
+            
+            
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">学习笔记</a></li></ul>
+
+
+        </footer>
+    </div>
+    
+        
+    <nav id="article-nav" class="wow fadeInUp">
+        
+            <div class="article-nav-link-wrap article-nav-link-left">
+                
+                    
+                    
+                        <img data-src="/covers/fbg4.jpg" data-sizes="auto" alt="" class="lazyload">
+                    
+                
+                <a href="/2023/09/21/Servlet/"></a>
+                <div class="article-nav-caption">前一篇</div>
+                <h3 class="article-nav-title">
+                    
+                        (no title)
+                    
+                </h3>
+            </div>
+        
+        
+            <div class="article-nav-link-wrap article-nav-link-right">
+                
+                    <img data-src="/images/fbg9.png" data-sizes="auto" alt="Git"
+                         class="lazyload">
+                
+                <a href="/2023/09/20/Git/"></a>
+                <div class="article-nav-caption">后一篇</div>
+                <h3 class="article-nav-title">
+                    
+                        Git
+                    
+                </h3>
+            </div>
+        
+    </nav>
+
+
+    
+</article>
+
+
+    <section id="comments" class="vcomment">
+
+    </section>
+
+
+
+
+
+
+
+
+
+
+</section>
+                
+                    <aside id="sidebar">
+    <div class="sidebar-wrap wow fadeInRight">
+        <div class="sidebar-author">
+            <img data-src="/avatar/avatar.jpg" data-sizes="auto" alt="依夜" class="lazyload">
+            <div class="sidebar-author-name">依夜</div>
+            <div class="sidebar-description"></div>
+        </div>
+        <div class="sidebar-state">
+            <div class="sidebar-state-article">
+                <div>文章</div>
+                <div class="sidebar-state-number">20</div>
+            </div>
+            <div class="sidebar-state-category">
+                <div>分类</div>
+                <div class="sidebar-state-number">11</div>
+            </div>
+            <div class="sidebar-state-tag">
+                <div>标签</div>
+                <div class="sidebar-state-number">2</div>
+            </div>
+        </div>
+        <div class="sidebar-social">
+            
+                <div class=icon-github>
+                    <a href=https://github.com/YiyeSss itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-twitter>
+                    <a href=https://twitter.com/YiyeSs itemprop="url" target="_blank"></a>
+                </div>
+            
+        </div>
+        <div class="sidebar-menu">
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">首页</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/archives"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">归档</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/about"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">关于</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/friend"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">友链</div>
+                </div>
+            
+        </div>
+    </div>
+    
+        
+    <div class="widget-wrap wow fadeInRight">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/DOS/">DOS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/H5-CSS3/">H5&CSS3</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaWeb/">JavaWeb</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/VUE/">VUE</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E7%BB%8F%E9%AA%8C/">学习经验</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E5%B8%B8/">日常</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%A1%86%E6%9E%B6/">框架</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></li></ul>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="widget-wrap wow fadeInRight">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 20px;">学习笔记</a> <a href="/tags/%E6%97%A5%E5%B8%B8%E5%88%86%E4%BA%AB/" style="font-size: 10px;">日常分享</a>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="widget-wrap wow fadeInRight">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">八月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">五月 2023</a></li></ul>
+        </div>
+    </div>
+
+
+    
+</aside>
+
+                
+            </div>
+            <footer id="footer" class="wow fadeInUp">
+    <div style="width: 100%; overflow: hidden"><div class="footer-line"></div></div>
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            
+            <div>
+                <span class="icon-copyright"></span>
+                2020-2023
+                <span class="footer-info-sep"></span>
+                依夜
+            </div>
+            
+                <div>
+                    基于&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>&nbsp;
+                    Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" target="_blank">Reimu</a>
+                </div>
+            
+            
+                <div>
+                    <span class="icon-brush"></span>
+                    52.5k
+                    &nbsp;|&nbsp;
+                    <span class="icon-coffee"></span>
+                    03:31
+                </div>
+            
+            
+                <div>
+                    <span class="icon-eye"></span>
+                    <span id="busuanzi_container_site_pv">总访问量&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+                    &nbsp;|&nbsp;
+                    <span class="icon-user"></span>
+                    <span id="busuanzi_container_site_uv">总访客量&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+                </div>
+            
+        </div>
+    </div>
+</footer>
+
+        </div>
+        <nav id="mobile-nav">
+    <div class="sidebar-wrap">
+        <div class="sidebar-author">
+            <img data-src="/avatar/avatar.jpg" data-sizes="auto" alt="依夜" class="lazyload">
+            <div class="sidebar-author-name">依夜</div>
+            <div class="sidebar-description"></div>
+        </div>
+        <div class="sidebar-state">
+            <div class="sidebar-state-article">
+                <div>文章</div>
+                <div class="sidebar-state-number">20</div>
+            </div>
+            <div class="sidebar-state-category">
+                <div>分类</div>
+                <div class="sidebar-state-number">11</div>
+            </div>
+            <div class="sidebar-state-tag">
+                <div>标签</div>
+                <div class="sidebar-state-number">2</div>
+            </div>
+        </div>
+        <div class="sidebar-social">
+            
+                <div class=icon-github>
+                    <a href=https://github.com/YiyeSss itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-twitter>
+                    <a href=https://twitter.com/YiyeSs itemprop="url" target="_blank"></a>
+                </div>
+            
+        </div>
+        <div class="sidebar-menu">
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">首页</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/archives"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">归档</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/about"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">关于</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/friend"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">友链</div>
+                </div>
+            
+        </div>
+    </div>
+</nav>
+
+        
+<script src="https://unpkg.com/jquery@3.7.0/dist/jquery.min.js"></script>
+
+
+<script src="https://unpkg.com/lazysizes@5.3.2/lazysizes.min.js"></script>
+
+
+<script src="https://unpkg.com/clipboard@2.0.11/dist/clipboard.min.js"></script>
+
+
+
+    
+<script src="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+
+    
+<script src="https://unpkg.com/busuanzi@2.3.0/bsz.pure.mini.js"></script>
+
+
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+    
+<script src="https://unpkg.com/valine@1.5.1/dist/Valine.min.js"></script>
+
+    <script>
+        var GUEST_INFO = ['nick', 'mail', 'link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function (item) {
+            return GUEST_INFO.indexOf(item) > -1
+        });
+        var recordIP = JSON.parse('true');
+        var highlight = JSON.parse('true');
+
+        new Valine({
+            el: '.vcomment',
+            appId: "8kHwKC3HgWGqmpxQLrzQajhD-gzGzoHsz",
+            appKey: "G83oiYZHVcI6OLM8FpJZCNW4",
+            placeholder: "Just go go",
+            pageSize: '10',
+            avatar: 'mp',
+            lang: 'zh-cn',
+            recordIP: recordIP,
+            highlight: highlight
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+    
+<script src="https://unpkg.com/algoliasearch@4.17.1/dist/algoliasearch-lite.umd.js"></script>
+
+    
+<script src="https://unpkg.com/instantsearch.js@4.56.1/dist/instantsearch.production.min.js"></script>
+
+    
+<script src="/js/search.js"></script>
+
+    <script>
+        var CONFIG = {
+            root: '/',
+            algolia: {
+                applicationID: "YL5B4PAI4A",
+                apiKey: "32eebb61e50402b530d5dca993733574",
+                indexName: "yiyeblogsearch",
+                hits: {
+                    "per_page": parseInt("10")
+                },
+                labels: {
+                    "input_placeholder": "搜索.....",
+                    "hits_empty": "未发现与 「${query}」相关内容",
+                    "hits_stats": "找到${hits}条结果（用时 ${time} ms）"
+                }
+            }
+        };
+    </script>
+
+
+    </div>
+    <div class="site-search">
+        <div class="algolia-popup popup">
+            <div class="algolia-search">
+                <span class="algolia-search-input-icon"></span>
+                <div class="algolia-search-input" id="algolia-search-input"></div>
+            </div>
+
+            <div class="algolia-results">
+                <div id="algolia-stats"></div>
+                <div id="algolia-hits"></div>
+                <div id="algolia-pagination" class="algolia-pagination"></div>
+            </div>
+
+            <span class="popup-btn-close"></span>
+        </div>
+    </div>
+    <!-- hexo injector body_end start -->
+<script src="/js/insertHighlight.js"></script>
+<!-- hexo injector body_end end --></body>
+    </html>
+
